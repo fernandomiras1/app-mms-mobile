@@ -15,11 +15,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import { AppMaterialModule } from 'src/app/shared/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
     imports: [
         CommonModule,
+        ReactiveFormsModule,
         // BrowserModule,
         HomeRoutingModule,
         HttpClientModule,        
@@ -29,7 +32,8 @@ import {MatListModule} from '@angular/material/list';
         MatToolbarModule,
         MatIconModule,
         MatSidenavModule,
-        MatListModule
+        MatListModule,
+        AppMaterialModule
     ],
     declarations: [HomeComponent]
 })
