@@ -1,1 +1,32 @@
-<p>login works!</p>
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/logo/Dollar_48.png)'}" class="example-header-image"></div>
+      <mat-card-title class="title">MMS</mat-card-title>
+      <mat-card-subtitle>Login</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-form-field class="full-width">
+              <mat-label>Usuario</mat-label>
+              <input matInput formControlName="userName" required>
+              <mat-error *ngIf="isFieldInvalid('userName')">
+                Por favor, ingrese su nombre de usuario
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password" required>
+              <mat-error *ngIf="isFieldInvalid('password')">
+                Por favor, ingrese su contraseña
+              </mat-error>
+            </mat-form-field>
+            <button mat-button color="primary"><mat-icon>lock</mat-icon> Login</button>
+            <mat-progress-spinner style="margin:0 auto;"
+                diameter="20"
+                [color]="color"
+                [mode]="mode"
+                [value]="value">
+            </mat-progress-spinner>
+        </form>
+    </mat-card-content>
+</mat-card>
