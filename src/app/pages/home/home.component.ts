@@ -49,6 +49,36 @@ export class HomeComponent implements OnInit {
 		});
 	}
 
+	// private filter(data) {
+	// 	this.flagDefault = true;
+	// 	const aux = [];
+	// 	let text = '';
+	// 	if (this.selectFormControl.value) {
+	// 	  text = this.selectFormControl.value.toLowerCase();
+	// 	}
+	// 	const searchText = this.normalizeText(text);
+	// 	if (this.items) {
+	// 	  this.items.filter((item) => {
+	// 		if (this.normalizeText(item.text).indexOf(searchText) !== -1) {
+	// 		  aux.push(item);
+	// 		}
+	// 	  });
+	// 	}
+	// 	this.itemsFilter = aux;
+	// 	if (this.itemsFilter.length === 0 && this.selectFormControl.dirty) {
+	// 	  this.selectFormControl.setValidators([this.selectFormControl.validator, this.itemsFilterEmpty]);
+	// 	  this.validationMoment.next(true);
+	// 	} else {
+	// 	  this.selectFormControl.setValidators([Validators.required]);
+	// 	}
+	// 	this.cdRef.detectChanges();
+	//   }
+	
+	//   normalizeText(text: string): string {
+	// 	return text.normalize('NFD').replace(/([aeio])\u0301|(u)[\u0301\u0308]/gi, '$1$2')
+	// 	  .normalize().toLowerCase();
+	//   }
+
 
 	// searchArticles(source){
 	// 	console.log("selected source is: "+source);
@@ -57,10 +87,10 @@ export class HomeComponent implements OnInit {
 
 	isFieldInvalid(field: string) {
 		return (
-		  (!this.form.get(field).valid && this.form.get(field).touched) ||
-		  (this.form.get(field).untouched && this.formSubmitAttempt)
+			(!this.form.get(field).valid && this.form.get(field).touched) ||
+			(this.form.get(field).untouched && this.formSubmitAttempt)
 		);
-	  }
+	}
 	
 	  onSubmit() {
 		if (this.form.valid) {
