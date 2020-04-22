@@ -11,8 +11,13 @@ import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  mArticles:Array<any>;
+	optionsTipo: string[] = ['INGRESO', 'EGRESO'];
+	listCategorias = [
+		{name: 'Alimentacion', type: 'Egreso'},
+		{name: 'Auto', type: 'Egreso'},
+		{name: 'Yo', type: 'Egreso'}
+	]
+  	mArticles:Array<any>;
 	mSources:Array<any>;
 	color: ThemePalette = 'primary';
 	mode: ProgressSpinnerMode = 'indeterminate';
@@ -31,8 +36,16 @@ export class HomeComponent implements OnInit {
 		//load news sources
 		// this.newsapi.initSources().subscribe(data=> this.mSources = data['sources']);	
 		this.form = this.fb.group({
+			comboTipo: ['EGRESO', Validators.required],
+			comboCate: ['', Validators.required],
 			userName: ['', Validators.required],
 			password: ['', Validators.required]
+		});
+
+		// Recurso - Autocomeplete
+		this.form.get('comboCate')
+		.valueChanges.subscribe(data => {
+			this.listCategorias.filter(item => item.name === data);
 		});
 	}
 
@@ -69,6 +82,10 @@ export class HomeComponent implements OnInit {
 		  // });
 		}
 		this.formSubmitAttempt = true;
+	  }
+
+	  displayComboCate(item): string {
+		return item ? item.name : item;
 	  }
 
 

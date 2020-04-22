@@ -35,27 +35,60 @@
       <!-- <img mat-card-image class="img-article" src={{article.urlToImage}} alt=""> -->
       <mat-card-content>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <mat-form-field class="mat-input">
-              <mat-label>Usuario</mat-label>
-              <input matInput formControlName="userName">
-              <mat-error *ngIf="isFieldInvalid('userName')">
-                Por favor, ingrese su nombre de usuario
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field class="mat-input">
-              <mat-label>Password</mat-label>
-              <input matInput type="password" formControlName="password">
-              <mat-error *ngIf="isFieldInvalid('password')">
-                Por favor, ingrese su contraseña
-              </mat-error>
-            </mat-form-field>
-            <!-- <button mat-button color="primary"><mat-icon>lock</mat-icon> Login</button> -->
-            <mat-progress-spinner style="margin:0 auto;"
-                diameter="20"
-                [color]="color"
-                [mode]="mode"
-                [value]="value">
-            </mat-progress-spinner>
+
+          <mat-form-field class="mat-input">
+            <mat-label>Tipo</mat-label>
+            <input matInput type="text"
+              autocomplete="off"
+              aria-label="Number"
+              formControlName="comboTipo"
+              [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of optionsTipo" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <mat-form-field class="mat-input">
+            <mat-label>Categorías</mat-label>
+            <input matInput type="text" 
+              formControlName="comboCate"
+              [matAutocomplete]="autoResource">
+            <!-- <mat-spinner matSuffix *ngIf="isLoadingAutoResource" mode="indeterminate" diameter="20"></mat-spinner> -->
+            <mat-autocomplete #autoResource="matAutocomplete" [displayWith]="displayComboCate">
+                <mat-option class="mat-option-double" *ngFor="let item of listCategorias" [value]="item">
+                    <span>
+                      <strong>{{item.name}}</strong>
+                      <br />
+                    </span>
+                    <small>{{item.type}}</small>
+                </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <mat-form-field class="mat-input">
+            <mat-label>Usuario</mat-label>
+            <input matInput formControlName="userName">
+            <mat-error *ngIf="isFieldInvalid('userName')">
+              Por favor, ingrese su nombre de usuario
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="mat-input">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password">
+            <mat-error *ngIf="isFieldInvalid('password')">
+              Por favor, ingrese su contraseña
+            </mat-error>
+          </mat-form-field>
+          <!-- <button mat-button color="primary"><mat-icon>lock</mat-icon> Login</button> -->
+          <mat-progress-spinner style="margin:0 auto;"
+              diameter="20"
+              [color]="color"
+              [mode]="mode"
+              [value]="value">
+          </mat-progress-spinner>
         </form>
       </mat-card-content>
       <mat-card-actions class="action-buttons">
