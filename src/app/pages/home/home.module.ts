@@ -17,6 +17,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { AppMaterialModule } from 'src/app/shared/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -25,14 +26,15 @@ import { ReactiveFormsModule } from '@angular/forms';
         ReactiveFormsModule,
         // BrowserModule,
         HomeRoutingModule,
-        HttpClientModule,        
-        MatButtonModule,
-        MatCardModule,
+        HttpClientModule,
+        // MatButtonModule,
+        // MatCardModule,
         MatMenuModule,
         MatToolbarModule,
-        MatIconModule,
+        // MatIconModule,
         MatSidenavModule,
         MatListModule,
+        MatAutocompleteModule,
         AppMaterialModule
     ],
     declarations: [HomeComponent]
