@@ -54,10 +54,31 @@
             <mat-label>Categorías</mat-label>
             <input matInput type="text" 
               formControlName="comboCate"
-              [matAutocomplete]="autoResource">
-            <!-- <mat-spinner matSuffix *ngIf="isLoadingAutoResource" mode="indeterminate" diameter="20"></mat-spinner> -->
-            <mat-autocomplete #autoResource="matAutocomplete" [displayWith]="displayFn">
+              [matAutocomplete]="autoCate">
+              <mat-error *ngIf="isFieldInvalid('comboCate')">
+                Por favor, ingrese una categoría.
+              </mat-error>
+            <mat-autocomplete #autoCate="matAutocomplete" [displayWith]="displayFn">
                 <mat-option class="mat-option-double" *ngFor="let option of filteredOptions | async" [value]="option">
+                    <span>
+                      <strong>{{option.name}}</strong>
+                      <br />
+                    </span>
+                    <small>{{option.type}}</small>
+                </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        
+          <mat-form-field class="mat-input">
+            <mat-label>Sub Categoría</mat-label>
+            <input matInput type="text" 
+              formControlName="comboSubcate"
+              [matAutocomplete]="autoSubcate">
+              <mat-error *ngIf="isFieldInvalid('comboSubcate')">
+                Por favor, ingrese su Sub categoría.
+              </mat-error>
+            <mat-autocomplete #autoSubcate="matAutocomplete" [displayWith]="displayFn">
+                <mat-option class="mat-option-double" *ngFor="let option of filteredSubcate | async" [value]="option">
                     <span>
                       <strong>{{option.name}}</strong>
                       <br />
@@ -68,7 +89,7 @@
           </mat-form-field>
 
           <mat-form-field class="mat-input">
-            <mat-label>Usuario</mat-label>
+            <mat-label>Precio</mat-label>
             <input matInput formControlName="userName">
             <mat-error *ngIf="isFieldInvalid('userName')">
               Por favor, ingrese su nombre de usuario

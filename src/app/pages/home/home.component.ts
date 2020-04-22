@@ -24,7 +24,13 @@ export class HomeComponent implements OnInit {
 		{name: 'Auto', type: 'Egreso'},
 		{name: 'Yo', type: 'Egreso'}
 	]
+	listSubcate: ICate[] = [
+		{name: 'Gastos', type: 'Yo'},
+		{name: 'GYM', type: 'Yo'},
+		{name: 'Ahorros', type: 'Yo'}
+	]
 	filteredOptions: Observable<ICate[]>;
+	filteredSubcate: Observable<ICate[]>;
   	mArticles:Array<any>;
 	mSources:Array<any>;
 	color: ThemePalette = 'primary';
@@ -35,7 +41,7 @@ export class HomeComponent implements OnInit {
 	private formSubmitAttempt: boolean;
 	
 	constructor(private fb: FormBuilder){
-		console.log('app component constructor called');         
+		console.log('app component constructor called');
 	}
 
 	ngOnInit() {
@@ -46,15 +52,23 @@ export class HomeComponent implements OnInit {
 		this.form = this.fb.group({
 			comboTipo: ['EGRESO', Validators.required],
 			comboCate: ['', Validators.required],
+			comboSubcate: ['', Validators.required],
 			userName: ['', Validators.required],
 			password: ['', Validators.required]
 		});
 
-		// Recurso - Autocomeplete
+		// Categoria - Autocomeplete
 		this.filteredOptions = this.form.get('comboCate').valueChanges.pipe(
 			startWith(''),
 			map(value => typeof value === 'string' ? value : value.name),
 			map(name => name ? this._filter(name) : this.listCategorias.slice())
+		);
+
+		// Sub Categoria - Autocomeplete
+		this.filteredSubcate = this.form.get('comboSubcate').valueChanges.pipe(
+			startWith(''),
+			map(value => typeof value === 'string' ? value : value.name),
+			map(name => name ? this._filterSubCate(name) : this.listSubcate.slice())
 		);
 	}
 
@@ -64,8 +78,12 @@ export class HomeComponent implements OnInit {
 	
 	  private _filter(name: string): ICate[] {
 		const filterValue = name.toLowerCase();
-	
 		return this.listCategorias.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+	  }
+
+	  private _filterSubCate(name: string): ICate[] {
+		const filterValue = name.toLowerCase();
+		return this.listSubcate.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
 	  }
 
 
