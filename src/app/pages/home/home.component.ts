@@ -5,6 +5,13 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {ThemePalette} from '@angular/material/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
+import { Observable } from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+
+export interface ICate {
+	name: string;
+	type: string;
+  }
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,11 +19,12 @@ import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 })
 export class HomeComponent implements OnInit {
 	optionsTipo: string[] = ['INGRESO', 'EGRESO'];
-	listCategorias = [
+	listCategorias: ICate[] = [
 		{name: 'Alimentacion', type: 'Egreso'},
 		{name: 'Auto', type: 'Egreso'},
 		{name: 'Yo', type: 'Egreso'}
 	]
+	filteredOptions: Observable<ICate[]>;
   	mArticles:Array<any>;
 	mSources:Array<any>;
 	color: ThemePalette = 'primary';
@@ -43,41 +51,22 @@ export class HomeComponent implements OnInit {
 		});
 
 		// Recurso - Autocomeplete
-		this.form.get('comboCate')
-		.valueChanges.subscribe(data => {
-			this.listCategorias.filter(item => item.name === data);
-		});
+		this.filteredOptions = this.form.get('comboCate').valueChanges.pipe(
+			startWith(''),
+			map(value => typeof value === 'string' ? value : value.name),
+			map(name => name ? this._filter(name) : this.listCategorias.slice())
+		);
 	}
 
-	// private filter(data) {
-	// 	this.flagDefault = true;
-	// 	const aux = [];
-	// 	let text = '';
-	// 	if (this.selectFormControl.value) {
-	// 	  text = this.selectFormControl.value.toLowerCase();
-	// 	}
-	// 	const searchText = this.normalizeText(text);
-	// 	if (this.items) {
-	// 	  this.items.filter((item) => {
-	// 		if (this.normalizeText(item.text).indexOf(searchText) !== -1) {
-	// 		  aux.push(item);
-	// 		}
-	// 	  });
-	// 	}
-	// 	this.itemsFilter = aux;
-	// 	if (this.itemsFilter.length === 0 && this.selectFormControl.dirty) {
-	// 	  this.selectFormControl.setValidators([this.selectFormControl.validator, this.itemsFilterEmpty]);
-	// 	  this.validationMoment.next(true);
-	// 	} else {
-	// 	  this.selectFormControl.setValidators([Validators.required]);
-	// 	}
-	// 	this.cdRef.detectChanges();
-	//   }
+	displayFn(cate: ICate): string {
+		return cate && cate.name ? cate.name : '';
+	  }
 	
-	//   normalizeText(text: string): string {
-	// 	return text.normalize('NFD').replace(/([aeio])\u0301|(u)[\u0301\u0308]/gi, '$1$2')
-	// 	  .normalize().toLowerCase();
-	//   }
+	  private _filter(name: string): ICate[] {
+		const filterValue = name.toLowerCase();
+	
+		return this.listCategorias.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+	  }
 
 
 	// searchArticles(source){

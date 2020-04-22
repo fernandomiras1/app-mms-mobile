@@ -56,13 +56,13 @@
               formControlName="comboCate"
               [matAutocomplete]="autoResource">
             <!-- <mat-spinner matSuffix *ngIf="isLoadingAutoResource" mode="indeterminate" diameter="20"></mat-spinner> -->
-            <mat-autocomplete #autoResource="matAutocomplete" [displayWith]="displayComboCate">
-                <mat-option class="mat-option-double" *ngFor="let item of listCategorias" [value]="item">
+            <mat-autocomplete #autoResource="matAutocomplete" [displayWith]="displayFn">
+                <mat-option class="mat-option-double" *ngFor="let option of filteredOptions | async" [value]="option">
                     <span>
-                      <strong>{{item.name}}</strong>
+                      <strong>{{option.name}}</strong>
                       <br />
                     </span>
-                    <small>{{item.type}}</small>
+                    <small>{{option.type}}</small>
                 </mat-option>
             </mat-autocomplete>
           </mat-form-field>
