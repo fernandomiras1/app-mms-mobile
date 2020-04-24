@@ -24,7 +24,7 @@ const pageRoutes = [
 
 workbox.routing.registerRoute(
 ({ url, event }) => pageRoutes.some(route => url.pathname === route),
-new workbox.strategies.NetworkFirst({
+new workbox.strategies.CacheFirst({
     cacheName: "pages",
     plugins: [
         new workbox.cacheableResponse.Plugin({
@@ -71,10 +71,10 @@ workbox.routing.registerRoute(
 // Cache CSS and JavaScript Files
 // https://developers.google.com/web/tools/workbox/guides/common-recipes#cache_css_and_javascript_files
 workbox.routing.registerRoute(
-/\.(?:js|css)$/,
-new workbox.strategies.StaleWhileRevalidate({
-    cacheName: 'static-resources',
-})
+    /\.(?:js|css)$/,
+    new workbox.strategies.StaleWhileRevalidate({
+        cacheName: 'static-resources',
+    })
 );
 
 // We inject manifest here using "workbox-build" in workbox-build-inject.js
