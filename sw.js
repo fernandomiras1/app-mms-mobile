@@ -2,7 +2,9 @@
 //////////////////////// Let's have it locally. /////////////////////////
 //  Run "workbox copyLibraries third_party/"
 //////////////////////////////////////////////////////////////////////////
-importScripts('workbox-v3.6.3/workbox-sw.js')
+importScripts(
+  "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js"
+);
 
 // SETTINGS
 
