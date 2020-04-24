@@ -18,7 +18,8 @@ workbox.core.clientsClaim();
 workbox.googleAnalytics.initialize();
 
 const pageRoutes = [
-"/home"
+    "/login",    
+    "/home"
 ];
 
 workbox.routing.registerRoute(
@@ -26,37 +27,37 @@ workbox.routing.registerRoute(
 new workbox.strategies.NetworkFirst({
     cacheName: "pages",
     plugins: [
-    new workbox.cacheableResponse.Plugin({
-        statuses: [0, 200]
-    }),
-    new workbox.expiration.Plugin({
-        maxAgeSeconds: DAY
-    })
+        new workbox.cacheableResponse.Plugin({
+            statuses: [0, 200]
+        }),
+        new workbox.expiration.Plugin({
+            maxAgeSeconds: DAY
+        })
     ]
 })
 );
 
 // Cache the underlying font files with a cache-first strategy for 1 year.
 workbox.routing.registerRoute(
-/^https:\/\/fonts\.gstatic\.com/,
-new workbox.strategies.CacheFirst({
-    cacheName: "google-fonts-webfonts",
-    plugins: [
-    new workbox.cacheableResponse.Plugin({
-        statuses: [0, 200]
-    }),
-    new workbox.expiration.Plugin({
-        maxAgeSeconds: YEAR,
-        maxEntries: 30
+    /^https:\/\/fonts\.(?:googleapis|gstatic).com\/(.*)/,
+    new workbox.strategies.CacheFirst({
+        cacheName: "google-fonts-webfonts",
+        plugins: [
+        new workbox.cacheableResponse.Plugin({
+            statuses: [0, 200]
+        }),
+        new workbox.expiration.Plugin({
+            maxAgeSeconds: YEAR,
+            maxEntries: 30
+        })
+        ]
     })
-    ]
-})
 );
 
 // fallback to network
 workbox.routing.registerRoute(
-/\.(?:png|gif|jpg|jpeg|svg)$/,
-new workbox.strategies.CacheFirst({
+    /\.(?:png|gif|jpg|jpeg|svg)$/,
+    new workbox.strategies.CacheFirst({
     cacheName: "images",
     plugins: [
     new workbox.expiration.Plugin({
@@ -64,6 +65,15 @@ new workbox.strategies.CacheFirst({
         maxAgeSeconds: DAY
     })
     ]
+})
+);
+
+// Cache CSS and JavaScript Files
+// https://developers.google.com/web/tools/workbox/guides/common-recipes#cache_css_and_javascript_files
+workbox.routing.registerRoute(
+/\.(?:js|css)$/,
+new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'static-resources',
 })
 );
 
