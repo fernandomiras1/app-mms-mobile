@@ -68,4 +68,4 @@ new workbox.strategies.CacheFirst({
 );
 
 // We inject manifest here using "workbox-build" in workbox-build-inject.js
-// workbox.precaching.precacheAndRoute([]);
+workbox.precaching.precacheAndRoute([]);

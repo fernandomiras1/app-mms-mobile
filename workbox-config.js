@@ -1,19 +1,22 @@
-module.exports = {
-  globDirectory: 'dist/app-mms-mobile/',
-  globPatterns: [
-    '**/*.{txt,png,ico,html,js,json,css}'
-  ],
-  globIgnores: [
-    'workbox-v3.6.3/**/*'
-  ],
-  swDest: 'dist/app-mms-mobile/sw.js',
-  dontCacheBustUrlsMatching: new RegExp('.+\.[a-f0-9]{20}\..+'),
-  maximumFileSizeToCacheInBytes: 5000000,
-   // Define runtime caching rules
-  runtimeCaching: [
-    {
-      urlPattern: new RegExp('https://fonts.(?:googleapis|gstatic).com/(.*)'),
-      handler: 'staleWhileRevalidate'
-    }
-  ]
-}
+const workboxBuild = require('workbox-build');
+
+const buildSW = () => {
+  // This will return a Promise
+  return workboxBuild.injectManifest({
+    globDirectory: "dist/app-mms-mobile",
+    globPatterns: [
+      '**\/*.{js,css,html}',
+      "favicon.ico",
+      "manifest.json",
+      "assets/**/*.{css,html,js,json,png,svg,woff,woff2}"
+    ],
+    swSrc: "src/service-worker.js",
+    swDest: "dist/app-mms-mobile/service-worker.js"
+  }).then(({count, size, warnings}) => {
+    // Optionally, log any warnings and details.
+    warnings.forEach(console.warn);
+    console.log(`${count} files will be precached, totaling ${size} bytes.`);
+  })
+};
+
+buildSW();

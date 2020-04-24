@@ -15,7 +15,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
+    navigator.serviceWorker.register('/service-worker.js')
       .then((reg) => {
 
         // Objecto Sync Manager

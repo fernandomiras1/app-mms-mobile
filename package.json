@@ -7,6 +7,7 @@
     "build": "npm-run-all clean build:front:**",
     "build:front:ng": "ng build --prod",
     "build:front:pwa": "node generate-service-worker.js",
+    "serve:sw": "ng serve --prod && node workbox-config.js",
     "clean": "rimraf dist",
     "test": "ng test",
     "lint": "ng lint",
