@@ -11,7 +11,7 @@ import {map, startWith} from 'rxjs/operators';
 export interface ICate {
 	name: string;
 	type: string;
-  }
+}
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -40,13 +40,16 @@ export class HomeComponent implements OnInit {
 	tokenUser: string;
 	private formSubmitAttempt: boolean;
 	
-	constructor(private fb: FormBuilder){
+	constructor(private fb: FormBuilder, private newsapi:NewsApiService){
 		console.log('app component constructor called');
 	}
 
 	ngOnInit() {
         //load articles
-	    // this.newsapi.initArticles().subscribe(data => this.mArticles = data['articles']);
+	    this.newsapi.getArticlesByID('techcrunch').subscribe(data => {
+			console.log(data);
+			// this.mArticles = data['articles'];
+		});
 		//load news sources
 		// this.newsapi.initSources().subscribe(data=> this.mSources = data['sources']);	
 		this.form = this.fb.group({
