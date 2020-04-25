@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "app-mms-mobile": {
+      "hosting": {
+        "app-mms-mobile": [
+          "app-mms-mobile"
+        ]
+      }
+    }
+  }
+}

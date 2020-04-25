@@ -7,6 +7,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { AuthService } from 'src/app/auth/auth.service';
+import { Router } from '@angular/router';
 
 export interface ICate {
 	name: string;
@@ -40,8 +42,11 @@ export class HomeComponent implements OnInit {
 	tokenUser: string;
 	private formSubmitAttempt: boolean;
 	
-	constructor(private fb: FormBuilder, private newsapi:NewsApiService){
-		console.log('app component constructor called');
+	constructor(private fb: FormBuilder,
+		private newsapi:NewsApiService,
+		private authService: AuthService,
+		private router: Router) {
+			console.log('app component constructor called');
 	}
 
 	ngOnInit() {
@@ -79,15 +84,15 @@ export class HomeComponent implements OnInit {
 		return cate && cate.name ? cate.name : '';
 	  }
 	
-	  private _filter(name: string): ICate[] {
-		const filterValue = name.toLowerCase();
-		return this.listCategorias.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
-	  }
+	private _filter(name: string): ICate[] {
+	const filterValue = name.toLowerCase();
+	return this.listCategorias.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+	}
 
-	  private _filterSubCate(name: string): ICate[] {
-		const filterValue = name.toLowerCase();
-		return this.listSubcate.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
-	  }
+	private _filterSubCate(name: string): ICate[] {
+	const filterValue = name.toLowerCase();
+	return this.listSubcate.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+	}
 
 
 	// searchArticles(source){
@@ -101,32 +106,37 @@ export class HomeComponent implements OnInit {
 			(this.form.get(field).untouched && this.formSubmitAttempt)
 		);
 	}
-	
-	  onSubmit() {
-		if (this.form.valid) {
-		  console.log('es valido');
-		  // this.spinnerButtonOptions.active = true;
-		  // this.spinnerButtonOptions.text = 'Cargando datos...';
-		  // this.authService.login(this.form.value).subscribe(data => {
-		  //   this.snackBar.open('Logeado Correctamente', 'Aceptar', {
-		  //     duration: 3000
-		  //   });
-		  // }, error => {
-		  //   this.spinnerButtonOptions.active = false;
-		  //   this.spinnerButtonOptions.text = 'Login';
-		  //   this.snackBar.open('El usuario y/o contraseña son incorrectas', 'Reintentar', {
-		  //     duration: 3000
-		  //   });
-		  // }, () => {
-		  //   this.route.navigate(['/home']);
-		  // });
-		}
-		this.formSubmitAttempt = true;
-	  }
 
-	  displayComboCate(item): string {
-		return item ? item.name : item;
-	  }
+	onSubmit() {
+	if (this.form.valid) {
+		console.log('es valido');
+		// this.spinnerButtonOptions.active = true;
+		// this.spinnerButtonOptions.text = 'Cargando datos...';
+		// this.authService.login(this.form.value).subscribe(data => {
+		//   this.snackBar.open('Logeado Correctamente', 'Aceptar', {
+		//     duration: 3000
+		//   });
+		// }, error => {
+		//   this.spinnerButtonOptions.active = false;
+		//   this.spinnerButtonOptions.text = 'Login';
+		//   this.snackBar.open('El usuario y/o contraseña son incorrectas', 'Reintentar', {
+		//     duration: 3000
+		//   });
+		// }, () => {
+		//   this.route.navigate(['/home']);
+		// });
+	}
+	this.formSubmitAttempt = true;
+	}
+
+	displayComboCate(item): string {
+	return item ? item.name : item;
+	}
+
+	public logoutUser(): void {
+		this.authService.logoutUser();
+		this.router.navigate(['/login']);
+	}
 
 
 }
