@@ -6,8 +6,6 @@ import { AppMaterialModule } from '../shared/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DirectivesModule } from '../shared/directives/directives.module';
-// import { DirectivesModule } from '../shared/directives/autofocus.directive';
-
 
 @NgModule({
     imports: [
@@ -19,8 +17,7 @@ import { DirectivesModule } from '../shared/directives/directives.module';
         DirectivesModule
     ],
     declarations: [
-        LoginComponent,
-        // AutofocusDirective
+        LoginComponent
     ]
 })
 export class AuthModule { }

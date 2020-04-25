@@ -20,6 +20,13 @@
                 Por favor, ingrese su contraseña
               </mat-error>
             </mat-form-field>
+            <mat-form-field class="mat-input">
+              <mat-label>PIN</mat-label>
+              <input matInput type="number" (keypress)="numberOnly($event)" formControlName="pin" [appAutofocus]="getValue('pin')" required>
+              <mat-error *ngIf="isFieldInvalid('pin')">
+                Por favor, ingrese su pin
+              </mat-error>
+            </mat-form-field>
             <mat-checkbox color="primary" class="mat-input" formControlName="rememberEmail">Recuérdame</mat-checkbox>
         </form>
     </mat-card-content>

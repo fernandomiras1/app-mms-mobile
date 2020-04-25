@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
     this.form = this.fb.group({
       userName: [email ? email : '', Validators.required],
       password: ['', Validators.required],
+      pin: ['', Validators.required],
       rememberEmail: [email ? true : false]
     });
   }
@@ -53,6 +54,14 @@ export class LoginComponent implements OnInit {
     } else {
       localStorage.removeItem('email');
     }
+  }
+
+  numberOnly(event): boolean {
+    const charCode = event.which ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
   }
 
   onSubmit() {
