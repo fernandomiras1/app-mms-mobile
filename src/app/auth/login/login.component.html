@@ -8,14 +8,14 @@
         <form [formGroup]="form">
             <mat-form-field class="mat-input">
               <mat-label>Usuario</mat-label>
-              <input matInput formControlName="userName" required>
+              <input matInput formControlName="userName" [appAutofocus]="!getValue('rememberEmail')" required>
               <mat-error *ngIf="isFieldInvalid('userName')">
                 Por favor, ingrese su nombre de usuario
               </mat-error>
             </mat-form-field>
             <mat-form-field class="mat-input">
               <mat-label>Password</mat-label>
-              <input matInput type="password" formControlName="password" required>
+              <input matInput type="password" formControlName="password" [appAutofocus]="getValue('rememberEmail')" required>
               <mat-error *ngIf="isFieldInvalid('password')">
                 Por favor, ingrese su contraseña
               </mat-error>

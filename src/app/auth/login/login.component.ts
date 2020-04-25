@@ -32,10 +32,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     // this.spinnerButtonOptions = this.buttonService.spinnerButton('Login', 22, 'primary', 'primary');
     // this.authService.logoutUser();
+    const email = localStorage.getItem('email');
     this.form = this.fb.group({
-      userName: ['', Validators.required],
+      userName: [email ? email : '', Validators.required],
       password: ['', Validators.required],
-      rememberEmail: [localStorage.getItem('email') ? true : false]
+      rememberEmail: [email ? true : false]
     });
   }
 
@@ -84,6 +85,10 @@ export class LoginComponent implements OnInit {
 
   onLoginRedirect(path: string): void {
     this.router.navigate([path]);
+  }
+
+  getValue(value: string): string {
+    return this.form.get(value).value;
   }
 
 }
