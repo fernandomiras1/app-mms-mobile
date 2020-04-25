@@ -7,6 +7,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {ThemePalette} from '@angular/material/core';
 import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 import { AuthService } from '../auth.service';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -36,10 +37,18 @@ export class LoginComponent implements OnInit {
     this.form = this.fb.group({
       userName: [email ? email : '', Validators.required],
       password: ['', Validators.required],
-      pin: ['', Validators.required],
       rememberEmail: [email ? true : false]
     });
+
+    // Recurso - Autocomeplete
+    this.form.get('password').valueChanges.pipe(debounceTime(800))
+    .subscribe(data => {
+      if (data.length >= 6) {
+        this.onSubmit();
+      }
+    });
   }
+  
 
   isFieldInvalid(field: string) {
     return (
