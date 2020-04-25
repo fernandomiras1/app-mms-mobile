@@ -3,6 +3,9 @@
   "short_name": "MMS",
   "theme_color": "#1976d2",
   "background_color": "#1976d2",
+  "display": "standalone",
+  "start_url": "index.html",
+  "orientation": "portrait",
   "icons": [
       {
         "src": "assets/icons/icon-72x72.png",
