@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   value = 20;
   form: FormGroup;
   tokenUser: string;
+  showSpinner = false;
   private formSubmitAttempt: boolean;
   // spinnerButtonOptions: ButtonOpts;
   constructor(private fb: FormBuilder,
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       console.log('es valido');
+      this.showSpinner = true;
       this.authService.loginEmailUser(this.form.get('userName').value, this.form.get('password').value)
       .then((res) => {
         this.snackBar.open('Logeado Correctamente', 'Aceptar', {
@@ -52,6 +54,7 @@ export class LoginComponent implements OnInit {
         this.onLoginRedirect('home');
       }).catch(err => {
         console.log('err', err.message);
+        this.showSpinner = false;
         this.snackBar.open('Error, Intentelo Nuevamente', 'Aceptar', {
           duration: 3000
         });
