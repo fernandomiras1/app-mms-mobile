@@ -6,6 +6,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 // import { ButtonOpts } from 'mat-progress-buttons';
 import {ThemePalette} from '@angular/material/core';
 import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,7 +20,11 @@ export class LoginComponent implements OnInit {
   tokenUser: string;
   private formSubmitAttempt: boolean;
   // spinnerButtonOptions: ButtonOpts;
-  constructor(private fb: FormBuilder, private route: Router, public snackBar: MatSnackBar) { }
+  constructor(private fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService,
+    public snackBar: MatSnackBar
+  ) { }
 
   ngOnInit() {
     // this.spinnerButtonOptions = this.buttonService.spinnerButton('Login', 22, 'primary', 'primary');
@@ -39,27 +44,30 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       console.log('es valido');
-      this.snackBar.open('Logeado Correctamente', 'Aceptar', {
+      this.authService.loginEmailUser(this.form.get('userName').value, this.form.get('password').value)
+      .then((res) => {
+        this.snackBar.open('Logeado Correctamente', 'Aceptar', {
             duration: 3000
         });
-      this.route.navigate(['/home']);
-      // this.spinnerButtonOptions.active = true;
-      // this.spinnerButtonOptions.text = 'Cargando datos...';
-      // this.authService.login(this.form.value).subscribe(data => {
-      //   this.snackBar.open('Logeado Correctamente', 'Aceptar', {
-      //     duration: 3000
-      //   });
-      // }, error => {
-      //   this.spinnerButtonOptions.active = false;
-      //   this.spinnerButtonOptions.text = 'Login';
-      //   this.snackBar.open('El usuario y/o contraseña son incorrectas', 'Reintentar', {
-      //     duration: 3000
-      //   });
-      // }, () => {
-      //   this.route.navigate(['/home']);
-      // });
+        this.onLoginRedirect('home');
+      }).catch(err => {
+        console.log('err', err.message);
+        this.snackBar.open('Error, Intentelo Nuevamente', 'Aceptar', {
+          duration: 3000
+        });
+
+      });
     }
     this.formSubmitAttempt = true;
+  }
+
+  onLogout() {
+    this.onLoginRedirect('login');
+    this.authService.logoutUser();
+  }
+
+  onLoginRedirect(path: string): void {
+    this.router.navigate([path]);
   }
 
 }

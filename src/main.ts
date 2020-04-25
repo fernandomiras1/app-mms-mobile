@@ -9,4 +9,24 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
+  .then(() => registerServiceWorker())
   .catch(err => console.error(err));
+
+
+function registerServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then((reg) => {
+
+        // Objecto Sync Manager
+        /* if ((<any>window).SyncManager) {
+          setTimeout(() => registro.sync.register('prueba-db') , 3000);
+        } */
+
+        console.log('Se instalo correctamente.');
+      })
+      .catch(e => console.log('Error during service worker registration:', e));
+  } else {
+    console.log('Service Worker is not supported');
+  }
+}
