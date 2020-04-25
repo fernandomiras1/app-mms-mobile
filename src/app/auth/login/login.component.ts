@@ -7,6 +7,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {ThemePalette} from '@angular/material/core';
 import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 import { AuthService } from '../auth.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,8 +20,9 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   tokenUser: string;
   showSpinner = false;
+
+
   private formSubmitAttempt: boolean;
-  // spinnerButtonOptions: ButtonOpts;
   constructor(private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
@@ -32,9 +34,11 @@ export class LoginComponent implements OnInit {
     // this.authService.logoutUser();
     this.form = this.fb.group({
       userName: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      rememberEmail: [localStorage.getItem('email') ? true : false]
     });
   }
+
   isFieldInvalid(field: string) {
     return (
       (!this.form.get(field).valid && this.form.get(field).touched) ||
@@ -42,9 +46,18 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  rememberEmail() {
+    if (this.form.get('rememberEmail').value) {
+      localStorage.setItem('email', this.form.get('userName').value);
+    } else {
+      localStorage.removeItem('email');
+    }
+  }
+
   onSubmit() {
     if (this.form.valid) {
       console.log('es valido');
+      this.rememberEmail();
       this.showSpinner = true;
       this.authService.loginEmailUser(this.form.get('userName').value, this.form.get('password').value)
       .then((res) => {

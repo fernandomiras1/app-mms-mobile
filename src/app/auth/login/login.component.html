@@ -5,7 +5,7 @@
       <mat-card-subtitle>Login</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <form [formGroup]="form">
             <mat-form-field class="mat-input">
               <mat-label>Usuario</mat-label>
               <input matInput formControlName="userName" required>
@@ -20,13 +20,18 @@
                 Por favor, ingrese su contraseña
               </mat-error>
             </mat-form-field>
-            <button *ngIf="!showSpinner" mat-button color="primary"><mat-icon>lock</mat-icon> Login</button>
-            <mat-progress-spinner *ngIf="showSpinner" style="margin:0 auto;"
-                diameter="20"
-                [color]="color"
-                [mode]="mode"
-                [value]="value">
-            </mat-progress-spinner>
+            <mat-checkbox color="primary" class="mat-input" formControlName="rememberEmail">Recuérdame</mat-checkbox>
         </form>
     </mat-card-content>
+    <mat-card-actions class="action-buttons">
+      <button *ngIf="!showSpinner" mat-button color="primary" (click)="onSubmit()">
+        <mat-icon>lock</mat-icon> Login
+      </button>
+      <mat-progress-spinner *ngIf="showSpinner" style="margin:0 auto;"
+          diameter="20"
+          [color]="color"
+          [mode]="mode"
+          [value]="value">
+      </mat-progress-spinner>
+    </mat-card-actions>
 </mat-card>
