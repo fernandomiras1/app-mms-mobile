@@ -101,17 +101,17 @@ workbox.routing.registerRoute(
   
 
 // BACKGROUND SYNC
-// workbox.routing.registerRoute(
-//     new RegExp('^https://newsapi.org'),
-//     workbox.strategies.networkOnly({
-//       plugins: [
-//         new workbox.backgroundSync.Plugin('userQueue', {
-//           maxRetentionTime: 1 * 60 // Retry for max of 1 Hour
-//         })
-//       ]
-//     }),
-//     'POST'
-// );
+workbox.routing.registerRoute(
+    new RegExp('^https://newsapi.org'),
+    workbox.strategies.networkOnly({
+      plugins: [
+        new workbox.backgroundSync.Plugin('userQueue', {
+          maxRetentionTime: 1 * 60 // Retry for max of 1 Hour
+        })
+      ]
+    }),
+    'GET'
+);
 
 
 // We inject manifest here using "workbox-build" in workbox-build-inject.js
