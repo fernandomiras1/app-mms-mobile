@@ -7,15 +7,10 @@ import { HomeRoutingModule } from './home.routing';
 import { HomeComponent } from './home.component';
 
 //  material
-import {MatMenuModule} from '@angular/material/menu';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
 import { MaterialModule } from 'src/app/shared/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { PagesModule } from '../pages.module';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { PagesModule } from '../pages.module';
 
 @NgModule({
     imports: [
@@ -23,11 +18,6 @@ import { PagesModule } from '../pages.module';
         ReactiveFormsModule,
         HomeRoutingModule,
         HttpClientModule,
-        MatMenuModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatListModule,
-        MatAutocompleteModule,
         MaterialModule,
         PagesModule
     ],
