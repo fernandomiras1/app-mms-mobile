@@ -1,42 +1,44 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
-import { HomeRoutingModule } from './home.routing';
+// import { NgModule } from '@angular/core';
+// import { CommonModule } from '@angular/common';
+// import { HttpClientModule } from '@angular/common/http';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { HomeRoutingModule } from './home.routing';
 
-// componentes
-import { HomeComponent } from './home.component';
+// // componentes
+// import { HomeComponent } from './home.component';
 
-//material 
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
-import { AppMaterialModule } from 'src/app/shared/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+// //material 
+// import {MatButtonModule} from '@angular/material/button';
+// import {MatCardModule} from '@angular/material/card';
+// import {MatMenuModule} from '@angular/material/menu';
+// import {MatToolbarModule} from '@angular/material/toolbar';
+// import {MatIconModule} from '@angular/material/icon';
+// import {MatSidenavModule} from '@angular/material/sidenav';
+// import {MatListModule} from '@angular/material/list';
+// import { AppMaterialModule } from 'src/app/shared/material.module';
+// import { ReactiveFormsModule } from '@angular/forms';
+// import {MatAutocompleteModule} from '@angular/material/autocomplete';
+// import { PagesModule } from '../pages.module';
 
 
-@NgModule({
-    imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        // BrowserModule,
-        HomeRoutingModule,
-        HttpClientModule,
-        // MatButtonModule,
-        // MatCardModule,
-        MatMenuModule,
-        MatToolbarModule,
-        // MatIconModule,
-        MatSidenavModule,
-        MatListModule,
-        MatAutocompleteModule,
-        AppMaterialModule
-    ],
-    declarations: [HomeComponent]
-})
-export class HomeModule { }
+// @NgModule({
+//     imports: [
+//         CommonModule,
+//         ReactiveFormsModule,
+//         // BrowserModule,
+//         HomeRoutingModule,
+//         HttpClientModule,
+//         // MatButtonModule,
+//         // MatCardModule,
+//         MatMenuModule,
+//         MatToolbarModule,
+//         // MatIconModule,
+//         MatSidenavModule,
+//         MatListModule,
+//         MatAutocompleteModule,
+//         AppMaterialModule,
+//         PagesModule
+//     ],
+//     declarations: [HomeComponent]
+// })
+// export class HomeModule { }

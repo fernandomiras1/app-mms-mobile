@@ -50,7 +50,8 @@ export class HomeComponent implements OnInit {
 	}
 
 	ngOnInit() {
-        //load articles
+		//load articles
+		console.log('Home Component');
 	    this.newsapi.getArticlesByID('techcrunch').subscribe(data => {
 			console.log(data);
 			// this.mArticles = data['articles'];

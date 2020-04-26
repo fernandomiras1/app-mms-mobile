@@ -1,23 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { 
-    height: 100%;
-    // PWA
-    overscroll-behavior-y: contain;
-    -webkit-user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// html, body { 
+//     height: 100%;
+//     // PWA
+//     overscroll-behavior-y: contain;
+//     -webkit-user-select: none;
+//     -webkit-tap-highlight-color: transparent;
+//     -webkit-touch-callout: none;
+// }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-/* You can add global styles to this file, and also import other style files */
+// /* You can add global styles to this file, and also import other style files */
 
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-body {
-    padding: 2em 23em;
-    background:lightgray;
-}
+// body {
+//     padding: 2em 23em;
+//     background:lightgray;
+// }
 
 .mat-input {
     width: 100%;
@@ -30,40 +30,59 @@ body {
 
 
 
-/*Media Queries for fixing distortion at some points*/
+// /*Media Queries for fixing distortion at some points*/
 
-@media screen and (max-width: 1150px){
-     body{
-    	padding: 2em 11.5em !important;
-    }
+// @media screen and (max-width: 1150px){
+//      body{
+//     	padding: 2em 11.5em !important;
+//     }
 
-}
+// }
 
-/*Media Queries For Tablates*/
+// /*Media Queries For Tablates*/
 
-@media screen and (max-width: 1024px){
-     body{
-    	padding: 0em 0em !important;
-    }
-}
+// @media screen and (max-width: 1024px){
+//      body{
+//     	padding: 0em 0em !important;
+//     }
+// }
 
-@media screen and (max-width: 960px){
-    body{
-    	padding: 0em 0em !important;
-    }
-}
+// @media screen and (max-width: 960px){
+//     body{
+//     	padding: 0em 0em !important;
+//     }
+// }
 
-@media screen and (max-width:768px){
-   body{
-    	padding: 0em 0em !important;
-    }
-}
+// @media screen and (max-width:768px){
+//    body{
+//     	padding: 0em 0em !important;
+//     }
+// }
 
-/*Media Queries For Mobiles*/
-@media screen and (max-width:480px){
+// /*Media Queries For Mobiles*/
+// @media screen and (max-width:480px){
    
 
-   body{
-    	padding: 0em 0em !important;
+//    body{
+//     	padding: 0em 0em !important;
+//     }
+// }
+
+
+// -------------- todo nuevo 
+
+body { 
+    font-family: Roboto, Arial, sans-serif;
+    margin: 0;
+}
+  
+mat-sidenav.app-sidenav mat-list > .mat-list-item{
+    height: 44px;
+}
+
+  
+@media only screen and (min-width: 601px) {
+    mat-sidenav.app-sidenav mat-list-item.mat-list-item > div{
+        padding-left: 38px !important;
     }
 }
