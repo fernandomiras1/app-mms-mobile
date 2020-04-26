@@ -7,20 +7,20 @@ import { HomeComponent } from './home/home.component';
 
 
 const pagesRoutes: Routes = [
+    // {
+    //     path: '',
+    //     pathMatch: 'full',
+    //     data: {title: 'Home'},
+    //     canActivate: [AuthGuard],
+    //     component: PagesComponent
+    // },
     {
         path: '',
-        pathMatch: 'full',
-        data: {title: 'Home'},
+        data: {title: 'home'},
         canActivate: [AuthGuard],
-        component: PagesComponent
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
     },
-    // {
-    //     path: 'home',
-    //     data: {title: 'home'},
-    //     canActivate: [AuthGuard],
-    //     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
-    // },
-    { path: 'home', component: HomeComponent },
+    // { path: '', component: HomeComponent },
       { path: '**', redirectTo: '' }
 ];
 

@@ -1,25 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PagesComponent } from './pages.component';
 
-//material 
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
+// material
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
-import { AppMaterialModule } from 'src/app/shared/material.module';
+import {MaterialModule} from 'src/app/shared/material.module';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 // formulario
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PagesRoutingModule } from './pages.routes';
-import { HomeComponent } from './home/home.component';
 
 @NgModule({
+  declarations: [],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -28,12 +24,22 @@ import { HomeComponent } from './home/home.component';
     FlexLayoutModule,
     MatMenuModule,
     MatToolbarModule,
-    // MatIconModule,
     MatSidenavModule,
     MatListModule,
     MatAutocompleteModule,
-    AppMaterialModule
+    MaterialModule
   ],
-  declarations: [HomeComponent]
+  exports: [
+    PagesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatAutocompleteModule,
+    MaterialModule
+  ]
 })
 export class PagesModule { }

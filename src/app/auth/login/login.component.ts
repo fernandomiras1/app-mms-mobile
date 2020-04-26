@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-// import { AuthService, ButtonService } from 'src/app/services/service.index';
 import {MatSnackBar} from '@angular/material/snack-bar';
-// import { ButtonOpts } from 'mat-progress-buttons';
 import {ThemePalette} from '@angular/material/core';
 import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 import { AuthService } from '../auth.service';
@@ -25,14 +23,11 @@ export class LoginComponent implements OnInit {
 
   private formSubmitAttempt: boolean;
   constructor(private fb: FormBuilder,
-    private router: Router,
-    private authService: AuthService,
-    public snackBar: MatSnackBar
-  ) { }
+              private router: Router,
+              private authService: AuthService,
+              public snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    // this.spinnerButtonOptions = this.buttonService.spinnerButton('Login', 22, 'primary', 'primary');
-    // this.authService.logoutUser();
     const email = localStorage.getItem('email');
     this.form = this.fb.group({
       userName: [email ? email : '', Validators.required],
@@ -40,7 +35,6 @@ export class LoginComponent implements OnInit {
       rememberEmail: [email ? true : false]
     });
 
-    // Recurso - Autocomeplete
     this.form.get('password').valueChanges.pipe(debounceTime(800))
     .subscribe(data => {
       if (data.length >= 6) {
@@ -48,7 +42,6 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-  
 
   isFieldInvalid(field: string) {
     return (

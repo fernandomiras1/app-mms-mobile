@@ -12,24 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { ComponentsModule } from './components/components.module';
 import { PagesComponent } from './pages/pages.component';
 import { PagesModule } from './pages/pages.module';
 
-//material 
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
-import { AppMaterialModule } from 'src/app/shared/material.module';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-// formulario
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { FlexLayoutModule } from '@angular/flex-layout';;
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,18 +28,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';;
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
-    MatMenuModule,
-    MatToolbarModule,
-    // MatIconModule,
-    MatSidenavModule,
-    MatListModule,
-    MatAutocompleteModule,
-    AppMaterialModule
+    PagesModule
   ],
-    // ComponentsModule
   providers: [],
   bootstrap: [AppComponent]
 })

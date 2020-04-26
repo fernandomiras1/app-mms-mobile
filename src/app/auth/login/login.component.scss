@@ -1,40 +1,33 @@
 .example-spacer {
-    flex: 1 1 auto;
-  }
-  
-  .example-card {
-    margin-top: 20%;
-  }
-  
-  .title {
-    font-weight: bold;
-  }
+  flex: 1 1 auto;
+}
 
-  .example-header-image {
-    background-size: cover;
-  }
-  
-  .img-article{
-      height: 350px;
-  }
+.example-card {
+  margin-top: 10%;
+}
 
-  .progress {
-      width: 100%;
-  }
-  
-  mat-card {
-    max-width: 300px;
-    margin: 3em auto;
-    text-align: center;
-  }
+.title {
+  font-weight: bold;
+}
 
-  mat-card-header {
-    margin-left: 25%;
-  }
-  .signin-content {
-    padding: 70px 1rem;
-  }
-  .full-width {
+.example-header-image {
+  background-size: cover;
+}
+
+.img-article{
+    height: 350px;
+}
+
+.progress {
     width: 100%;
-  }
-  
+}
+
+mat-card {
+  max-width: 300px;
+  margin: 3em auto;
+  text-align: center;
+}
+
+mat-card-header {
+  margin-left: 25%;
+}
