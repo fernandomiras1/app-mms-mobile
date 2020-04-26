@@ -72,6 +72,11 @@ body {
 
 body { 
     font-family: Roboto, Arial, sans-serif;
+    
+    overscroll-behavior-y: contain;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
     margin: 0;
 }
   

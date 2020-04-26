@@ -12,7 +12,7 @@ export class AutofocusDirective implements OnInit {
     if (this.focus) {
       setTimeout(() => {
         this.render.selectRootElement(this.el.nativeElement).focus();
-      }, 1000);
+      });
     }
   }
 }
