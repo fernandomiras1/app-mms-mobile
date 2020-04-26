@@ -5,8 +5,8 @@
 //     right: 0;
 // }
 
-// .example-is-mobile mat-toolbar.app-header{ position: fixed; z-index: 2;}
-// h1.app-name {margin-left: 8px;}
+.example-is-mobile mat-toolbar.app-header{ position: fixed; z-index: 2;}
+h1.app-name {margin-left: 8px;}
 
 .app-container{
     display: flex;
@@ -36,6 +36,7 @@ mat-sidenav{
 
 
 mat-sidenav-content{
+    margin-top: 20px;
     padding: 4px 20px;
 }
 

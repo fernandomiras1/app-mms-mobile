@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     this.form.get('password').valueChanges.pipe(debounceTime(800))
     .subscribe(data => {
       if (data.length >= 6) {
-        this.onSubmit();
+        // this.onSubmit();
       }
     });
   }
@@ -68,7 +68,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log('es valido');
       this.rememberEmail();
       this.showSpinner = true;
       this.authService.loginEmailUser(this.form.get('userName').value, this.form.get('password').value)
