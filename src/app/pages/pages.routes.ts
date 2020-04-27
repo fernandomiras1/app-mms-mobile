@@ -17,12 +17,12 @@ const pagesRoutes: Routes = [
     },
     {
       path: '**',
-      redirectTo: '/home',
+      redirectTo: '/ingresos',
       pathMatch: 'full'
     },
     {
       path: '',
-      redirectTo: '/home',
+      redirectTo: '/ingresos',
       pathMatch: 'full'
     }
 ];

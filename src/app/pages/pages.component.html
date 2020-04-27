@@ -13,12 +13,16 @@
       <!-- Sidenav items -->
       <mat-list>
         <mat-list-item>
-          <!-- <button mat-button class="sidebar-item" routerLink="home" routerLinkActive="active">Home</button> -->
-          <a routerLink="/home">home</a>
+          <button mat-button routerLinkActive="active-link" routerLink="/home">
+            <mat-icon>home</mat-icon>
+            <span>&nbsp;Home</span>
+          </button>
         </mat-list-item>
         <mat-list-item>
-          <a routerLink="/ingresos">ingresos</a>
-          <!-- <button mat-button class="sidebar-item" routerLink="ingresos" routerLinkActive="active">ingresos</button> -->
+          <button mat-button routerLinkActive="active-link" routerLink="/ingresos">
+            <mat-icon>attach_money</mat-icon>
+            <span>&nbsp;Ingresos</span>
+          </button>
         </mat-list-item>
       </mat-list>
     </mat-sidenav>

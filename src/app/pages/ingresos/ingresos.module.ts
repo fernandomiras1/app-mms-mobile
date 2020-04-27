@@ -21,10 +21,6 @@ import { PagesModule } from '../pages.module';
         MaterialModule,
         PagesModule
     ],
-    // exports: [
-    //     CommonModule,
-    //     IngresosRoutingModule,
-    // ],
     declarations: [IngresosComponent]
 })
 export class IngresosModule { }

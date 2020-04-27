@@ -5,6 +5,15 @@
 //     right: 0;
 // }
 
+button {
+   
+    font-weight: bold;
+
+    &.active-link{
+        color: #3f51b5;
+    }
+}
+
 .example-is-mobile mat-toolbar.app-header{ position: fixed; z-index: 2;}
 
 
@@ -30,7 +39,6 @@ mat-sidenav{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 250px;
 }
 
 
