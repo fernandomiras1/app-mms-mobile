@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  apiUrl: 'http://localhost:3000',
   firebase: {
     apiKey: 'AIzaSyCG8GR8Vha8cIoCjefVzAR-YuflwXytJVw',
     authDomain: 'app-mms-mobile.firebaseapp.com',

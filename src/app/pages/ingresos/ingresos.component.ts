@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsApiService } from 'src/app/shared/services/news-api.service';
 import {ThemePalette} from '@angular/material/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
@@ -7,6 +6,7 @@ import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
+import { MmsService } from 'src/app/shared/services/mms-api.service';
 
 export interface ICate {
 	name: string;
@@ -41,7 +41,7 @@ export class IngresosComponent implements OnInit {
 	private formSubmitAttempt: boolean;
 	
 	constructor(private fb: FormBuilder,
-		private newsapi:NewsApiService,
+		private mmsService: MmsService,
 		private authService: AuthService,
 		private router: Router) {
 			console.log('app component constructor called');
@@ -50,8 +50,8 @@ export class IngresosComponent implements OnInit {
 	ngOnInit() {
 		//load articles
 		console.log('Home Component');
-	    this.newsapi.getArticlesByID('techcrunch').subscribe(data => {
-			console.log(data);
+	    this.mmsService.getCategorias().subscribe(data => {
+			console.log('getCategorias', data);
 			// this.mArticles = data['articles'];
 		});
 		//load news sources
