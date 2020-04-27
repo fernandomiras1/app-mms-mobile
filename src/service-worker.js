@@ -79,39 +79,39 @@ workbox.routing.registerRoute(
 
 // test:
 // API with networkFirst strategy
-workbox.routing.registerRoute(
-    new RegExp(/.*\/newsapi\/org$/, 'i'),
-    workbox.strategies.networkFirst()
-)
+// workbox.routing.registerRoute(
+//     new RegExp(/.*\/newsapi\/org$/, 'i'),
+//     workbox.strategies.networkFirst()
+// )
 
-// API with cache-first strategy
-workbox.routing.registerRoute(
-    new RegExp(/.*\/newsapi\/org$/, 'i'),
-    workbox.strategies.cacheFirst({
-      cacheName: 'newsapi',
-      plugins: [
-        new workbox.expiration.Plugin({
-          maxEntries: 60,
-          maxAgeSeconds: 5 * 24 * 60 * 1000, // 5 Days
-        }),
-      ]
-    })
-)
+// // API with cache-first strategy
+// workbox.routing.registerRoute(
+//     new RegExp(/.*\/newsapi\/org$/, 'i'),
+//     workbox.strategies.cacheFirst({
+//       cacheName: 'newsapi',
+//       plugins: [
+//         new workbox.expiration.Plugin({
+//           maxEntries: 60,
+//           maxAgeSeconds: 5 * 24 * 60 * 1000, // 5 Days
+//         }),
+//       ]
+//     })
+// )
   
   
 
 // BACKGROUND SYNC
-workbox.routing.registerRoute(
-    new RegExp('^https://newsapi.org'),
-    workbox.strategies.networkOnly({
-      plugins: [
-        new workbox.backgroundSync.Plugin('userQueue', {
-          maxRetentionTime: 1 * 60 // Retry for max of 1 Hour
-        })
-      ]
-    }),
-    'GET'
-);
+// workbox.routing.registerRoute(
+//     new RegExp('^https://newsapi.org'),
+//     workbox.strategies.networkOnly({
+//       plugins: [
+//         new workbox.backgroundSync.Plugin('userQueue', {
+//           maxRetentionTime: 1 * 60 // Retry for max of 1 Hour
+//         })
+//       ]
+//     }),
+//     'GET'
+// );
 
 
 // We inject manifest here using "workbox-build" in workbox-build-inject.js
