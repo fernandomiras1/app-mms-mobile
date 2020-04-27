@@ -43,9 +43,7 @@ export class IngresosComponent implements OnInit {
 	constructor(private fb: FormBuilder,
 		private mmsService: MmsService,
 		private authService: AuthService,
-		private router: Router) {
-			console.log('app component constructor called');
-	}
+		private router: Router) { }
 
 	ngOnInit() {
 		//load articles
@@ -108,7 +106,6 @@ export class IngresosComponent implements OnInit {
 
 	onSubmit() {
 	if (this.form.valid) {
-		console.log('es valido');
 		// this.spinnerButtonOptions.active = true;
 		// this.spinnerButtonOptions.text = 'Cargando datos...';
 		// this.authService.login(this.form.value).subscribe(data => {

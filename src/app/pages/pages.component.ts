@@ -26,7 +26,6 @@ export class PagesComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log('PagesComponent');
   }
 
   ngOnDestroy(): void {

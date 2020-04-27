@@ -39,18 +39,9 @@ export class AuthService {
 
   // Verficamos si esta logeado
   // este metodo devuelve un observable
-  isAuthFernandoHerrera() {
+  authFirebase() {
    return this.afAuth.authState.pipe(
-     map( fbUser => {
-       
-      if ( fbUser == null ) {
-        // this.router.navigate(['/login']);
-      }
-
-      return fbUser != null
-     })
-     );
-   
+    map( fbUser => fbUser == null ? true : false ));
   }
 
   isAuth() {
