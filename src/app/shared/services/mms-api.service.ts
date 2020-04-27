@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { Categoria } from '../model/ingresos.model';
 
 
 @Injectable({
@@ -14,10 +15,9 @@ export class MmsService {
   constructor(private http:HttpClient) { }
 
 
-  getCategorias() {
+  getCategorias(idTipo: number) {
     const idEntidad = 1;
-    const idTipo = 1;
-    return this.http.get<any[]>(`${this.resourceUrl}/${idEntidad}/${idTipo}`);
+    return this.http.get<Categoria[]>(`${this.resourceUrl}/${idEntidad}/${idTipo}`);
   }
 
   getArticlesByID(source: String){

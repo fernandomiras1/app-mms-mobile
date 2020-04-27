@@ -13,9 +13,9 @@
               aria-label="Number"
               formControlName="comboTipo"
               [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let option of optionsTipo" [value]="option">
-                {{option}}
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              <mat-option *ngFor="let option of optionsTipo" [value]="option" (onSelectionChange)="onSelectedOption($event.source.selected, option.id);">
+                {{option.name}}
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>
@@ -28,13 +28,13 @@
               <mat-error *ngIf="isFieldInvalid('comboCate')">
                 Por favor, ingrese una categoría.
               </mat-error>
-            <mat-autocomplete #autoCate="matAutocomplete" [displayWith]="displayFn">
-                <mat-option class="mat-option-double" *ngFor="let option of filteredOptions | async" [value]="option">
+            <mat-autocomplete #autoCate="matAutocomplete" [displayWith]="displayComboCate">
+                <mat-option class="mat-option-double" *ngFor="let option of filteredOptions_Cate | async" [value]="option">
                     <span>
-                      <strong>{{option.name}}</strong>
-                      <br />
+                      <strong>{{option.Nombre}}</strong>
+                      <!-- <br /> -->
                     </span>
-                    <small>{{option.type}}</small>
+                    <!-- <small>{{option.type}}</small> -->
                 </mat-option>
             </mat-autocomplete>
           </mat-form-field>

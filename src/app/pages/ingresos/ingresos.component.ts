@@ -7,29 +7,28 @@ import {map, startWith} from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
 import { MmsService } from 'src/app/shared/services/mms-api.service';
+import { ICate, ITipo, Categoria } from 'src/app/shared/model/ingresos.model';
+import { tipoEnum } from 'src/app/shared/Enums';
 
-export interface ICate {
-	name: string;
-	type: string;
-}
+
 @Component({
   selector: 'app-ingresos',
   templateUrl: './ingresos.component.html',
   styleUrls: ['./ingresos.component.scss']
 })
 export class IngresosComponent implements OnInit {
-	optionsTipo: string[] = ['INGRESO', 'EGRESO'];
-	listCategorias: ICate[] = [
-		{name: 'Alimentacion', type: 'Egreso'},
-		{name: 'Auto', type: 'Egreso'},
-		{name: 'Yo', type: 'Egreso'}
-	]
+	optionsTipo: ITipo[] = [
+		{id: 1, name: 'INGRESO'},
+		{id: 2, name: 'EGRESO'}
+	];
+
+	listCategorias: Categoria[] = [];
 	listSubcate: ICate[] = [
 		{name: 'Gastos', type: 'Yo'},
 		{name: 'GYM', type: 'Yo'},
 		{name: 'Ahorros', type: 'Yo'}
 	]
-	filteredOptions: Observable<ICate[]>;
+	filteredOptions_Cate: Observable<Categoria[]>;
 	filteredSubcate: Observable<ICate[]>;
   	mArticles:Array<any>;
 	mSources:Array<any>;
@@ -46,16 +45,13 @@ export class IngresosComponent implements OnInit {
 		private router: Router) { }
 
 	ngOnInit() {
-		//load articles
-		console.log('Home Component');
-	    this.mmsService.getCategorias().subscribe(data => {
-			console.log('getCategorias', data);
-			// this.mArticles = data['articles'];
+	    this.mmsService.getCategorias(2).subscribe((data: Categoria[]) => {
+			this.listCategorias = data;
+			console.log('getCategorias', this.listCategorias);
 		});
-		//load news sources
-		// this.newsapi.initSources().subscribe(data=> this.mSources = data['sources']);	
+
 		this.form = this.fb.group({
-			comboTipo: ['EGRESO', Validators.required],
+			comboTipo: [this.optionsTipo.find(tipo => tipo.id === tipoEnum.EGRESO), Validators.required],
 			comboCate: ['', Validators.required],
 			comboSubcate: ['', Validators.required],
 			userName: ['', Validators.required],
@@ -63,9 +59,9 @@ export class IngresosComponent implements OnInit {
 		});
 
 		// Categoria - Autocomeplete
-		this.filteredOptions = this.form.get('comboCate').valueChanges.pipe(
+		this.filteredOptions_Cate = this.form.get('comboCate').valueChanges.pipe(
 			startWith(''),
-			map(value => typeof value === 'string' ? value : value.name),
+			map(value => typeof value === 'string' ? value : value.Nombre),
 			map(name => name ? this._filter(name) : this.listCategorias.slice())
 		);
 
@@ -77,13 +73,29 @@ export class IngresosComponent implements OnInit {
 		);
 	}
 
+	onSelectedOption(isSelected: boolean, idTipo: number): void {
+		if (isSelected) {
+		  this.mmsService.getCategorias(idTipo).subscribe((resu: Categoria[]) => {
+				console.log(resu);
+				this.formValue('comboCate').setValue('');
+				this.listCategorias = null;
+				this.listCategorias = resu;
+				this.filteredOptions_Cate;
+			});
+		}
+	}
+
+	formValue(value: string) {
+		return this.form.get(value);
+	}
+
 	displayFn(cate: ICate): string {
 		return cate && cate.name ? cate.name : '';
-	  }
+	}
 	
-	private _filter(name: string): ICate[] {
+	private _filter(name: string): Categoria[] {
 	const filterValue = name.toLowerCase();
-	return this.listCategorias.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+	return this.listCategorias.filter(option => option.Nombre.toLowerCase().indexOf(filterValue) === 0);
 	}
 
 	private _filterSubCate(name: string): ICate[] {
@@ -126,7 +138,7 @@ export class IngresosComponent implements OnInit {
 	}
 
 	displayComboCate(item): string {
-	return item ? item.name : item;
+	return item ? item.Nombre : item;
 	}
 
 	public logoutUser(): void {
