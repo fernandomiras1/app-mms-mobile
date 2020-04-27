@@ -18,7 +18,8 @@ workbox.core.clientsClaim();
 workbox.googleAnalytics.initialize();
 
 const pageRoutes = [
-    "/login",    
+    "/login",
+    "/ingresos",    
     "/home"
 ];
 
@@ -96,21 +97,6 @@ workbox.routing.registerRoute(
     })
 );
 
-// // API with cache-first strategy
-workbox.routing.registerRoute(
-    new RegExp(/.*\/app-mms-nodejs\/herokuapp$/, 'i'),
-    workbox.strategies.cacheFirst({
-      cacheName: 'herokuapp',
-      plugins: [
-        new workbox.expiration.Plugin({
-          maxEntries: 60,
-          maxAgeSeconds: 5 * 24 * 60 * 1000, // 5 Days
-        }),
-      ]
-    })
-)
-  
-  
 
 // BACKGROUND SYNC
 // workbox.routing.registerRoute(
