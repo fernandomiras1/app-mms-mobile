@@ -84,6 +84,18 @@ workbox.routing.registerRoute(
 //     workbox.strategies.networkFirst()
 // )
 
+workbox.routing.registerRoute(
+    new RegExp('^https:\/\/app-mms-nodejs\.herokuapp\.com'),
+    new workbox.strategies.cacheFirst({
+      cacheName: `heroku-app`,
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxAgeSeconds: WEEK * 2
+        })
+      ]
+    })
+);
+
 // // API with cache-first strategy
 workbox.routing.registerRoute(
     new RegExp(/.*\/app-mms-nodejs\/herokuapp$/, 'i'),
