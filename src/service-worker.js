@@ -85,24 +85,24 @@ workbox.routing.registerRoute(
 // )
 
 // // API with cache-first strategy
-// workbox.routing.registerRoute(
-//     new RegExp(/.*\/newsapi\/org$/, 'i'),
-//     workbox.strategies.cacheFirst({
-//       cacheName: 'newsapi',
-//       plugins: [
-//         new workbox.expiration.Plugin({
-//           maxEntries: 60,
-//           maxAgeSeconds: 5 * 24 * 60 * 1000, // 5 Days
-//         }),
-//       ]
-//     })
-// )
+workbox.routing.registerRoute(
+    new RegExp(/.*\/app-mms-nodejs\/herokuapp$/, 'i'),
+    workbox.strategies.cacheFirst({
+      cacheName: 'herokuapp',
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxEntries: 60,
+          maxAgeSeconds: 5 * 24 * 60 * 1000, // 5 Days
+        }),
+      ]
+    })
+)
   
   
 
 // BACKGROUND SYNC
 // workbox.routing.registerRoute(
-//     new RegExp('^https://newsapi.org'),
+//     new RegExp('^https://app-mms-nodejs.herokuapp.com'),
 //     workbox.strategies.networkOnly({
 //       plugins: [
 //         new workbox.backgroundSync.Plugin('userQueue', {
@@ -110,7 +110,7 @@ workbox.routing.registerRoute(
 //         })
 //       ]
 //     }),
-//     'GET'
+//     'POST'
 // );
 
 
