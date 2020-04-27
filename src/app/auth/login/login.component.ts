@@ -35,12 +35,18 @@ export class LoginComponent implements OnInit {
       rememberEmail: [email ? true : false]
     });
 
-    this.form.get('password').valueChanges.pipe(debounceTime(800))
-    .subscribe(data => {
-      if (data.length >= 6) {
-        // this.onSubmit();
+    this.authService.authFirebase().subscribe((isAuth: boolean) => {
+      if (isAuth) {
+        this.onLoginRedirect('');
       }
     });
+
+    // this.form.get('password').valueChanges.pipe(debounceTime(800))
+    // .subscribe(data => {
+    //   if (data.length >= 6) {
+    //     this.onSubmit();
+    //   }
+    // });
   }
 
   isFieldInvalid(field: string) {
@@ -72,6 +78,7 @@ export class LoginComponent implements OnInit {
       this.showSpinner = true;
       this.authService.loginEmailUser(this.form.get('userName').value, this.form.get('password').value)
       .then((res) => {
+        console.log('resu login', res);
         this.snackBar.open('Logeado Correctamente', 'Aceptar', {
             duration: 3000
         });

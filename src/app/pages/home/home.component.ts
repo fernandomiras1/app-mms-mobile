@@ -48,7 +48,6 @@ export class HomeComponent implements OnInit {
 		private router: Router) {}
 
 	ngOnInit() {
-		console.log('Home Component');
 	    this.newsapi.getArticlesByID('techcrunch').subscribe(data => {
 			console.log(data);
 			// this.mArticles = data['articles'];
