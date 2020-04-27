@@ -1,10 +1,10 @@
 // import { NgModule } from '@angular/core';
 // import { CommonModule } from '@angular/common';
 // import { HttpClientModule } from '@angular/common/http';
-// import { HomeRoutingModule } from './home.routing';
+// import { IngresosRoutingModule } from './ingresos.routing';
 
 // // componentes
-// import { HomeComponent } from './home.component';
+// import { IngresosComponent } from './ingresos.component';
 
 // //  material
 // import { MaterialModule } from 'src/app/shared/material.module';
@@ -16,11 +16,19 @@
 //     imports: [
 //         CommonModule,
 //         ReactiveFormsModule,
-//         HomeRoutingModule,
+//         IngresosRoutingModule,
 //         HttpClientModule,
 //         MaterialModule,
 //         PagesModule
 //     ],
-//     declarations: [HomeComponent]
+//     exports: [
+//         CommonModule,
+//         ReactiveFormsModule,
+//         IngresosRoutingModule,
+//         HttpClientModule,
+//         MaterialModule,
+//         PagesModule
+//     ],
+//     declarations: [IngresosComponent]
 // })
-// export class HomeModule { }
+// export class IngresosModule { }

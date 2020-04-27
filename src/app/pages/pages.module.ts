@@ -9,9 +9,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PagesRoutingModule } from './pages.routes';
 import { ComponentsModule } from '../components/components.module';
+import { IngresosComponent } from './ingresos/ingresos.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HomeComponent,
+    IngresosComponent
+  ],
   imports: [
     CommonModule,
     PagesRoutingModule,

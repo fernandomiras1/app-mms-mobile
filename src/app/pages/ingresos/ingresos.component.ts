@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsApiService } from 'src/app/shared/services/news-api.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
-// import { ButtonOpts } from 'mat-progress-buttons';
 import {ThemePalette} from '@angular/material/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
@@ -15,11 +13,11 @@ export interface ICate {
 	type: string;
 }
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-ingresos',
+  templateUrl: './ingresos.component.html',
+  styleUrls: ['./ingresos.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class IngresosComponent implements OnInit {
 	optionsTipo: string[] = ['INGRESO', 'EGRESO'];
 	listCategorias: ICate[] = [
 		{name: 'Alimentacion', type: 'Egreso'},
@@ -51,7 +49,6 @@ export class HomeComponent implements OnInit {
 
 	ngOnInit() {
 		//load articles
-		console.log('logib');
 		console.log('Home Component');
 	    this.newsapi.getArticlesByID('techcrunch').subscribe(data => {
 			console.log(data);

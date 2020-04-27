@@ -1,0 +1,126 @@
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <div fxFlex="100%">
+    <mat-card class="example-card">
+      <mat-card-title>Nuevo</mat-card-title>
+      <mat-card-subtitle>mms</mat-card-subtitle>
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+          <mat-form-field class="mat-input">
+            <mat-label>Tipo</mat-label>
+            <input matInput type="text"
+              autocomplete="off"
+              aria-label="Number"
+              formControlName="comboTipo"
+              [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of optionsTipo" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <mat-form-field class="mat-input">
+            <mat-label>Categorías</mat-label>
+            <input matInput type="text" 
+              formControlName="comboCate"
+              [matAutocomplete]="autoCate">
+              <mat-error *ngIf="isFieldInvalid('comboCate')">
+                Por favor, ingrese una categoría.
+              </mat-error>
+            <mat-autocomplete #autoCate="matAutocomplete" [displayWith]="displayFn">
+                <mat-option class="mat-option-double" *ngFor="let option of filteredOptions | async" [value]="option">
+                    <span>
+                      <strong>{{option.name}}</strong>
+                      <br />
+                    </span>
+                    <small>{{option.type}}</small>
+                </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        
+          <mat-form-field class="mat-input">
+            <mat-label>Sub Categoría</mat-label>
+            <input matInput type="text" 
+              formControlName="comboSubcate"
+              [matAutocomplete]="autoSubcate">
+              <mat-error *ngIf="isFieldInvalid('comboSubcate')">
+                Por favor, ingrese su Sub categoría.
+              </mat-error>
+            <mat-autocomplete #autoSubcate="matAutocomplete" [displayWith]="displayFn">
+                <mat-option class="mat-option-double" *ngFor="let option of filteredSubcate | async" [value]="option">
+                    <span>
+                      <strong>{{option.name}}</strong>
+                      <br />
+                    </span>
+                    <small>{{option.type}}</small>
+                </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <mat-form-field class="mat-input">
+            <mat-label>Precio</mat-label>
+            <input matInput formControlName="userName">
+            <mat-error *ngIf="isFieldInvalid('userName')">
+              Por favor, ingrese su nombre de usuario
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="mat-input">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password">
+            <mat-error *ngIf="isFieldInvalid('password')">
+              Por favor, ingrese su contraseña
+            </mat-error>
+          </mat-form-field>
+          <mat-progress-spinner style="margin:0 auto;"
+              diameter="20"
+              [color]="color"
+              [mode]="mode"
+              [value]="value">
+          </mat-progress-spinner>
+        </form>
+      </mat-card-content>
+      <mat-card-actions class="action-buttons">
+        <button mat-button color="primary"><mat-icon>thumb_up_alt</mat-icon> Guardar</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<!-- <mat-toolbar color="primary">
+  
+    <button mat-button (click)="sidenav.open()" ><mat-icon>menu</mat-icon></button>
+    <span>M.M.S</span>  
+    <span class="example-spacer"></span>
+    
+    <button mat-button (click)="logoutUser()"><mat-icon>exit_to_app</mat-icon></button>
+    
+  </mat-toolbar>
+  
+  
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item> Settings </button>
+    <button mat-menu-item> Cerrar Sessión </button>
+  </mat-menu> -->
+  
+  
+  <!-- <mat-sidenav-container class="example-container">
+    
+    <mat-sidenav #sidenav class="example-sidenav">
+      <mat-list class="list-nav">
+          <mat-list-item class="list-item">
+            
+            <mat-icon>comment</mat-icon>
+            <span class="source-name"> Home</span>
+          
+          </mat-list-item>
+      </mat-list>
+    </mat-sidenav>
+    
+  
+    estaba aca la card
+  
+  </mat-sidenav-container> -->
+
+  

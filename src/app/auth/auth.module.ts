@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { MaterialModule } from '../shared/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+
 import { DirectivesModule } from '../shared/directives/directives.module';
 
 @NgModule({
@@ -13,7 +13,6 @@ import { DirectivesModule } from '../shared/directives/directives.module';
         MaterialModule,
         AuthRoutingModule,
         ReactiveFormsModule,
-        MatCheckboxModule,
         DirectivesModule
     ],
     declarations: [
