@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
         this.snackBar.open('Logeado Correctamente', 'Aceptar', {
             duration: 3000
         });
-        this.onLoginRedirect('home');
+        this.onLoginRedirect('');
       }).catch(err => {
         console.log('err', err.message);
         this.showSpinner = false;

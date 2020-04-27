@@ -14,15 +14,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { PagesComponent } from './pages/pages.component';
 import { PagesModule } from './pages/pages.module';
-import { LoginComponent } from './auth/login/login.component';
-import { DirectivesModule } from './shared/directives/directives.module';
-import { MaterialModule } from './shared/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     PagesComponent
   ],
   imports: [
@@ -33,10 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    PagesModule,
-    MaterialModule,
-    ReactiveFormsModule,
-    DirectivesModule
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

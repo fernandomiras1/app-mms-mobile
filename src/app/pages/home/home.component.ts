@@ -45,13 +45,9 @@ export class HomeComponent implements OnInit {
 	constructor(private fb: FormBuilder,
 		private newsapi:NewsApiService,
 		private authService: AuthService,
-		private router: Router) {
-			console.log('app component constructor called');
-	}
+		private router: Router) {}
 
 	ngOnInit() {
-		//load articles
-		console.log('logib');
 		console.log('Home Component');
 	    this.newsapi.getArticlesByID('techcrunch').subscribe(data => {
 			console.log(data);
@@ -95,12 +91,6 @@ export class HomeComponent implements OnInit {
 	const filterValue = name.toLowerCase();
 	return this.listSubcate.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
 	}
-
-
-	// searchArticles(source){
-	// 	console.log("selected source is: "+source);
-	// 	this.newsapi.getArticlesByID(source).subscribe(data => this.mArticles = data['articles']);
-	// }
 
 	isFieldInvalid(field: string) {
 		return (
