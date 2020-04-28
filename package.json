@@ -1,9 +1,10 @@
 {
   "name": "app-mms-mobile",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "release": "release minor",
     "build": "npm-run-all clean build:front:**",
     "build:front:ng": "ng build --prod",
     "build:front:pwa": "node workbox-config.js",
