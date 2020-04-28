@@ -6,29 +6,35 @@
       <mat-card-content>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-          <mat-form-field class="mat-input">
+          <mat-radio-group formControlName="radioTipo" aria-label="Select an option">
+            <mat-radio-button color="primary" value="1">INGRESO</mat-radio-button>
+            <mat-radio-button color="primary" checked="true" value="2">EGRESO</mat-radio-button>
+          </mat-radio-group>
+
+          <!-- <mat-form-field class="mat-input">
             <mat-label>Tipo</mat-label>
             <input matInput type="text"
               autocomplete="off"
               aria-label="Number"
               formControlName="comboTipo"
               [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-autocomplete #auto="matAutocomplete" (closed)="closedTipo($event)" [displayWith]="displayFn">
               <mat-option *ngFor="let option of optionsTipo" [value]="option" (onSelectionChange)="onSelectedOption($event.source.selected, option.id);">
                 {{option.name}}
               </mat-option>
             </mat-autocomplete>
-          </mat-form-field>
+          </mat-form-field> -->
 
           <mat-form-field class="mat-input">
             <mat-label>Categorías</mat-label>
-            <input matInput type="text" 
+            <input matInput type="text"
+              autocomplete="off"
               formControlName="comboCate"
               [matAutocomplete]="autoCate">
               <mat-error *ngIf="isFieldInvalid('comboCate')">
                 Por favor, ingrese una categoría.
               </mat-error>
-            <mat-autocomplete #autoCate="matAutocomplete" [displayWith]="displayComboCate">
+            <mat-autocomplete isOpen="true" #autoCate="matAutocomplete" [displayWith]="displayComboCate">
                 <mat-option class="mat-option-double" *ngFor="let option of filteredOptions_Cate | async" [value]="option">
                     <span>
                       <strong>{{option.Nombre}}</strong>

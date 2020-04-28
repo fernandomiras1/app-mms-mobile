@@ -51,7 +51,7 @@ export class IngresosComponent implements OnInit {
 		});
 
 		this.form = this.fb.group({
-			comboTipo: [this.optionsTipo.find(tipo => tipo.id === tipoEnum.EGRESO), Validators.required],
+			radioTipo: [String(tipoEnum.EGRESO)],
 			comboCate: ['', Validators.required],
 			comboSubcate: ['', Validators.required],
 			userName: ['', Validators.required],
@@ -71,18 +71,31 @@ export class IngresosComponent implements OnInit {
 			map(value => typeof value === 'string' ? value : value.name),
 			map(name => name ? this._filterSubCate(name) : this.listSubcate.slice())
 		);
+
+		this.formValue('radioTipo').valueChanges.subscribe(idTipo => {
+			this.formValue('comboCate').setValue('');
+			this.mmsService.getCategorias(idTipo).subscribe((resu: Categoria[]) => {
+				console.log(resu);
+				this.listCategorias = resu;
+				this.filteredOptions_Cate.subscribe(res => {
+					console.log(res);
+				});
+			});
+		})
 	}
 
 	onSelectedOption(isSelected: boolean, idTipo: number): void {
 		if (isSelected) {
 		  this.mmsService.getCategorias(idTipo).subscribe((resu: Categoria[]) => {
 				console.log(resu);
-				this.formValue('comboCate').setValue('');
-				this.listCategorias = null;
 				this.listCategorias = resu;
-				this.filteredOptions_Cate;
+				this._filter('');
 			});
 		}
+	}
+
+	closedTipo(event) {
+		console.log(event);
 	}
 
 	formValue(value: string) {

@@ -12,6 +12,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatRadioModule } from '@angular/material/radio';
 // import { MatListModule } from '@angular/material/list';
 // import { MatProgressBarModule } from '@angular/material/progress-bar';
 @NgModule({
@@ -29,6 +30,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatRadioModule
     // MatListModule,
     // MatProgressBarModule,
   ]

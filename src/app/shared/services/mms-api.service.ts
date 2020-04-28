@@ -10,7 +10,7 @@ import { Categoria } from '../model/ingresos.model';
 export class MmsService {
   
   api_key = '89937fd3672b4349aa1486f1c80d1189';
-  private resourceUrl = environment.apiUrl + '/config';
+  private resourceUrl = environment.apiUrl + '/config/cate';
 
   constructor(private http:HttpClient) { }
 

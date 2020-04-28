@@ -4,7 +4,8 @@ export class Categoria {
         public id: number,
         public Id_Entidad: number,
         public Id_Tipo: number,
-        public Nombre: string
+        public Nombre: string,
+        public Tipo: string
     ) { }
 }
 
