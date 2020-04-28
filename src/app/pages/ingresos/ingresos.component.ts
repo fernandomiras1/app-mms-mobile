@@ -45,7 +45,7 @@ export class IngresosComponent implements OnInit {
 		private router: Router) { }
 
 	ngOnInit() {
-	    this.mmsService.getCategorias(2).subscribe((data: Categoria[]) => {
+	    this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((data: Categoria[]) => {
 			this.listCategorias = data;
 			console.log('getCategorias', this.listCategorias);
 		});
@@ -82,16 +82,6 @@ export class IngresosComponent implements OnInit {
 				});
 			});
 		})
-	}
-
-	onSelectedOption(isSelected: boolean, idTipo: number): void {
-		if (isSelected) {
-		  this.mmsService.getCategorias(idTipo).subscribe((resu: Categoria[]) => {
-				console.log(resu);
-				this.listCategorias = resu;
-				this._filter('');
-			});
-		}
 	}
 
 	closedTipo(event) {

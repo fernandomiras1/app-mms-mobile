@@ -38,9 +38,9 @@
                 <mat-option class="mat-option-double" *ngFor="let option of filteredOptions_Cate | async" [value]="option">
                     <span>
                       <strong>{{option.Nombre}}</strong>
-                      <!-- <br /> -->
+                      <br />
                     </span>
-                    <!-- <small>{{option.type}}</small> -->
+                    <small>{{option.Tipo}}</small>
                 </mat-option>
             </mat-autocomplete>
           </mat-form-field>
