@@ -12,12 +12,13 @@ export class NumericKeypadComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @HostListener('click') onClick() {
-    let part = this.el.nativeElement.querySelector('.content .number');
-    if (part) {
-
-      // var value = part.find(".number").text();
-      console.log('es el', part.text);
+  onClick(number: any, element?: any) {
+    if (String(number) !== '<') {
+      console.log(number);
+      const numberinputs = document.querySelectorAll('.numberinput');
+      for (const key in numberinputs) {
+        console.log(key);
+      }
     }
   }
 
