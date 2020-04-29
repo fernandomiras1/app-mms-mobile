@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import {ThemePalette} from '@angular/material/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
@@ -9,12 +9,14 @@ import { Router } from '@angular/router';
 import { MmsService } from 'src/app/shared/services/mms-api.service';
 import { ICate, ITipo, Categoria } from 'src/app/shared/model/ingresos.model';
 import { tipoEnum } from 'src/app/shared/Enums';
+import { removeSummaryDuplicates } from '@angular/compiler';
 
 
 @Component({
   selector: 'app-ingresos',
   templateUrl: './ingresos.component.html',
-  styleUrls: ['./ingresos.component.scss']
+  styleUrls: ['./ingresos.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IngresosComponent implements OnInit {
 	optionsTipo: ITipo[] = [
@@ -41,13 +43,17 @@ export class IngresosComponent implements OnInit {
 	
 	constructor(private fb: FormBuilder,
 		private mmsService: MmsService,
+		private cdRef: ChangeDetectorRef,
 		private authService: AuthService,
 		private router: Router) { }
 
 	ngOnInit() {
-	    this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((data: Categoria[]) => {
-			this.listCategorias = data;
-			console.log('getCategorias', this.listCategorias);
+	    this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
+			if (resu.ok) {
+				console.log(resu);
+				// this.cdRef.detectChanges();
+				this.listCategorias = resu.result;
+			}
 		});
 
 		this.form = this.fb.group({
@@ -73,13 +79,12 @@ export class IngresosComponent implements OnInit {
 		);
 
 		this.formValue('radioTipo').valueChanges.subscribe(idTipo => {
-			this.formValue('comboCate').setValue('');
-			this.mmsService.getCategorias(idTipo).subscribe((resu: Categoria[]) => {
-				console.log(resu);
-				this.listCategorias = resu;
-				this.filteredOptions_Cate.subscribe(res => {
-					console.log(res);
-				});
+			console.log(idTipo);
+			this.mmsService.getCategorias(idTipo).subscribe((resu: any) => {
+				if (resu.ok) {
+					this.listCategorias = resu.result;
+					this.cdRef.detectChanges();
+				}
 			});
 		})
 	}
@@ -90,6 +95,15 @@ export class IngresosComponent implements OnInit {
 
 	formValue(value: string) {
 		return this.form.get(value);
+	}
+
+	openedAutoCompleteCate(event) {
+		// this.mmsService.getCategorias(this.formValue('radioTipo').value).subscribe((resu: any) => {
+		// 	if (resu.ok) {
+		// 		this.listCategorias = resu.result;
+		// 		this.cdRef.detectChanges();
+		// 	}
+		// });
 	}
 
 	displayFn(cate: ICate): string {

@@ -34,7 +34,7 @@
               <mat-error *ngIf="isFieldInvalid('comboCate')">
                 Por favor, ingrese una categoría.
               </mat-error>
-            <mat-autocomplete isOpen="true" #autoCate="matAutocomplete" [displayWith]="displayComboCate">
+            <mat-autocomplete (opened)="openedAutoCompleteCate($event)" #autoCate="matAutocomplete" [displayWith]="displayComboCate">
                 <mat-option class="mat-option-double" *ngFor="let option of filteredOptions_Cate | async" [value]="option">
                     <span>
                       <strong>{{option.Nombre}}</strong>
