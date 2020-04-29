@@ -14,6 +14,7 @@ import { debounceTime } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
   color: ThemePalette = 'primary';
+  regexEmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 20;
   form: FormGroup;
@@ -35,11 +36,11 @@ export class LoginComponent implements OnInit {
       rememberEmail: [email ? true : false]
     });
 
-    this.authService.authFirebase().subscribe((isAuth: boolean) => {
-      if (isAuth) {
-        this.onLoginRedirect('');
-      }
-    });
+    // this.authService.authFirebase().subscribe((isAuth: boolean) => {
+    //   if (isAuth) {
+    //     this.onLoginRedirect('');
+    //   }
+    // });
 
     // this.form.get('password').valueChanges.pipe(debounceTime(800))
     // .subscribe(data => {

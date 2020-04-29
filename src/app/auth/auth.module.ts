@@ -6,6 +6,7 @@ import { MaterialModule } from '../shared/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { DirectivesModule } from '../shared/directives/directives.module';
+import { NumericKeypadComponent } from './numeric-keypad/numeric-keypad.component';
 
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import { DirectivesModule } from '../shared/directives/directives.module';
         DirectivesModule
     ],
     declarations: [
-        LoginComponent
+        LoginComponent,
+        NumericKeypadComponent
     ]
 })
 export class AuthModule { }

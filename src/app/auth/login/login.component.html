@@ -1,4 +1,25 @@
-<mat-card class="example-card">
+
+
+<div class="div-input" *ngIf="!this.form.get('rememberEmail').value">
+  <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/logo/logo-mms-64.png)'}" class="example-header-image"></div>
+  <h1 class="title">M.M.S</h1>
+  <img class="example-header-image" src="../assets/logo/logo-mms-64.png" alt="">
+    <form [formGroup]="form">
+            <mat-form-field class="mat-input-login">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" [pattern]="regexEmail" formControlName="userName" [appAutofocus]="!getValue('rememberEmail')">
+              <mat-error *ngIf="isFieldInvalid('userName')">
+                Por favor, ingrese su nombre de usuario
+              </mat-error>
+            </mat-form-field>
+            <div class="mat-checkbox">
+              <mat-checkbox color="primary" class="mat-input-login" formControlName="rememberEmail">Recuérdame</mat-checkbox>
+            </div>
+        </form>
+</div>
+
+
+<!-- <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/logo/logo-mms-64.png)'}" class="example-header-image"></div>
       <mat-card-title class="title">MMS</mat-card-title>
@@ -11,13 +32,6 @@
               <input matInput formControlName="userName" [appAutofocus]="!getValue('rememberEmail')">
               <mat-error *ngIf="isFieldInvalid('userName')">
                 Por favor, ingrese su nombre de usuario
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field class="mat-input">
-              <mat-label>Password</mat-label>
-              <input matInput type="tel" pattern="[0-9]*" inputmode="numeric" formControlName="password" [appAutofocus]="getValue('rememberEmail')">
-              <mat-error *ngIf="isFieldInvalid('password')">
-                Por favor, ingrese su contraseña
               </mat-error>
             </mat-form-field>
             <mat-checkbox color="primary" class="mat-input" formControlName="rememberEmail">Recuérdame</mat-checkbox>
@@ -34,4 +48,5 @@
           [value]="value">
       </mat-progress-spinner>
     </mat-card-actions>
-</mat-card>
+</mat-card> -->
+<app-numeric-keypad *ngIf="this.form.get('rememberEmail').value"></app-numeric-keypad>
