@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   tokenUser: string;
   showSpinner = false;
+  showPass = false;
   public password:number[] = [];
 
 
@@ -33,7 +34,6 @@ export class LoginComponent implements OnInit {
     const email = localStorage.getItem('email');
     this.form = this.fb.group({
       userName: [email ? email : '', Validators.required],
-      password: ['', Validators.required],
       rememberEmail: [email ? true : false]
     });
 
@@ -75,38 +75,41 @@ export class LoginComponent implements OnInit {
   }
 
   onNumberClick(value: any) {
-    console.log(value);
     if (value.accion === 'add') {
       this.password.push(value.number);
     } else {
       this.password.pop();
     }
-    // if (this.password.find(value => value === value))
   }
 
   onSubmit() {
-
-    const singleNumber = String(this.password.join(''));
-    console.log(singleNumber); //12345
-
+    
     if (this.form.valid) {
-      this.rememberEmail();
-      this.showSpinner = true;
-      this.authService.loginEmailUser(this.form.get('userName').value, this.form.get('password').value)
-      .then((res) => {
-        console.log('resu login', res);
-        this.snackBar.open('Logeado Correctamente', 'Aceptar', {
-            duration: 3000
-        });
-        this.onLoginRedirect('');
-      }).catch(err => {
-        console.log('err', err.message);
-        this.showSpinner = false;
-        this.snackBar.open('Error, Intentelo Nuevamente', 'Aceptar', {
-          duration: 3000
-        });
+      
+      this.showPass = true;
+      const passwordNumber = String(this.password.join(''));
+      console.log(passwordNumber); //12345
 
-      });
+      if (passwordNumber.length >= 6) {
+        this.rememberEmail();
+        console.log('es valido');
+        this.showSpinner = true;
+        this.authService.loginEmailUser(this.form.get('userName').value, passwordNumber)
+        .then((res) => {
+          console.log('resu login', res);
+          this.snackBar.open('Logeado Correctamente', 'Aceptar', {
+              duration: 3000
+          });
+          this.onLoginRedirect('');
+        }).catch(err => {
+          console.log('err', err.message);
+          this.showSpinner = false;
+          this.snackBar.open('Error, Intentelo Nuevamente', 'Aceptar', {
+            duration: 3000
+          });
+  
+        });
+      }
     }
     this.formSubmitAttempt = true;
   }

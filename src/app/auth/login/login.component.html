@@ -1,10 +1,12 @@
 
 <div class="div-input">
-  <div *ngIf="!this.form.get('rememberEmail').value" mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/logo/logo-mms-64.png)'}" class="example-header-image"></div>
-  <h1 *ngIf="!this.form.get('rememberEmail').value" class="title">M.M.S</h1>
-  <img *ngIf="!this.form.get('rememberEmail').value" class="example-header-image" src="../assets/logo/logo-mms-64.png" alt="">
+  <ng-container *ngIf="!showPass">
+    <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/logo/logo-mms-64.png)'}" class="example-header-image"></div>
+    <h1 class="title">M.M.S</h1>
+    <img class="example-header-image" src="../assets/logo/logo-mms-64.png" alt="">
+  </ng-container>
     <form [formGroup]="form">
-      <mat-form-field *ngIf="!this.form.get('rememberEmail').value" class="mat-input-login">
+      <mat-form-field *ngIf="!showPass" class="mat-input-login">
         <mat-label>Email</mat-label>
         <input matInput type="email" [pattern]="regexEmail" formControlName="userName" [appAutofocus]="!getValue('rememberEmail')">
         <mat-error *ngIf="isFieldInvalid('userName')">
@@ -17,7 +19,10 @@
     </form>
 </div>
       
-<app-numeric-keypad (onNumberClick)="onNumberClick($event)" *ngIf="this.form.get('rememberEmail').value"></app-numeric-keypad>
+<app-numeric-keypad
+  *ngIf="form.valid && showPass"
+  (onNumberClick)="onNumberClick($event)">
+</app-numeric-keypad>
 
 
 <button class="btn-footer" mat-raised-button color="primary" (click)="onSubmit()">
