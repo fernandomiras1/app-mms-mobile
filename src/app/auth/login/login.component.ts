@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   showPass = false;
   public password:number[] = [];
 
-
+  // Validators.pattern(this.regexEmail)
   private formSubmitAttempt: boolean;
   constructor(private fb: FormBuilder,
               private router: Router,
@@ -33,9 +33,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     const email = localStorage.getItem('email');
     this.form = this.fb.group({
-      userName: [email ? email : '', Validators.required],
+      userName: [email ? email : '', [Validators.required]],
       rememberEmail: [email ? true : false]
     });
+
+    if (this.form.valid) {
+      this.showPass = true;
+    }
 
     // this.authService.authFirebase().subscribe((isAuth: boolean) => {
     //   if (isAuth) {
@@ -125,6 +129,10 @@ export class LoginComponent implements OnInit {
 
   getValue(value: string): string {
     return this.form.get(value).value;
+  }
+
+  get userName() {
+    return this.form.get('userName');
   }
 
 }

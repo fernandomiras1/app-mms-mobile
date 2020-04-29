@@ -8,7 +8,7 @@
     <form [formGroup]="form">
       <mat-form-field *ngIf="!showPass" class="mat-input-login">
         <mat-label>Email</mat-label>
-        <input matInput type="email" [pattern]="regexEmail" formControlName="userName" [appAutofocus]="!getValue('rememberEmail')">
+        <input matInput type="email" formControlName="userName" [appAutofocus]="!getValue('rememberEmail')">
         <mat-error *ngIf="isFieldInvalid('userName')">
           Por favor, ingrese su nombre de usuario
         </mat-error>

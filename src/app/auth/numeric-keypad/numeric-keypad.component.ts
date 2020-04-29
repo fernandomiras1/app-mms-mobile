@@ -8,12 +8,11 @@ import { Component, OnInit, ElementRef, Output, EventEmitter } from '@angular/co
 export class NumericKeypadComponent implements OnInit {
 
   constructor(private el: ElementRef) { }
-  isClick: boolean = false;
   @Output() onNumberClick: EventEmitter<Object> = new EventEmitter<Object>();
 
   ngOnInit(): void {
   }
-  onClick(number: any, isClick3?: boolean) {
+  onClick(number: any) {
     const numberinputs = document.querySelectorAll('.numberinput');
     if (String(number) !== '<') {
       this.onNumberClick.emit({ number, accion: 'add'});
