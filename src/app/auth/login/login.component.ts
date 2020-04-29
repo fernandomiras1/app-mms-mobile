@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   tokenUser: string;
   showSpinner = false;
+  public password:number[] = [];
 
 
   private formSubmitAttempt: boolean;
@@ -73,7 +74,21 @@ export class LoginComponent implements OnInit {
     return true;
   }
 
+  onNumberClick(value: any) {
+    console.log(value);
+    if (value.accion === 'add') {
+      this.password.push(value.number);
+    } else {
+      this.password.pop();
+    }
+    // if (this.password.find(value => value === value))
+  }
+
   onSubmit() {
+
+    const singleNumber = String(this.password.join(''));
+    console.log(singleNumber); //12345
+
     if (this.form.valid) {
       this.rememberEmail();
       this.showSpinner = true;

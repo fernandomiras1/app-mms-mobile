@@ -17,7 +17,7 @@
     </form>
 </div>
       
-<app-numeric-keypad *ngIf="this.form.get('rememberEmail').value"></app-numeric-keypad>
+<app-numeric-keypad (onNumberClick)="onNumberClick($event)" *ngIf="this.form.get('rememberEmail').value"></app-numeric-keypad>
 
 
 <button class="btn-footer" mat-raised-button color="primary" (click)="onSubmit()">

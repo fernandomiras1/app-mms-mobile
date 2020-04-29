@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-numeric-keypad',
@@ -8,14 +8,15 @@ import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 export class NumericKeypadComponent implements OnInit {
 
   constructor(private el: ElementRef) { }
+  isClick: boolean = false;
+  @Output() onNumberClick: EventEmitter<Object> = new EventEmitter<Object>();
 
   ngOnInit(): void {
   }
-
-  onClick(number: any) {
+  onClick(number: any, isClick3?: boolean) {
     const numberinputs = document.querySelectorAll('.numberinput');
     if (String(number) !== '<') {
-
+      this.onNumberClick.emit({ number, accion: 'add'});
       for (let index = 0; index < numberinputs.length; index++) {
         const element = numberinputs[index];
         if (!element.classList.contains('nocircle')) {
@@ -25,6 +26,7 @@ export class NumericKeypadComponent implements OnInit {
       }
 
     } else {
+      this.onNumberClick.emit({number, accion: 'delete'});
       const arr = [].slice.call(numberinputs, 0).reverse();
       for (let index = 0; index < arr.length; index ++) {
         const element = arr[index];
