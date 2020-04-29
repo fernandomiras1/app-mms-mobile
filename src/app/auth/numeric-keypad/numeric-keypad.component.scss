@@ -1,22 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
 
-body {
-  background: black !important;
-  background-color: black !important;
-}
-.rotate {
-  display: none;
-  color: #000000;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  text-align: center;
-  width: 400px;
-  height: 50px;
-  margin-left: -200px;
-  // margin-top: -25px;
-}
-
 .keypadwrapper {
   text-align: center;
   width: 100%;
@@ -42,27 +25,27 @@ body {
 }
 .keypadwrapper .keypad #linefour {
   position: absolute;
-  bottom: 34%;
+  bottom: 14%;
 }
 .keypadwrapper .keypad #linethree {
   position: absolute;
-  bottom: 46%;
+  bottom: 28%;
 }
 .keypadwrapper .keypad #linetwo {
   position: absolute;
-  bottom: 58%;
+  bottom: 42%;
 }
 .keypadwrapper .keypad #lineone {
   position: absolute;
-  bottom: 70%;
+  bottom: 56%;
 }
 .keypadwrapper .keypad .content {
   display: inline-block;
   margin: 0 8%;
 }
 .keypadwrapper .keypad .content div {
-  width: 4em;
-  height: 4em;
+  width: 5em;
+  height: 5em;
   text-align: center;
   border: 2px solid #000000;
   border-radius: 70px;
@@ -78,14 +61,15 @@ body {
 .keypadwrapper .keypad .content div span:nth-child(1) {
   display: block;
   font-size: 1.8em;
+  font-weight: bold;
   // height: 1em;
-  margin-top: 0.5em;
+  margin-top: 0.8em;
 }
 .keypadwrapper .keypad .content div span:nth-child(2) {
   font-size: 0.6em;
 }
 .keypadwrapper .keypad .content div:hover {
-  background-color: #c4bebe;
+  // background-color: #c4bebe;
   color: #000000;
   -webkit-touch-callout: none;
   -webkit-user-select: none;

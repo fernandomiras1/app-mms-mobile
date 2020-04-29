@@ -1,25 +1,6 @@
 
-// ::ng-deep .mat-focused .mat-form-field-label {
-//   /*change color of label*/
-//   color: #FFFFFF !important;
-//  }
-
-//  ::ng-deep.mat-label {
-//   color: #FFFFFF !important;
-//  }
-
-//  ::ng-deep.mat-form-field-underline {
-//   /*change color of underline*/
-//   background-color: #FFFFFF !important;
-// } 
-
-// ::ng-deep.mat-form-field-ripple {
-//  /*change color of underline when focused*/
-//  background-color: #FFFFFF !important;;
-// }
-
 .mat-checkbox {
-  margin-top: 30px;
+  margin-top: 12px;
 }
 
 .mat-input-login {
@@ -53,16 +34,17 @@
     width: 100%;
 }
 
-mat-card {
-  max-width: 300px;
-  margin: 1em auto;
-  text-align: center;
-}
+// mat-card {
+//   max-width: 300px;
+//   margin: 1em auto;
+//   text-align: center;
+// }
 .div-input {
   max-width: 300px;
   margin: 2em auto;
   text-align: center;
 }
+
 
 mat-card-header {
   margin-left: 25%;

@@ -33,7 +33,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     const email = localStorage.getItem('email');
     this.form = this.fb.group({
-      userName: [email ? email : '', [Validators.required]],
+      email: [email ? email : '', Validators.compose([
+        Validators.required,
+        Validators.pattern(this.regexEmail)
+      ])],
       rememberEmail: [email ? true : false]
     });
 
@@ -62,9 +65,37 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  getErrorMessage(formError?: any): string {
+
+    let validatorName: string;
+    const messages: any = {
+      required: 'El campo es requerido',
+      alphanumber: 'Ingresar sólo letras y/o números',
+      number: 'Ingresar sólo números',
+      email: 'El email es inválido',
+      pattern: 'El email es inválido',
+      phone: `Teléfono inválido`,
+      dni: `El DNI ingresado es inválido`
+    };
+
+    if (formError) {
+      messages.maxlength = (formError.maxlength) ? `No superar los ${formError.maxlength.requiredLength} caracteres` : '';
+      messages.minlength = (formError.minlength) ? `Ingresar al menos ${formError.minlength.requiredLength} caracteres` : '';
+    }
+
+    for (const m in messages) {
+      if (formError[m]) {
+        validatorName = m;
+        break;
+      }
+    }
+
+    return messages[validatorName];
+  }
+
   rememberEmail() {
     if (this.form.get('rememberEmail').value) {
-      localStorage.setItem('email', this.form.get('userName').value);
+      localStorage.setItem('email', this.form.get('email').value);
     } else {
       localStorage.removeItem('email');
     }
@@ -98,7 +129,7 @@ export class LoginComponent implements OnInit {
         this.rememberEmail();
         console.log('es valido');
         this.showSpinner = true;
-        this.authService.loginEmailUser(this.form.get('userName').value, passwordNumber)
+        this.authService.loginEmailUser(this.form.get('email').value, passwordNumber)
         .then((res) => {
           console.log('resu login', res);
           this.snackBar.open('Logeado Correctamente', 'Aceptar', {
@@ -131,8 +162,8 @@ export class LoginComponent implements OnInit {
     return this.form.get(value).value;
   }
 
-  get userName() {
-    return this.form.get('userName');
+  get email() {
+    return this.form.get('email');
   }
 
 }

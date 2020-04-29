@@ -6,11 +6,11 @@
     <img class="example-header-image" src="../assets/logo/logo-mms-64.png" alt="">
   </ng-container>
     <form [formGroup]="form">
-      <mat-form-field *ngIf="!showPass" class="mat-input-login">
+      <mat-form-field class="mat-input-login">
         <mat-label>Email</mat-label>
-        <input matInput type="email" formControlName="userName" [appAutofocus]="!getValue('rememberEmail')">
-        <mat-error *ngIf="isFieldInvalid('userName')">
-          Por favor, ingrese su nombre de usuario
+        <input matInput type="email" formControlName="email" [appAutofocus]="!getValue('rememberEmail')">
+        <mat-error *ngIf="(email.hasError('required') && email.touched) || email.hasError('pattern')">
+          {{getErrorMessage(email.errors)}}
         </mat-error>
       </mat-form-field>
       <div class="mat-checkbox">
@@ -18,11 +18,14 @@
       </div>
     </form>
 </div>
-      
+
+
 <app-numeric-keypad
-  *ngIf="form.valid && showPass"
+  *ngIf="showPass"
   (onNumberClick)="onNumberClick($event)">
 </app-numeric-keypad>
+
+      
 
 
 <button class="btn-footer" mat-raised-button color="primary" (click)="onSubmit()">
