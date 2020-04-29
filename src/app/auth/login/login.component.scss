@@ -67,3 +67,14 @@ mat-card {
 mat-card-header {
   margin-left: 25%;
 }
+
+.btn-footer {
+  border-radius: 0;
+  /* bottom: 0; */
+  cursor: pointer;
+  height: 64px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

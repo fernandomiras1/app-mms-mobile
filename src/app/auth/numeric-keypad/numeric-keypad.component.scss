@@ -23,7 +23,7 @@ body {
   color: #000000;
 }
 .keypadwrapper .inputwrapper {
-  margin-top: 15%;
+  // margin-top: 15%;
   line-height: 0.61em;
   vertical-align: middle;
 }
@@ -32,7 +32,7 @@ body {
   height: 15px;
   width: 15px;
   border-radius: 50px;
-  border: 1px solid #000000;
+  border: 2px solid #000000;
   margin-right: 2%;
   margin-left: 2%;
   font-size: 2em;
@@ -64,7 +64,7 @@ body {
   width: 4em;
   height: 4em;
   text-align: center;
-  border: 1px solid #000000;
+  border: 2px solid #000000;
   border-radius: 70px;
   display: inline-block;
   cursor: pointer;
@@ -78,8 +78,8 @@ body {
 .keypadwrapper .keypad .content div span:nth-child(1) {
   display: block;
   font-size: 1.8em;
-  height: 1em;
-  margin-top: 0.2em;
+  // height: 1em;
+  margin-top: 0.5em;
 }
 .keypadwrapper .keypad .content div span:nth-child(2) {
   font-size: 0.6em;

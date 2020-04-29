@@ -1,22 +1,28 @@
 
 
-<div class="div-input" *ngIf="!this.form.get('rememberEmail').value">
-  <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/logo/logo-mms-64.png)'}" class="example-header-image"></div>
-  <h1 class="title">M.M.S</h1>
-  <img class="example-header-image" src="../assets/logo/logo-mms-64.png" alt="">
+<div class="div-input">
+  <div *ngIf="!this.form.get('rememberEmail').value" mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/logo/logo-mms-64.png)'}" class="example-header-image"></div>
+  <h1 *ngIf="!this.form.get('rememberEmail').value" class="title">M.M.S</h1>
+  <img *ngIf="!this.form.get('rememberEmail').value" class="example-header-image" src="../assets/logo/logo-mms-64.png" alt="">
     <form [formGroup]="form">
-            <mat-form-field class="mat-input-login">
-              <mat-label>Email</mat-label>
-              <input matInput type="email" [pattern]="regexEmail" formControlName="userName" [appAutofocus]="!getValue('rememberEmail')">
-              <mat-error *ngIf="isFieldInvalid('userName')">
-                Por favor, ingrese su nombre de usuario
-              </mat-error>
-            </mat-form-field>
-            <div class="mat-checkbox">
-              <mat-checkbox color="primary" class="mat-input-login" formControlName="rememberEmail">Recuérdame</mat-checkbox>
-            </div>
-        </form>
+      <mat-form-field *ngIf="!this.form.get('rememberEmail').value" class="mat-input-login">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [pattern]="regexEmail" formControlName="userName" [appAutofocus]="!getValue('rememberEmail')">
+        <mat-error *ngIf="isFieldInvalid('userName')">
+          Por favor, ingrese su nombre de usuario
+        </mat-error>
+      </mat-form-field>
+      <div class="mat-checkbox">
+        <mat-checkbox color="primary" class="mat-input-login" formControlName="rememberEmail">Recuérdame</mat-checkbox>
+      </div>
+    </form>
 </div>
+      
+<app-numeric-keypad *ngIf="this.form.get('rememberEmail').value"></app-numeric-keypad>
+
+<button class="btn-footer" mat-raised-button color="primary" (click)="onSubmit()">
+  <mat-icon>lock</mat-icon> Login
+</button>
 
 
 <!-- <mat-card class="example-card">
@@ -49,4 +55,3 @@
       </mat-progress-spinner>
     </mat-card-actions>
 </mat-card> -->
-<app-numeric-keypad *ngIf="this.form.get('rememberEmail').value"></app-numeric-keypad>
