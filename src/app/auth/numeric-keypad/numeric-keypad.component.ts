@@ -12,40 +12,30 @@ export class NumericKeypadComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClick(number: any, element?: any) {
+  onClick(number: any) {
+    const numberinputs = document.querySelectorAll('.numberinput');
     if (String(number) !== '<') {
-      console.log(number);
-      const numberinputs = document.querySelectorAll('.numberinput');
-      for (const key in numberinputs) {
-        console.log(key);
+
+      for (let index = 0; index < numberinputs.length; index++) {
+        const element = numberinputs[index];
+        if (!element.classList.contains('nocircle')) {
+          element.classList.add('nocircle');
+          break;
+        }
       }
+
+    } else {
+      const arr = [].slice.call(numberinputs, 0).reverse();
+      for (let index = 0; index < arr.length; index ++) {
+        const element = arr[index];
+        console.log(index);
+        if (element.classList.contains('nocircle')) {
+          element.classList.remove('nocircle');
+          break;
+        }
+      }
+
     }
   }
 
 }
-
-
-// $(function () {
-// 	$(".content").click(function () {
-
-// 		var value = $(this).find(".number").text();
-
-// 		if (value !== "<") {
-// 			$(".numberinput").each(function () {
-// 				var a = $(this).hasClass("nocircle");
-// 				if (!a) {
-// 					$(this).addClass("nocircle");
-// 					return false;
-// 				}
-// 			});
-// 		} else {
-// 			$($(".numberinput").get().reverse()).each(function () {
-// 				var a = $(this).hasClass("nocircle");
-// 				if (a) {
-// 					$(this).removeClass("nocircle");
-// 					return false;
-// 				}
-// 			});
-// 		}
-// 	});
-// });

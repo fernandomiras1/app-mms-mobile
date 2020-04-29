@@ -1,5 +1,5 @@
 
-<!-- <div class="div-input">
+<div class="div-input">
   <div *ngIf="!this.form.get('rememberEmail').value" mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/logo/logo-mms-64.png)'}" class="example-header-image"></div>
   <h1 *ngIf="!this.form.get('rememberEmail').value" class="title">M.M.S</h1>
   <img *ngIf="!this.form.get('rememberEmail').value" class="example-header-image" src="../assets/logo/logo-mms-64.png" alt="">
@@ -16,9 +16,9 @@
       </div>
     </form>
 </div>
-       -->
-<!-- <app-numeric-keypad *ngIf="this.form.get('rememberEmail').value"></app-numeric-keypad> -->
-<app-numeric-keypad></app-numeric-keypad>
+      
+<app-numeric-keypad *ngIf="this.form.get('rememberEmail').value"></app-numeric-keypad>
+
 
 <button class="btn-footer" mat-raised-button color="primary" (click)="onSubmit()">
   <mat-icon>lock</mat-icon> Login

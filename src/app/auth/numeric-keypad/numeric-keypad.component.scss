@@ -14,7 +14,7 @@ body {
   width: 400px;
   height: 50px;
   margin-left: -200px;
-  margin-top: -25px;
+  // margin-top: -25px;
 }
 
 .keypadwrapper {
@@ -23,7 +23,7 @@ body {
   color: #000000;
 }
 .keypadwrapper .inputwrapper {
-  // margin-top: 15%;
+  margin-bottom: 15%;
   line-height: 0.61em;
   vertical-align: middle;
 }
