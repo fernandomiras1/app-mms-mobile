@@ -41,17 +41,13 @@ mat-sidenav{
     justify-content: center;
 }
 
-
-
 mat-sidenav-content{
-    margin-top: 20px;
     padding: 4px 20px;
 }
 
 .sidenav-container{
     z-index: -1 !important;
 }
-
 
 .example-is-mobile mat-sidenav-container{flex: 1 0 auto;}
 .mat-toolbar-row, .mat-toolbar-single-row{height: 56px;}

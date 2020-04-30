@@ -5,7 +5,6 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {ThemePalette} from '@angular/material/core';
 import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 import { AuthService } from '../auth.service';
-import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -14,13 +13,16 @@ import { debounceTime } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
   color: ThemePalette = 'primary';
+  regexEmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 20;
   form: FormGroup;
   tokenUser: string;
   showSpinner = false;
+  showPass = false;
+  public password:number[] = [];
 
-
+  // Validators.pattern(this.regexEmail)
   private formSubmitAttempt: boolean;
   constructor(private fb: FormBuilder,
               private router: Router,
@@ -30,16 +32,22 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     const email = localStorage.getItem('email');
     this.form = this.fb.group({
-      userName: [email ? email : '', Validators.required],
-      password: ['', Validators.required],
+      email: [email ? email : '', Validators.compose([
+        Validators.required,
+        Validators.pattern(this.regexEmail)
+      ])],
       rememberEmail: [email ? true : false]
     });
 
-    this.authService.authFirebase().subscribe((isAuth: boolean) => {
-      if (isAuth) {
-        this.onLoginRedirect('');
-      }
-    });
+    if (this.form.valid) {
+      this.showPass = true;
+    }
+
+    // this.authService.authFirebase().subscribe((isAuth: boolean) => {
+    //   if (isAuth) {
+    //     this.onLoginRedirect('');
+    //   }
+    // });
 
     // this.form.get('password').valueChanges.pipe(debounceTime(800))
     // .subscribe(data => {
@@ -48,7 +56,7 @@ export class LoginComponent implements OnInit {
     //   }
     // });
   }
-
+  
   isFieldInvalid(field: string) {
     return (
       (!this.form.get(field).valid && this.form.get(field).touched) ||
@@ -56,9 +64,37 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  getErrorMessage(formError?: any): string {
+
+    let validatorName: string;
+    const messages: any = {
+      required: 'El campo es requerido',
+      alphanumber: 'Ingresar sólo letras y/o números',
+      number: 'Ingresar sólo números',
+      email: 'El email es inválido',
+      pattern: 'El email es inválido',
+      phone: `Teléfono inválido`,
+      dni: `El DNI ingresado es inválido`
+    };
+
+    if (formError) {
+      messages.maxlength = (formError.maxlength) ? `No superar los ${formError.maxlength.requiredLength} caracteres` : '';
+      messages.minlength = (formError.minlength) ? `Ingresar al menos ${formError.minlength.requiredLength} caracteres` : '';
+    }
+
+    for (const m in messages) {
+      if (formError[m]) {
+        validatorName = m;
+        break;
+      }
+    }
+
+    return messages[validatorName];
+  }
+
   rememberEmail() {
     if (this.form.get('rememberEmail').value) {
-      localStorage.setItem('email', this.form.get('userName').value);
+      localStorage.setItem('email', this.form.get('email').value);
     } else {
       localStorage.removeItem('email');
     }
@@ -72,25 +108,47 @@ export class LoginComponent implements OnInit {
     return true;
   }
 
-  onSubmit() {
-    if (this.form.valid) {
-      this.rememberEmail();
-      this.showSpinner = true;
-      this.authService.loginEmailUser(this.form.get('userName').value, this.form.get('password').value)
-      .then((res) => {
-        console.log('resu login', res);
-        this.snackBar.open('Logeado Correctamente', 'Aceptar', {
-            duration: 3000
-        });
-        this.onLoginRedirect('');
-      }).catch(err => {
-        console.log('err', err.message);
-        this.showSpinner = false;
-        this.snackBar.open('Error, Intentelo Nuevamente', 'Aceptar', {
-          duration: 3000
-        });
+  onNumberClick(value: any) {
+    if (value.accion === 'add') {
+      this.password.push(value.number);
+    } else {
+      this.password.pop();
+    }
 
-      });
+    const passwordNumber = String(this.password.join(''));
+    if (this.form.valid && passwordNumber.length >= 6) {
+      this.onSubmit();
+    }
+  }
+
+
+  onSubmit() {
+    
+    if (this.form.valid) {
+      
+      this.showPass = true;
+      const passwordNumber = String(this.password.join(''));
+
+      if (passwordNumber.length >= 6) {
+        this.rememberEmail();
+        console.log('es valido');
+        this.showSpinner = true;
+        this.authService.loginEmailUser(this.form.get('email').value, passwordNumber)
+        .then((res) => {
+          console.log('resu login', res);
+          this.snackBar.open('Logeado Correctamente', 'Aceptar', {
+              duration: 3000
+          });
+          this.onLoginRedirect('');
+        }).catch(err => {
+          console.log('err', err.message);
+          this.showSpinner = false;
+          this.snackBar.open('Error, Intentelo Nuevamente', 'Aceptar', {
+            duration: 3000
+          });
+  
+        });
+      }
     }
     this.formSubmitAttempt = true;
   }
@@ -106,6 +164,10 @@ export class LoginComponent implements OnInit {
 
   getValue(value: string): string {
     return this.form.get(value).value;
+  }
+
+  get email() {
+    return this.form.get('email');
   }
 
 }
