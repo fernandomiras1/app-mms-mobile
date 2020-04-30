@@ -10,9 +10,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDividerModule } from '@angular/material/divider';
 // import { MatListModule } from '@angular/material/list';
 // import { MatProgressBarModule } from '@angular/material/progress-bar';
 @NgModule({
@@ -27,10 +28,11 @@ import { MatRadioModule } from '@angular/material/radio';
     MatSidenavModule,
     MatListModule,
     MatAutocompleteModule,
-    MatCheckboxModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
-    MatRadioModule
+    MatRadioModule,
+    MatButtonToggleModule,
+    MatDividerModule
     // MatListModule,
     // MatProgressBarModule,
   ]

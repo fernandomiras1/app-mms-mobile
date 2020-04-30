@@ -1,29 +1,19 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import {ThemePalette} from '@angular/material/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
 import { MmsService } from 'src/app/shared/services/mms-api.service';
 import { ICate, ITipo, Categoria } from 'src/app/shared/model/ingresos.model';
 import { tipoEnum } from 'src/app/shared/Enums';
-import { removeSummaryDuplicates } from '@angular/compiler';
-
+import { MatButtonToggleChange } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-ingresos',
   templateUrl: './ingresos.component.html',
-  styleUrls: ['./ingresos.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./ingresos.component.scss']
 })
 export class IngresosComponent implements OnInit {
-	optionsTipo: ITipo[] = [
-		{id: 1, name: 'INGRESO'},
-		{id: 2, name: 'EGRESO'}
-	];
-
 	listCategorias: Categoria[] = [];
 	listSubcate: ICate[] = [
 		{name: 'Gastos', type: 'Yo'},
@@ -32,61 +22,44 @@ export class IngresosComponent implements OnInit {
 	]
 	filteredOptions_Cate: Observable<Categoria[]>;
 	filteredSubcate: Observable<ICate[]>;
-  	mArticles:Array<any>;
+	mArticles:Array<any>;
 	mSources:Array<any>;
-	color: ThemePalette = 'primary';
-	mode: ProgressSpinnerMode = 'indeterminate';
-	value = 20;
 	form: FormGroup;
 	tokenUser: string;
-	private formSubmitAttempt: boolean;
-	
+	showListSelect = false;
 	constructor(private fb: FormBuilder,
 		private mmsService: MmsService,
-		private cdRef: ChangeDetectorRef,
 		private authService: AuthService,
 		private router: Router) { }
 
 	ngOnInit() {
-	    this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
+		this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
 			if (resu.ok) {
 				console.log(resu);
-				// this.cdRef.detectChanges();
 				this.listCategorias = resu.result;
 			}
 		});
 
 		this.form = this.fb.group({
-			radioTipo: [String(tipoEnum.EGRESO)],
-			comboCate: ['', Validators.required],
-			comboSubcate: ['', Validators.required],
-			userName: ['', Validators.required],
-			password: ['', Validators.required]
+			toggleTipo: [String(tipoEnum.EGRESO)],
+			userName: [''],
+			detail: ['']
 		});
 
 		// Categoria - Autocomeplete
-		this.filteredOptions_Cate = this.form.get('comboCate').valueChanges.pipe(
-			startWith(''),
-			map(value => typeof value === 'string' ? value : value.Nombre),
-			map(name => name ? this._filter(name) : this.listCategorias.slice())
-		);
+		// this.filteredOptions_Cate = this.form.get('comboCate').valueChanges.pipe(
+		// 	startWith(''),
+		// 	map(value => typeof value === 'string' ? value : value.Nombre),
+		// 	map(name => name ? this._filter(name) : this.listCategorias.slice())
+		// );
 
 		// Sub Categoria - Autocomeplete
-		this.filteredSubcate = this.form.get('comboSubcate').valueChanges.pipe(
-			startWith(''),
-			map(value => typeof value === 'string' ? value : value.name),
-			map(name => name ? this._filterSubCate(name) : this.listSubcate.slice())
-		);
-
-		this.formValue('radioTipo').valueChanges.subscribe(idTipo => {
-			console.log(idTipo);
-			this.mmsService.getCategorias(idTipo).subscribe((resu: any) => {
-				if (resu.ok) {
-					this.listCategorias = resu.result;
-					this.cdRef.detectChanges();
-				}
-			});
-		})
+		// this.filteredSubcate = this.form.get('comboSubcate').valueChanges.pipe(
+		// 	startWith(''),
+		// 	map(value => typeof value === 'string' ? value : value.name),
+		// 	map(name => name ? this._filterSubCate(name) : this.listSubcate.slice())
+		// );
+		
 	}
 
 	closedTipo(event) {
@@ -106,19 +79,32 @@ export class IngresosComponent implements OnInit {
 		// });
 	}
 
-	displayFn(cate: ICate): string {
-		return cate && cate.name ? cate.name : '';
-	}
-	
-	private _filter(name: string): Categoria[] {
-	const filterValue = name.toLowerCase();
-	return this.listCategorias.filter(option => option.Nombre.toLowerCase().indexOf(filterValue) === 0);
+	onClickedToggle(event: MatButtonToggleChange) {
+		this.mmsService.getCategorias(Number(event.value)).subscribe((resu: any) => {
+			if (resu.ok) {
+				this.listCategorias = resu.result;
+			}
+		});
 	}
 
-	private _filterSubCate(name: string): ICate[] {
-	const filterValue = name.toLowerCase();
-	return this.listSubcate.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+	onClickedCate() {
+		console.log('clic', this.listCategorias);
+		this.showListSelect = true;
 	}
+
+	// displayFn(cate: ICate): string {
+	// 	return cate && cate.name ? cate.name : '';
+	// }
+
+	// private _filter(name: string): Categoria[] {
+	// const filterValue = name.toLowerCase();
+	// return this.listCategorias.filter(option => option.Nombre.toLowerCase().indexOf(filterValue) === 0);
+	// }
+
+	// private _filterSubCate(name: string): ICate[] {
+	// const filterValue = name.toLowerCase();
+	// return this.listSubcate.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+	// }
 
 
 	// searchArticles(source){
@@ -126,12 +112,12 @@ export class IngresosComponent implements OnInit {
 	// 	this.newsapi.getArticlesByID(source).subscribe(data => this.mArticles = data['articles']);
 	// }
 
-	isFieldInvalid(field: string) {
-		return (
-			(!this.form.get(field).valid && this.form.get(field).touched) ||
-			(this.form.get(field).untouched && this.formSubmitAttempt)
-		);
-	}
+	// isFieldInvalid(field: string) {
+	// 	return (
+	// 		(!this.form.get(field).valid && this.form.get(field).touched) ||
+	// 		(this.form.get(field).untouched && this.formSubmitAttempt)
+	// 	);
+	// }
 
 	onSubmit() {
 	if (this.form.valid) {
@@ -150,13 +136,12 @@ export class IngresosComponent implements OnInit {
 		// }, () => {
 		//   this.route.navigate(['/home']);
 		// });
-	}
-	this.formSubmitAttempt = true;
+		}
 	}
 
-	displayComboCate(item): string {
-	return item ? item.Nombre : item;
-	}
+	// displayComboCate(item): string {
+	// return item ? item.Nombre : item;
+	// }
 
 	public logoutUser(): void {
 		this.authService.logoutUser();

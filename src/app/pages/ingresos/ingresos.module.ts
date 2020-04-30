@@ -11,6 +11,7 @@ import { MaterialModule } from 'src/app/shared/material.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { PagesModule } from '../pages.module';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
     imports: [
@@ -19,7 +20,8 @@ import { PagesModule } from '../pages.module';
         IngresosRoutingModule,
         HttpClientModule,
         MaterialModule,
-        PagesModule
+        PagesModule,
+        ComponentsModule
     ],
     declarations: [IngresosComponent]
 })

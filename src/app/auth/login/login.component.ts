@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   tokenUser: string;
   showSpinner = false;
   showPass = false;
-  public password:number[] = [];
+  public password: number[] = [];
 
   // Validators.pattern(this.regexEmail)
   private formSubmitAttempt: boolean;
@@ -126,7 +126,6 @@ export class LoginComponent implements OnInit {
 
       if (passwordNumber.length >= 6) {
         this.rememberEmail();
-        console.log('es valido');
         this.showSpinner = true;
         this.authService.loginEmailUser(this.form.get('email').value, passwordNumber)
         .then((res) => {

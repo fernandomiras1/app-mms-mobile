@@ -8,71 +8,44 @@
         <span matSuffix>.00</span>
       </mat-form-field>
 
-      <mat-radio-group formControlName="radioTipo" aria-label="Select an option">
-        <mat-radio-button color="primary" value="1">INGRESO</mat-radio-button>
-        <mat-radio-button color="primary" checked="true" value="2">EGRESO</mat-radio-button>
-      </mat-radio-group>
+      <mat-button-toggle-group (change)="onClickedToggle($event)" class="button-toggle" formControlName="toggleTipo" name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle class="button-ingreso" value="1">
+          <mat-icon>trending_up</mat-icon> INGRESO
+        </mat-button-toggle>
+        <mat-button-toggle class="button-egreso" value="2">
+          <mat-icon>trending_down</mat-icon> EGRESO
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <mat-list>
+        <mat-list-item>
+          <span class="title">Categorías</span>
+          <span class="empty-space"></span>
+          <!-- [disabled]="listCategorias.length < 1" -->
+          <button  mat-button color="primary" (click)="onClickedCate()">
+            Seleccionar <mat-icon>chevron_right</mat-icon>
+          </button>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <span class="title">Sub Categoría</span>
+          <span class="empty-space"></span>
+          <button mat-button color="primary" (click)="onSubmit()">
+            Seleccionar <mat-icon>chevron_right</mat-icon>
+          </button>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <span class="title">Precio</span>
+          <span class="empty-space"></span>
+          <span class="title">$ 300</span>
+        </mat-list-item>
+      </mat-list>
 
       <mat-form-field class="mat-input">
-        <mat-label>Categorías</mat-label>
-        <input matInput type="text"
-          autocomplete="off"
-          formControlName="comboCate"
-          [matAutocomplete]="autoCate">
-          <mat-error *ngIf="isFieldInvalid('comboCate')">
-            Por favor, ingrese una categoría.
-          </mat-error>
-        <mat-autocomplete (opened)="openedAutoCompleteCate($event)" #autoCate="matAutocomplete" [displayWith]="displayComboCate">
-            <mat-option class="mat-option-double" *ngFor="let option of filteredOptions_Cate | async" [value]="option">
-                <span>
-                  <strong>{{option.Nombre}}</strong>
-                  <br />
-                </span>
-                <small>{{option.Tipo}}</small>
-            </mat-option>
-        </mat-autocomplete>
+        <mat-label>Observaciones</mat-label>
+        <input matInput formControlName="detail">
       </mat-form-field>
-    
-      <mat-form-field class="mat-input">
-        <mat-label>Sub Categoría</mat-label>
-        <input matInput type="text" 
-          formControlName="comboSubcate"
-          [matAutocomplete]="autoSubcate">
-          <mat-error *ngIf="isFieldInvalid('comboSubcate')">
-            Por favor, ingrese su Sub categoría.
-          </mat-error>
-        <mat-autocomplete #autoSubcate="matAutocomplete" [displayWith]="displayFn">
-            <mat-option class="mat-option-double" *ngFor="let option of filteredSubcate | async" [value]="option">
-                <span>
-                  <strong>{{option.name}}</strong>
-                  <br />
-                </span>
-                <small>{{option.type}}</small>
-            </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-
-      <mat-form-field class="mat-input">
-        <mat-label>Precio</mat-label>
-        <input matInput formControlName="userName">
-        <mat-error *ngIf="isFieldInvalid('userName')">
-          Por favor, ingrese su nombre de usuario
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="mat-input">
-        <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password">
-        <mat-error *ngIf="isFieldInvalid('password')">
-          Por favor, ingrese su contraseña
-        </mat-error>
-      </mat-form-field>
-      <mat-progress-spinner style="margin:0 auto;"
-          diameter="20"
-          [color]="color"
-          [mode]="mode"
-          [value]="value">
-      </mat-progress-spinner>
     </form>
 
     <button class="btn-footer" mat-raised-button color="primary" (click)="onSubmit()">
@@ -82,6 +55,9 @@
   </div>
 </div>
 
+<app-alert-view *ngIf="showListSelect">
+  <!-- <p>hola</p> -->
+  <app-list-select></app-list-select>
+</app-alert-view>
 
 
-  
