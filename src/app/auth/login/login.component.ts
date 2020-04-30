@@ -115,7 +115,13 @@ export class LoginComponent implements OnInit {
     } else {
       this.password.pop();
     }
+
+    const passwordNumber = String(this.password.join(''));
+    if (this.form.valid && passwordNumber.length >= 6) {
+      this.onSubmit();
+    }
   }
+
 
   onSubmit() {
     
