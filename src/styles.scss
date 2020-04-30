@@ -13,21 +13,6 @@
 
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-body {
-    // padding: 2em 23em;
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', sans serif;
-    font-weight: 300;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.mat-input {
-    width: 100%;
-    font-size: 16px;
-    line-height: 25px;
-    font-weight: 500;
-}
 
 /*----------------Update------------------*/
 
@@ -76,19 +61,44 @@ body {
 
 body { 
     font-family: Roboto, Arial, sans-serif;
-    
+    font-weight: 300;
+    margin: 0;
+    margin: 0;
+    padding: 0;
+    // PWA
     overscroll-behavior-y: contain;
     -webkit-user-select: none;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
-    margin: 0;
+}
+
+.title {
+    font-weight: bold;
 }
   
 mat-sidenav.app-sidenav mat-list > .mat-list-item{
     height: 44px;
 }
 
-  
+.mat-input {
+    width: 100%;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 500;
+}
+
+.mat-input-login {
+    width: 100%;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.conteiner{
+    max-width: 300px;
+    margin: 1em auto;
+    text-align: center;
+}
 // @media only screen and (min-width: 601px) {
 //     mat-sidenav.app-sidenav mat-list-item.mat-list-item > div{
 //         padding-left: 38px !important;

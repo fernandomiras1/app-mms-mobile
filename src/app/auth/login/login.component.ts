@@ -128,7 +128,6 @@ export class LoginComponent implements OnInit {
       
       this.showPass = true;
       const passwordNumber = String(this.password.join(''));
-      console.log(passwordNumber); //12345
 
       if (passwordNumber.length >= 6) {
         this.rememberEmail();

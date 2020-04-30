@@ -5,3 +5,37 @@
 .mat-radio-button ~ .mat-radio-button {
     margin-left: 16px;
 }
+
+// .conteiner {
+//     max-width: 300px;
+//     margin: 1em auto;
+//     text-align: center;
+//   }
+
+.btn-footer {
+    border-radius: 0;
+    cursor: pointer;
+    height: 64px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+}
+
+.example-right-align {
+    text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+}
+
+input.example-right-align {
+    -moz-appearance: textfield;
+}
+  

@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Output, EventEmitter, HostListener } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-numeric-keypad',
@@ -7,17 +7,21 @@ import { Component, OnInit, ElementRef, Output, EventEmitter, HostListener } fro
 })
 export class NumericKeypadComponent implements OnInit {
 
-  constructor(private el: ElementRef) { }
+  constructor() { }
   @Output() onNumberClick: EventEmitter<Object> = new EventEmitter<Object>();
 
   ngOnInit(): void {
   }
 
-  @HostListener('document:keypress', ['$event'])
+  @HostListener('document:keydown', ['$event'])
     handleKeyboardEvent(event: KeyboardEvent) {
     let charCode = event.keyCode;
     if ((charCode >= 48 && charCode <= 57) || charCode == 42) { //0-9 y * only
       this.onClick(event.key);
+      console.log('solo numeros');
+    } else if (event.key === 'Backspace') {
+      console.log('atras');
+      this.onClick('<');
     }
   }
 
@@ -38,7 +42,6 @@ export class NumericKeypadComponent implements OnInit {
       const arr = [].slice.call(numberinputs, 0).reverse();
       for (let index = 0; index < arr.length; index ++) {
         const element = arr[index];
-        console.log(index);
         if (element.classList.contains('nocircle')) {
           element.classList.remove('nocircle');
           break;
