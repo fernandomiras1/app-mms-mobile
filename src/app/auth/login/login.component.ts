@@ -5,7 +5,6 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {ThemePalette} from '@angular/material/core';
 import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 import { AuthService } from '../auth.service';
-import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',

@@ -1,0 +1,16 @@
+<div class="conteiner">
+
+  <form [formGroup]="form">
+    <mat-form-field class="mat-input">
+      <mat-label>Buscar...</mat-label>
+      <input matInput type="text" formControlName="search" appAutofocus>
+
+    </mat-form-field>
+  </form>
+
+  <mat-action-list>
+    <button mat-list-item>  <mat-icon matListIcon>folder</mat-icon> Save </button>
+    <button mat-list-item> <mat-icon matListIcon>folder</mat-icon> Undo </button>
+  </mat-action-list>
+</div>
+
