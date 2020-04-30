@@ -11,6 +11,7 @@ export class NumericKeypadComponent implements OnInit {
   @Output() onNumberClick: EventEmitter<Object> = new EventEmitter<Object>();
 
   ngOnInit(): void {
+
   }
 
   @HostListener('document:keydown', ['$event'])
@@ -23,6 +24,11 @@ export class NumericKeypadComponent implements OnInit {
       console.log('atras');
       this.onClick('<');
     }
+  }
+  @HostListener('document:touchmove', ['$event'])
+    ontouchmoveEvent(event: KeyboardEvent) {
+      event.preventDefault();
+      console.log('lo toco');
   }
 
   onClick(number: any) {
