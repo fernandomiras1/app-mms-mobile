@@ -5,10 +5,14 @@ import { MaterialModule } from '../shared/material.module';
 import { ListSelectComponent } from './list-select/list-select.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DirectivesModule } from '../shared/directives/directives.module';
+import { AlertViewComponent } from './alert-view/alert-view.component';
+import { NumericKeypadComponent } from './numeric-keypad/numeric-keypad.component';
 @NgModule({
   declarations: [
     HeaderComponent,
-    ListSelectComponent
+    ListSelectComponent,
+    NumericKeypadComponent,
+    AlertViewComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +22,9 @@ import { DirectivesModule } from '../shared/directives/directives.module';
   ],
   exports: [
     HeaderComponent,
-    ListSelectComponent
+    ListSelectComponent,
+    NumericKeypadComponent,
+    AlertViewComponent
   ]
 })
 export class ComponentsModule { }

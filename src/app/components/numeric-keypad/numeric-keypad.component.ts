@@ -16,19 +16,12 @@ export class NumericKeypadComponent implements OnInit {
 
   @HostListener('document:keydown', ['$event'])
     handleKeyboardEvent(event: KeyboardEvent) {
-    let charCode = event.keyCode;
-    if ((charCode >= 48 && charCode <= 57) || charCode == 42) { //0-9 y * only
+    if ((event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode == 42) { //0-9 y * only
       this.onClick(event.key);
-      console.log('solo numeros');
     } else if (event.key === 'Backspace') {
       console.log('atras');
       this.onClick('<');
     }
-  }
-  @HostListener('document:touchmove', ['$event'])
-    ontouchmoveEvent(event: KeyboardEvent) {
-      event.preventDefault();
-      console.log('lo toco');
   }
 
   onClick(number: any) {

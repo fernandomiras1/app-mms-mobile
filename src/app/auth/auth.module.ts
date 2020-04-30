@@ -5,12 +5,13 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { DirectivesModule } from '../shared/directives/directives.module';
-import { NumericKeypadComponent } from './numeric-keypad/numeric-keypad.component';
+import { ComponentsModule } from '../components/components.module';
 // Material
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -20,11 +21,11 @@ import { MatIconModule } from '@angular/material/icon';
         MatButtonModule,
         MatInputModule,
         MatCheckboxModule,
-        MatIconModule
+        MatIconModule,
+        ComponentsModule
     ],
     declarations: [
-        LoginComponent,
-        NumericKeypadComponent
+        LoginComponent
     ]
 })
 export class AuthModule { }

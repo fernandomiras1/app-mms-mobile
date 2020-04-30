@@ -1,0 +1,48 @@
+:host{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.background{
+    background: black;
+    opacity: 0.5;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.card{
+    position: fixed;
+    z-index: 1000;
+    background: transparent;
+    width: 80%;
+    padding: 20px;
+    margin-left: calc(10% - 20px);
+    top: 50%;
+    transform: translateY(-50%);  
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+}
+
+.body{
+
+    display: flex;
+
+    label{
+        text-align: right;
+        margin-right: 10px;
+    }
+
+    input{
+        width: 50px;
+    }
+}
+// cambio el color del spinner
+// ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+//     margin:0 auto;
+//     stroke: #000000;
+// }

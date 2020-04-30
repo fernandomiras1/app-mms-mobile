@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {ThemePalette} from '@angular/material/core';
-import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -12,10 +10,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  color: ThemePalette = 'primary';
   regexEmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-  mode: ProgressSpinnerMode = 'indeterminate';
-  value = 20;
   form: FormGroup;
   tokenUser: string;
   showSpinner = false;
@@ -109,23 +104,23 @@ export class LoginComponent implements OnInit {
   }
 
   onNumberClick(value: any) {
-    if (value.accion === 'add') {
+    if (value.accion === 'add' && this.password.length <= 6) {
+      if (this.password.length === 6) {
+        return true;
+      }
       this.password.push(value.number);
     } else {
       this.password.pop();
     }
 
-    const passwordNumber = String(this.password.join(''));
-    if (this.form.valid && passwordNumber.length >= 6) {
+    if (this.form.valid) {
       this.onSubmit();
     }
   }
 
 
   onSubmit() {
-    
     if (this.form.valid) {
-      
       this.showPass = true;
       const passwordNumber = String(this.password.join(''));
 
@@ -146,7 +141,6 @@ export class LoginComponent implements OnInit {
           this.snackBar.open('Error, Intentelo Nuevamente', 'Aceptar', {
             duration: 3000
           });
-  
         });
       }
     }
