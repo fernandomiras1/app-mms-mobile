@@ -22,7 +22,7 @@
           <span class="title">Categorías</span>
           <span class="empty-space"></span>
           <!-- [disabled]="listCategorias.length < 1" -->
-          <button  mat-button color="primary" (click)="onClickedCate()">
+          <button  mat-button color="primary" (click)="openDialog()">
             Seleccionar <mat-icon>chevron_right</mat-icon>
           </button>
         </mat-list-item>
@@ -54,10 +54,5 @@
 
   </div>
 </div>
-
-<app-alert-view *ngIf="showListSelect">
-  <!-- <p>hola</p> -->
-  <app-list-select></app-list-select>
-</app-alert-view>
 
 

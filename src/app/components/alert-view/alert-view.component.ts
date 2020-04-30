@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { ThemePalette } from '@angular/material/core';
 
@@ -8,7 +8,6 @@ import { ThemePalette } from '@angular/material/core';
   styleUrls: ['./alert-view.component.scss']
 })
 export class AlertViewComponent implements OnInit {
-  @Input() showSpinner = false;
   color: ThemePalette = 'accent';
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 20;

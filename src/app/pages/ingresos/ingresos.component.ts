@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
@@ -7,13 +7,23 @@ import { MmsService } from 'src/app/shared/services/mms-api.service';
 import { ICate, ITipo, Categoria } from 'src/app/shared/model/ingresos.model';
 import { tipoEnum } from 'src/app/shared/Enums';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { ListSelectComponent } from 'src/app/components/list-select/list-select.component';
 
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 @Component({
   selector: 'app-ingresos',
   templateUrl: './ingresos.component.html',
   styleUrls: ['./ingresos.component.scss']
 })
 export class IngresosComponent implements OnInit {
+
+	animal: string;
+  	name: string;
+
 	listCategorias: Categoria[] = [];
 	listSubcate: ICate[] = [
 		{name: 'Gastos', type: 'Yo'},
@@ -26,10 +36,10 @@ export class IngresosComponent implements OnInit {
 	mSources:Array<any>;
 	form: FormGroup;
 	tokenUser: string;
-	showListSelect = false;
 	constructor(private fb: FormBuilder,
 		private mmsService: MmsService,
 		private authService: AuthService,
+		public dialog: MatDialog,
 		private router: Router) { }
 
 	ngOnInit() {
@@ -87,10 +97,19 @@ export class IngresosComponent implements OnInit {
 		});
 	}
 
-	onClickedCate() {
-		console.log('clic', this.listCategorias);
-		this.showListSelect = true;
+	openDialog(): void {
+		const dialogRef = this.dialog.open(ListSelectComponent, {
+		  width: '250px',
+		  data: {name: this.name, animal: this.animal}
+		});
+	
+		dialogRef.afterClosed().subscribe(result => {
+		  console.log('The dialog was closed');
+		  this.animal = result;
+		});
 	}
+
+	
 
 	// displayFn(cate: ICate): string {
 	// 	return cate && cate.name ? cate.name : '';
