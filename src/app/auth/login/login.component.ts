@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
     //   }
     // });
   }
-
+  
   isFieldInvalid(field: string) {
     return (
       (!this.form.get(field).valid && this.form.get(field).touched) ||

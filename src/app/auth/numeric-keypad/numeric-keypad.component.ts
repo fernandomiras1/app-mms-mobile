@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ElementRef, Output, EventEmitter, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-numeric-keypad',
@@ -12,6 +12,15 @@ export class NumericKeypadComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  @HostListener('document:keypress', ['$event'])
+    handleKeyboardEvent(event: KeyboardEvent) {
+    let charCode = event.keyCode;
+    if ((charCode >= 48 && charCode <= 57) || charCode == 42) { //0-9 y * only
+      this.onClick(event.key);
+    }
+  }
+
   onClick(number: any) {
     const numberinputs = document.querySelectorAll('.numberinput');
     if (String(number) !== '<') {
