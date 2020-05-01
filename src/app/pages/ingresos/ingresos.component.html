@@ -22,15 +22,16 @@
           <span class="title" *ngIf="!selectedCate">Categorías</span>
           <span class="title" *ngIf="selectedCate" [style.color]="selectedCate.Id_Tipo == statusType.EGRESO ? 'red': 'green'">{{selectedCate.Nombre}}</span>
           <span class="empty-space"></span>
-          <button [disabled]="listCategorias.length < 1" mat-button color="primary" (click)="openDialog()">
+          <button [disabled]="listCategorias.length < 1" mat-button color="primary" (click)="openDialog(listCategorias, type.CATE)">
             Seleccionar <mat-icon>chevron_right</mat-icon>
           </button>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
-          <span class="title">Sub Categoría</span>
+          <span class="title" *ngIf="!selectedSubCate">Sub Categoría</span>
+          <span class="title" *ngIf="selectedSubCate" style="color: #7b1fa2;">{{selectedSubCate.Nombre}}</span>
           <span class="empty-space"></span>
-          <button mat-button color="primary" [disabled]="!selectedCate" (click)="onSubmit()">
+          <button [disabled]="listSubcate.length < 1" mat-button color="primary" [disabled]="!selectedCate" (click)="openDialog(listSubcate, type.SUB_CATE)">
             Seleccionar <mat-icon>chevron_right</mat-icon>
           </button>
         </mat-list-item>
@@ -49,7 +50,7 @@
     </form>
 
     <button class="btn-footer" mat-raised-button color="primary" (click)="onSubmit()">
-      <mat-icon>lock</mat-icon> Login
+      <mat-icon>save</mat-icon> Guardar
     </button>
 
   </div>

@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
 import { MmsService } from 'src/app/shared/services/mms-api.service';
-import { ICate, Categoria } from 'src/app/shared/model/ingresos.model';
+import { Categoria, SubCategoria, ingresosType } from 'src/app/shared/model/ingresos.model';
 import { tipoEnum } from 'src/app/shared/Enums';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { MatDialog } from '@angular/material/dialog';
 import { ListSelectComponent } from 'src/app/components/list-select/list-select.component';
 
 export interface DialogData {
-	options: Categoria[];
+	options: any[];
+	type: string;
 }
+
 @Component({
   selector: 'app-ingresos',
   templateUrl: './ingresos.component.html',
@@ -21,15 +22,13 @@ export interface DialogData {
 export class IngresosComponent implements OnInit {
 
 	statusType: typeof tipoEnum = tipoEnum;
+
+	type = ingresosType;
 	listCategorias: Categoria[] = [];
+	listSubcate: SubCategoria[] = [];
 	selectedCate: Categoria;
-	listSubcate: ICate[] = [
-		{name: 'Gastos', type: 'Yo'},
-		{name: 'GYM', type: 'Yo'},
-		{name: 'Ahorros', type: 'Yo'}
-	]
-	filteredOptions_Cate: Observable<Categoria[]>;
-	filteredSubcate: Observable<ICate[]>;
+	selectedSubCate: SubCategoria;
+
 	mArticles:Array<any>;
 	mSources:Array<any>;
 	form: FormGroup;
@@ -74,17 +73,29 @@ export class IngresosComponent implements OnInit {
 		});
 	}
 
-	openDialog(): void {
+
+	getAllSub_categoria(idCate) {
+		this.mmsService.get_Sub_categorias(idCate).subscribe((resu: any) => {
+			this.listSubcate = resu.result;
+			console.log(resu);
+		})
+	}
+
+	openDialog(list, type: string): void {
 		const dialogRef = this.dialog.open(ListSelectComponent, {
 		  width: '90%',
-		  data: {options: this.listCategorias}
+		  data: {type, options: list}
 		});
 	
-		dialogRef.afterClosed().subscribe(result => {
+		dialogRef.afterClosed().subscribe((result: {selectedItem: any, type: string}) => {
 		  if (result) {
-			this.selectedCate = result;
+			if (type === ingresosType.CATE) {
+				this.selectedCate = result.selectedItem;
+				this.getAllSub_categoria(result.selectedItem.id);
+			} else {
+				this.selectedSubCate = result.selectedItem;
+			}
 		  }
-		  console.log(result);
 		});
 	}
 

@@ -8,8 +8,17 @@ export class Categoria {
         public Tipo: string
     ) { }
 }
+export class SubCategoria {
+    constructor(
+        public id: number,
+        public Id_Entidad: number,
+        public Id_Categoria: number,
+        public Nombre: string,
+        public Categoria: string
+    ) { }
+}
 
-export interface ICate {
-	name: string;
-	type: string;
+export const ingresosType = {
+    CATE: 'CATE',
+    SUB_CATE:'SUB_CATE'
 }

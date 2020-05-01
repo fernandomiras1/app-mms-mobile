@@ -8,10 +8,11 @@
 
 <mat-list>
   <ng-container *ngFor="let item of filteredOptions | async">
-    <mat-list-item class="example-ripple-container" matRipple [mat-dialog-close]="item">
+    <mat-list-item class="example-ripple-container" matRipple [mat-dialog-close]="{selectedItem: item, type: data.type}">
       <mat-icon mat-list-icon>arrow_right</mat-icon>
       <div mat-line style="font-weight: bold;">{{item.Nombre}}</div>
-      <div mat-line [style.color]="item.Tipo === 'EGRESO' ? 'red': 'green'"> {{item.Tipo}} </div>
+      <div *ngIf="data.type === type.CATE" mat-line [style.color]="item.Tipo === 'EGRESO' ? 'red': 'green'">{{item.Tipo}}</div>
+      <div *ngIf="data.type === type.SUB_CATE" mat-line style="color: #3f51b5">{{item.Categoria}}</div>
     </mat-list-item>
     <mat-divider></mat-divider>
   </ng-container>
