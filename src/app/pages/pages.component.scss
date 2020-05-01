@@ -16,6 +16,9 @@ button {
 
 .example-is-mobile mat-toolbar.app-header{ position: fixed; z-index: 2;}
 
+.app-sidenav {
+    background-color: gainsboro;
+}
 
 .app-container{
     display: flex;

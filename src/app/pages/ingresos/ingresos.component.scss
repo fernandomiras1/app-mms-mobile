@@ -4,6 +4,8 @@
 
 .container-all {
     margin-top: 20px;
+    overscroll-behavior: none;
+    overscroll-behavior-y: contain;
 }
 
 .mat-radio-button ~ .mat-radio-button {
