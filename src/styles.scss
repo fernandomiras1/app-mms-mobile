@@ -99,6 +99,9 @@ mat-sidenav.app-sidenav mat-list > .mat-list-item{
     margin: 1em auto;
     text-align: center;
 }
+
+.empty-space{flex: 1 1 auto;}
+
 // @media only screen and (min-width: 601px) {
 //     mat-sidenav.app-sidenav mat-list-item.mat-list-item > div{
 //         padding-left: 38px !important;

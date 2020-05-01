@@ -15,7 +15,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import {MatRippleModule} from '@angular/material/core';
 // import { MatListModule } from '@angular/material/list';
 // import { MatProgressBarModule } from '@angular/material/progress-bar';
 @NgModule({
@@ -35,7 +35,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatRadioModule,
     MatButtonToggleModule,
     MatDividerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRippleModule
     // MatListModule,
     // MatProgressBarModule,
   ]

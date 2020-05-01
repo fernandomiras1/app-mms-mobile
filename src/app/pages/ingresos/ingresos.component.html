@@ -21,8 +21,7 @@
         <mat-list-item>
           <span class="title">Categorías</span>
           <span class="empty-space"></span>
-          <!-- [disabled]="listCategorias.length < 1" -->
-          <button  mat-button color="primary" (click)="openDialog()">
+          <button [disabled]="listCategorias.length < 1" mat-button color="primary" (click)="openDialog()">
             Seleccionar <mat-icon>chevron_right</mat-icon>
           </button>
         </mat-list-item>

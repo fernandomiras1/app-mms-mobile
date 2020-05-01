@@ -11,8 +11,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { ListSelectComponent } from 'src/app/components/list-select/list-select.component';
 
 export interface DialogData {
-  animal: string;
-  name: string;
+	options: Categoria[];
 }
 @Component({
   selector: 'app-ingresos',
@@ -99,13 +98,13 @@ export class IngresosComponent implements OnInit {
 
 	openDialog(): void {
 		const dialogRef = this.dialog.open(ListSelectComponent, {
-		  width: '250px',
-		  data: {name: this.name, animal: this.animal}
+		  width: '90%',
+		  data: {options: this.listCategorias}
 		});
 	
 		dialogRef.afterClosed().subscribe(result => {
 		  console.log('The dialog was closed');
-		  this.animal = result;
+		  console.log(result);
 		});
 	}
 

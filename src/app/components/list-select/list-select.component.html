@@ -7,9 +7,24 @@
   </mat-form-field>
 </form>
 
-<mat-action-list>
-  <button mat-list-item>  <mat-icon matListIcon>folder</mat-icon> Save </button>
-  <button mat-list-item> <mat-icon matListIcon>folder</mat-icon> Undo </button>
-</mat-action-list>
+<mat-list>
+  <ng-container *ngFor="let item of filteredOptions | async">
+    <mat-list-item class="example-ripple-container" matRipple>
+      <mat-icon mat-list-icon>arrow_right</mat-icon>
+      <div mat-line style="font-weight: bold;">{{item.Nombre}}</div>
+      <div mat-line style="color: red;"> {{item.Tipo}} </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </ng-container>
+  <!-- <ng-container *ngFor="let item of data.options">
+    <mat-list-item class="example-ripple-container" matRipple>
+      <mat-icon mat-list-icon>arrow_right</mat-icon>
+      <div mat-line style="font-weight: bold;">{{item.Nombre}}</div>
+      <div mat-line style="color: red;"> {{item.Tipo}} </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </ng-container> -->
+</mat-list>
+
 
 

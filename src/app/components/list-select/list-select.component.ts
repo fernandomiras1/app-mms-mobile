@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { map, startWith, tap } from 'rxjs/operators';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogData } from 'src/app/pages/ingresos/ingresos.component';
 
@@ -17,7 +17,6 @@ export interface Section {
 })
 export class ListSelectComponent implements OnInit {
 
-  @Input() options: any[] = [];
   filteredOptions: Observable<any[]>;
   constructor(private fb: FormBuilder,
     public dialogRef: MatDialogRef<ListSelectComponent>,
@@ -25,7 +24,7 @@ export class ListSelectComponent implements OnInit {
 
     form: FormGroup;
     ngOnInit(): void {
-
+     console.log(this.data);
     this.form = this.fb.group({
       search: ['']
     });
@@ -33,8 +32,9 @@ export class ListSelectComponent implements OnInit {
     this.filteredOptions = this.form.get('search').valueChanges
     .pipe(
       startWith(''),
+      tap(x => console.log(x)),
       map(value => typeof value === 'string' ? value : value.name),
-      map(name => name ? this._filter(name) : this.options.slice())
+      map(name => name ? this._filter(name) : this.data.options.slice())
     );
     }
 
@@ -49,7 +49,7 @@ export class ListSelectComponent implements OnInit {
     private _filter(name: string): any[] {
       const filterValue = name.toLowerCase();
 
-      return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+      return this.data.options.filter(option => option.Nombre.toLowerCase().indexOf(filterValue) === 0);
     }
 
 }
