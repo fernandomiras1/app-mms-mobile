@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
 import { MaterialModule } from '../shared/material.module';
 import { ListSelectComponent } from './list-select/list-select.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -9,7 +8,6 @@ import { AlertViewComponent } from './alert-view/alert-view.component';
 import { NumericKeypadComponent } from './numeric-keypad/numeric-keypad.component';
 @NgModule({
   declarations: [
-    HeaderComponent,
     ListSelectComponent,
     NumericKeypadComponent,
     AlertViewComponent
@@ -21,7 +19,6 @@ import { NumericKeypadComponent } from './numeric-keypad/numeric-keypad.componen
     MaterialModule
   ],
   exports: [
-    HeaderComponent,
     ListSelectComponent,
     NumericKeypadComponent,
     AlertViewComponent

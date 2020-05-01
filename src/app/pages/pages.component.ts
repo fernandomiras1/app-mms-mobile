@@ -1,35 +1,23 @@
-import { Component, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core';
-import { MediaMatcher } from '@angular/cdk/layout';
-import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
   styleUrls: ['./pages.component.scss']
 })
-export class PagesComponent implements OnInit, OnDestroy {
-  mobileQuery: MediaQueryList;
-  private mobileQueryListener: () => void;
-  options: FormGroup;
+export class PagesComponent implements OnInit {
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, fb: FormBuilder) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this.mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this.mobileQueryListener);
-
-    this.options = fb.group({
-      bottom: 0,
-      fixed: false,
-      top: 0
-    });
-  }
+  constructor(private router: Router,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this.mobileQueryListener);
+  public logoutUser(): void {
+    this.authService.logoutUser();
+    this.router.navigate(['/login']);
   }
 
 }

@@ -1,39 +1,19 @@
 
-<ng-container class="app-container">
 
-  <!-- Header -->
-  <app-header (clicked)="sidebar.toggle()"></app-header>
 
-  <mat-sidenav-container class="sidenav-container">
+  <div class="app-container">
+    <router-outlet></router-outlet>
 
-    <!-- Sidenav -->
-    <mat-sidenav #sidebar [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!mobileQuery.matches" class="app-sidenav" [fixedInViewport]="options.value.fixed"
-      [fixedTopGap]="options.value.top" [fixedBottomGap]="options.value.bottom">
-
-      <!-- Sidenav items -->
-      <mat-list>
-        <mat-list-item>
-          <button mat-button (click)="sidebar.toggle()" routerLinkActive="active-link" routerLink="/home">
-            <mat-icon>home</mat-icon>
-            <span>&nbsp;Home</span>
-          </button>
-        </mat-list-item>
-        <mat-list-item>
-          <button mat-button (click)="sidebar.toggle()" routerLinkActive="active-link" routerLink="/ingresos">
-            <mat-icon>attach_money</mat-icon>
-            <span>&nbsp;Ingresos</span>
-          </button>
-        </mat-list-item>
-      </mat-list>
-    </mat-sidenav>
-
-    <!-- Content -->
-    <mat-sidenav-content [formGroup]="options">
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-
+  </div>
+  
   <!-- Footer -->
-  <mat-toolbar class="app-footer">Footer</mat-toolbar>
+  <mat-toolbar color="primary" layout="row" class="toolbarNav">
+    <button mat-button routerLinkActive="active-link" routerLink="/home">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-button routerLinkActive="active-link" routerLink="/ingresos">
+      <mat-icon>attach_money</mat-icon>
+    </button>
+    <button mat-button (click)="logoutUser()"><mat-icon>exit_to_app</mat-icon></button>
+  </mat-toolbar>
 
-</ng-container>
