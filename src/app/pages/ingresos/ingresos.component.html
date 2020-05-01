@@ -1,4 +1,4 @@
-<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+<div class="container-all" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
   <div fxFlex="100%">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
@@ -51,7 +51,7 @@
       </mat-list>
 
       <mat-form-field class="mat-input">
-        <mat-label>Observaciones</mat-label>
+        <mat-label class="title title--black">Observaciones</mat-label>
         <input matInput formControlName="detail">
       </mat-form-field>
     </form>
