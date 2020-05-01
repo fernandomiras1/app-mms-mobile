@@ -31,15 +31,22 @@
           <span class="title" *ngIf="!selectedSubCate">Sub Categoría</span>
           <span class="title" *ngIf="selectedSubCate" style="color: #7b1fa2;">{{selectedSubCate.Nombre}}</span>
           <span class="empty-space"></span>
-          <button [disabled]="listSubcate.length < 1" mat-button color="primary" [disabled]="!selectedCate" (click)="openDialog(listSubcate, type.SUB_CATE)">
+          <button [disabled]="!selectedCate" *ngIf="!showSpinner" mat-button color="primary" (click)="openDialog(listSubcate, type.SUB_CATE)">
             Seleccionar <mat-icon>chevron_right</mat-icon>
           </button>
+          <mat-progress-spinner 
+            *ngIf="showSpinner"
+            style="margin-right: 56px"
+            diameter="20"
+            [mode]="mode"
+            [value]="value">
+          </mat-progress-spinner>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
           <span class="title">Precio</span>
           <span class="empty-space"></span>
-          <span class="title" style="padding-right:20px">$ {{formValue('price').value | number}}</span>
+          <span class="title" style="margin-right: 20px">$ {{formValue('price').value | number}}</span>
         </mat-list-item>
       </mat-list>
 

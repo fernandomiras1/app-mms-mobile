@@ -21,8 +21,11 @@ export interface DialogData {
 })
 export class IngresosComponent implements OnInit {
 
-	statusType: typeof tipoEnum = tipoEnum;
+	showSpinner = false;
+	mode = 'indeterminate';
+	value = 20;
 
+	statusType: typeof tipoEnum = tipoEnum;
 	type = ingresosType;
 	listCategorias: Categoria[] = [];
 	listSubcate: SubCategoria[] = [];
@@ -56,10 +59,6 @@ export class IngresosComponent implements OnInit {
 		
 	}
 
-	closedTipo(event) {
-		console.log(event);
-	}
-
 	formValue(value: string) {
 		return this.form.get(value);
 	}
@@ -77,11 +76,12 @@ export class IngresosComponent implements OnInit {
 	getAllSub_categoria(idCate) {
 		this.mmsService.get_Sub_categorias(idCate).subscribe((resu: any) => {
 			this.listSubcate = resu.result;
-			console.log(resu);
+			this.showSpinner = false;
 		})
 	}
 
 	openDialog(list, type: string): void {
+		this.showSpinner = true;
 		const dialogRef = this.dialog.open(ListSelectComponent, {
 		  width: '90%',
 		  data: {type, options: list}
@@ -94,6 +94,7 @@ export class IngresosComponent implements OnInit {
 				this.getAllSub_categoria(result.selectedItem.id);
 			} else {
 				this.selectedSubCate = result.selectedItem;
+				this.showSpinner = false;
 			}
 		  }
 		});
