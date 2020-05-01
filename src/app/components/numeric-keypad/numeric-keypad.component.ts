@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter, HostListener } from '@angular/
 export class NumericKeypadComponent implements OnInit {
 
   constructor() { }
+  keypadNumber: number[] = [1,2,3,4,5,6,7,8,9,0];
   @Output() onNumberClick: EventEmitter<Object> = new EventEmitter<Object>();
 
   ngOnInit(): void {
@@ -15,8 +16,8 @@ export class NumericKeypadComponent implements OnInit {
   }
 
   @HostListener('document:keydown', ['$event'])
-    handleKeyboardEvent(event: KeyboardEvent) {
-    if ((event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode == 42) { //0-9 y * only
+    handleKeyboardEvent(event: KeyboardEvent) {     
+    if ((this.keypadNumber.indexOf(Number(event.key)) !== -1) || event.key === '*') { //0-9 y * only
       this.onClick(event.key);
     } else if (event.key === 'Backspace') {
       console.log('atras');

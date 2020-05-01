@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
 import { MmsService } from 'src/app/shared/services/mms-api.service';
-import { ICate, ITipo, Categoria } from 'src/app/shared/model/ingresos.model';
+import { ICate, Categoria } from 'src/app/shared/model/ingresos.model';
 import { tipoEnum } from 'src/app/shared/Enums';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,8 +20,6 @@ export interface DialogData {
 })
 export class IngresosComponent implements OnInit {
 
-	animal: string;
-  	name: string;
 	statusType: typeof tipoEnum = tipoEnum;
 	listCategorias: Categoria[] = [];
 	selectedCate: Categoria;
@@ -53,22 +51,9 @@ export class IngresosComponent implements OnInit {
 		this.form = this.fb.group({
 			toggleTipo: [String(tipoEnum.EGRESO)],
 			userName: [''],
+			price: [0],
 			detail: ['']
 		});
-
-		// Categoria - Autocomeplete
-		// this.filteredOptions_Cate = this.form.get('comboCate').valueChanges.pipe(
-		// 	startWith(''),
-		// 	map(value => typeof value === 'string' ? value : value.Nombre),
-		// 	map(name => name ? this._filter(name) : this.listCategorias.slice())
-		// );
-
-		// Sub Categoria - Autocomeplete
-		// this.filteredSubcate = this.form.get('comboSubcate').valueChanges.pipe(
-		// 	startWith(''),
-		// 	map(value => typeof value === 'string' ? value : value.name),
-		// 	map(name => name ? this._filterSubCate(name) : this.listSubcate.slice())
-		// );
 		
 	}
 
@@ -80,18 +65,10 @@ export class IngresosComponent implements OnInit {
 		return this.form.get(value);
 	}
 
-	openedAutoCompleteCate(event) {
-		// this.mmsService.getCategorias(this.formValue('radioTipo').value).subscribe((resu: any) => {
-		// 	if (resu.ok) {
-		// 		this.listCategorias = resu.result;
-		// 		this.cdRef.detectChanges();
-		// 	}
-		// });
-	}
-
 	onClickedToggle(event: MatButtonToggleChange) {
 		this.mmsService.getCategorias(Number(event.value)).subscribe((resu: any) => {
 			if (resu.ok) {
+				this.selectedCate = null;
 				this.listCategorias = resu.result;
 			}
 		});
@@ -111,34 +88,6 @@ export class IngresosComponent implements OnInit {
 		});
 	}
 
-	
-
-	// displayFn(cate: ICate): string {
-	// 	return cate && cate.name ? cate.name : '';
-	// }
-
-	// private _filter(name: string): Categoria[] {
-	// const filterValue = name.toLowerCase();
-	// return this.listCategorias.filter(option => option.Nombre.toLowerCase().indexOf(filterValue) === 0);
-	// }
-
-	// private _filterSubCate(name: string): ICate[] {
-	// const filterValue = name.toLowerCase();
-	// return this.listSubcate.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
-	// }
-
-
-	// searchArticles(source){
-	// 	console.log("selected source is: "+source);
-	// 	this.newsapi.getArticlesByID(source).subscribe(data => this.mArticles = data['articles']);
-	// }
-
-	// isFieldInvalid(field: string) {
-	// 	return (
-	// 		(!this.form.get(field).valid && this.form.get(field).touched) ||
-	// 		(this.form.get(field).untouched && this.formSubmitAttempt)
-	// 	);
-	// }
 
 	onSubmit() {
 	if (this.form.valid) {

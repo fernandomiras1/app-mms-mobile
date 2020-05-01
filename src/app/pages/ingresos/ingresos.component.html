@@ -3,7 +3,7 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
       <mat-form-field class="mat-input" appearance="fill">
-        <input matInput type="number" class="example-right-align">
+        <input matInput type="number" formControlName="price" class="example-right-align">
         <span matPrefix>$&nbsp;</span>
         <span matSuffix>.00</span>
       </mat-form-field>
@@ -38,7 +38,7 @@
         <mat-list-item>
           <span class="title">Precio</span>
           <span class="empty-space"></span>
-          <span class="title" style="padding-right: 10%">$ 300</span>
+          <span class="title" style="padding-right:20px">$ {{formValue('price').value | number}}</span>
         </mat-list-item>
       </mat-list>
 

@@ -13,7 +13,3 @@ export interface ICate {
 	name: string;
 	type: string;
 }
-export interface ITipo {
-	id: number;
-	name: string;
-}
