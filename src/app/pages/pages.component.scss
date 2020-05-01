@@ -16,8 +16,13 @@ button {
 
 .app-container{
     padding: 0 20px;
-    z-index: -1 !important;
-    flex-direction: column;
+    // PWA
+    overscroll-behavior: none;
+    overscroll-behavior-y: contain;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+
     position: absolute;
     top: 0;
     bottom: 0;
