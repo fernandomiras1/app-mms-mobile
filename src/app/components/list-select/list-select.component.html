@@ -3,27 +3,18 @@
   <mat-form-field class="mat-input">
     <mat-label>Buscar...</mat-label>
     <input matInput type="text" formControlName="search" appAutofocus>
-
   </mat-form-field>
 </form>
 
 <mat-list>
   <ng-container *ngFor="let item of filteredOptions | async">
-    <mat-list-item class="example-ripple-container" matRipple>
+    <mat-list-item class="example-ripple-container" matRipple [mat-dialog-close]="item">
       <mat-icon mat-list-icon>arrow_right</mat-icon>
       <div mat-line style="font-weight: bold;">{{item.Nombre}}</div>
-      <div mat-line style="color: red;"> {{item.Tipo}} </div>
+      <div mat-line [style.color]="item.Tipo === 'EGRESO' ? 'red': 'green'"> {{item.Tipo}} </div>
     </mat-list-item>
     <mat-divider></mat-divider>
   </ng-container>
-  <!-- <ng-container *ngFor="let item of data.options">
-    <mat-list-item class="example-ripple-container" matRipple>
-      <mat-icon mat-list-icon>arrow_right</mat-icon>
-      <div mat-line style="font-weight: bold;">{{item.Nombre}}</div>
-      <div mat-line style="color: red;"> {{item.Tipo}} </div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-  </ng-container> -->
 </mat-list>
 
 

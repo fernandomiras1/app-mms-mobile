@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
@@ -7,7 +7,7 @@ import { MmsService } from 'src/app/shared/services/mms-api.service';
 import { ICate, ITipo, Categoria } from 'src/app/shared/model/ingresos.model';
 import { tipoEnum } from 'src/app/shared/Enums';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ListSelectComponent } from 'src/app/components/list-select/list-select.component';
 
 export interface DialogData {
@@ -22,8 +22,9 @@ export class IngresosComponent implements OnInit {
 
 	animal: string;
   	name: string;
-
+	statusType: typeof tipoEnum = tipoEnum;
 	listCategorias: Categoria[] = [];
+	selectedCate: Categoria;
 	listSubcate: ICate[] = [
 		{name: 'Gastos', type: 'Yo'},
 		{name: 'GYM', type: 'Yo'},
@@ -103,7 +104,9 @@ export class IngresosComponent implements OnInit {
 		});
 	
 		dialogRef.afterClosed().subscribe(result => {
-		  console.log('The dialog was closed');
+		  if (result) {
+			this.selectedCate = result;
+		  }
 		  console.log(result);
 		});
 	}

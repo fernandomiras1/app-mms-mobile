@@ -19,7 +19,8 @@
 
       <mat-list>
         <mat-list-item>
-          <span class="title">Categorías</span>
+          <span class="title" *ngIf="!selectedCate">Categorías</span>
+          <span class="title" *ngIf="selectedCate" [style.color]="selectedCate.Id_Tipo == statusType.EGRESO ? 'red': 'green'">{{selectedCate.Nombre}}</span>
           <span class="empty-space"></span>
           <button [disabled]="listCategorias.length < 1" mat-button color="primary" (click)="openDialog()">
             Seleccionar <mat-icon>chevron_right</mat-icon>
@@ -29,7 +30,7 @@
         <mat-list-item>
           <span class="title">Sub Categoría</span>
           <span class="empty-space"></span>
-          <button mat-button color="primary" (click)="onSubmit()">
+          <button mat-button color="primary" [disabled]="!selectedCate" (click)="onSubmit()">
             Seleccionar <mat-icon>chevron_right</mat-icon>
           </button>
         </mat-list-item>
@@ -37,7 +38,7 @@
         <mat-list-item>
           <span class="title">Precio</span>
           <span class="empty-space"></span>
-          <span class="title">$ 300</span>
+          <span class="title" style="padding-right: 10%">$ 300</span>
         </mat-list-item>
       </mat-list>
 

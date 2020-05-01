@@ -1,14 +1,9 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {Observable} from 'rxjs';
 import { map, startWith, tap } from 'rxjs/operators';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogData } from 'src/app/pages/ingresos/ingresos.component';
-
-export interface Section {
-  name: string;
-  updated: Date;
-}
 
 @Component({
   selector: 'app-list-select',
@@ -18,32 +13,23 @@ export interface Section {
 export class ListSelectComponent implements OnInit {
 
   filteredOptions: Observable<any[]>;
+  form: FormGroup;
   constructor(private fb: FormBuilder,
     public dialogRef: MatDialogRef<ListSelectComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
-    form: FormGroup;
     ngOnInit(): void {
-     console.log(this.data);
-    this.form = this.fb.group({
-      search: ['']
-    });
+      console.log(this.data);
+      this.form = this.fb.group({
+        search: ['']
+      });
 
-    this.filteredOptions = this.form.get('search').valueChanges
-    .pipe(
-      startWith(''),
-      tap(x => console.log(x)),
-      map(value => typeof value === 'string' ? value : value.name),
-      map(name => name ? this._filter(name) : this.data.options.slice())
-    );
-    }
-
-    onNoClick(): void {
-      this.dialogRef.close();
-    }
-
-    displayFn(user: any): string {
-      return user && user.name ? user.name : '';
+      this.filteredOptions = this.form.get('search').valueChanges.pipe(
+        startWith(''),
+        tap(x => console.log(x)),
+        map(value => typeof value === 'string' ? value : value.name),
+        map(name => name ? this._filter(name) : this.data.options.slice())
+      );
     }
 
     private _filter(name: string): any[] {

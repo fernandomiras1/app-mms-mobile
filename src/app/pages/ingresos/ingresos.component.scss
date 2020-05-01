@@ -51,3 +51,7 @@ input.example-right-align {
     -moz-appearance: textfield;
 }
   
+
+::ng-deep.mat-list-item-content {
+    padding: 0 4px !important;
+}
