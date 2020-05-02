@@ -12,10 +12,8 @@ export class MmsService {
   
   private resourceUrl = environment.apiUrl;
 
-  public idEntidad: number;     
-  constructor(private http:HttpClient) {
-    this.idEntidad =  Number(localStorage.getItem('id'));
-  }
+  public idEntidad = Number(localStorage.getItem('id'));     
+  constructor(private http:HttpClient) {}
 
   getCategorias(idTipo: number) {
     return this.http.get<Categoria[]>(`${this.resourceUrl}/config/cate/${this.idEntidad}/${idTipo}`);
