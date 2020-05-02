@@ -100,11 +100,11 @@ workbox.routing.registerRoute(
 
 // BACKGROUND SYNC
 workbox.routing.registerRoute(
-    new RegExp('^https://app-mms-nodejs.herokuapp.com'),
+    new RegExp('^https://app-mms-nodejs.herokuapp.com/ingreso'),
     workbox.strategies.networkOnly({
       plugins: [
         new workbox.backgroundSync.Plugin('userQueue', {
-          maxRetentionTime: 1 * 60 // Retry for max of 1 Hour
+          maxRetentionTime: 24 * 60 // Retry for max of 24 Hours (specified in minutes)
         })
       ]
     }),

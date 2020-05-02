@@ -84,6 +84,7 @@ export class IngresosComponent implements OnInit {
 	getAllSub_categoria(idCate) {
 		this.mmsService.get_Sub_categorias(idCate).subscribe((resu: any) => {
 			this.listSubcate = resu.result;
+			this.selectedSubCate = null;
 			this.showSpinner = false;
 		})
 	}

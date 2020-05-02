@@ -130,9 +130,6 @@ export class LoginComponent implements OnInit {
         this.authService.loginEmailUser(this.form.get('email').value, passwordNumber)
         .then((res) => {
           console.log('resu login', res);
-          this.snackBar.open('Logeado Correctamente', 'Aceptar', {
-              duration: 3000
-          });
           this.onLoginRedirect('');
         }).catch(err => {
           console.log('err', err.message);
