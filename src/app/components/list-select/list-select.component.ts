@@ -21,7 +21,6 @@ export class ListSelectComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
     ngOnInit(): void {
-      console.log(this.data);
       this.form = this.fb.group({
         search: ['']
       });

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
 import { MmsService } from 'src/app/shared/services/mms-api.service';
-import { Categoria, SubCategoria, ingresosType } from 'src/app/shared/model/ingresos.model';
+import { Categoria, SubCategoria, ingresosType, CreateIngreso } from 'src/app/shared/model/ingresos.model';
 import { tipoEnum } from 'src/app/shared/Enums';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { MatDialog } from '@angular/material/dialog';
@@ -53,10 +53,15 @@ export class IngresosComponent implements OnInit {
 		this.form = this.fb.group({
 			toggleTipo: [String(tipoEnum.EGRESO)],
 			price: [null, Validators.required],
-			date: [null, Validators.required],
+			date: [this.currentDate, Validators.required],
 			detail: ['']
 		});
 		
+	}
+
+	get currentDate() {
+		const currentDate = new Date();
+		return currentDate.toISOString().substring(0,10);
 	}
 
 	formValue(value: string) {
@@ -116,24 +121,41 @@ export class IngresosComponent implements OnInit {
 	}
 
 	onSubmit() {
-	if (this.isFormValid) {
-		console.log('es valido');
-		// this.spinnerButtonOptions.active = true;
-		// this.spinnerButtonOptions.text = 'Cargando datos...';
-		// this.authService.login(this.form.value).subscribe(data => {
-		//   this.snackBar.open('Logeado Correctamente', 'Aceptar', {
-		//     duration: 3000
-		//   });
-		// }, error => {
-		//   this.spinnerButtonOptions.active = false;
-		//   this.spinnerButtonOptions.text = 'Login';
-		//   this.snackBar.open('El usuario y/o contraseña son incorrectas', 'Reintentar', {
-		//     duration: 3000
-		//   });
-		// }, () => {
-		//   this.route.navigate(['/home']);
-		// });
-		}
+		if (!this.isFormValid) {
+			console.log('es valido');
+
+			let newIngreso: CreateIngreso = {
+				Id_Entidad: 1,
+				Id_Tipo: Number(this.formValue('toggleTipo').value),
+				Id_Categoria: this.selectedCate.id,
+				Id_SubCategoria: this.selectedSubCate.id,
+				Id_Forma_Pago: 1,
+				Fecha: new Date(this.formValue('date').value),
+				Observación: this.formValue('detail').value,
+				Precio: this.formValue('price').value
+
+			}
+			console.log(newIngreso);
+			this.mmsService.createIngreso(newIngreso).subscribe(resu => {
+				console.log(resu);
+			});
+			
+			// this.spinnerButtonOptions.active = true;
+			// this.spinnerButtonOptions.text = 'Cargando datos...';
+			// this.authService.login(this.form.value).subscribe(data => {
+			//   this.snackBar.open('Logeado Correctamente', 'Aceptar', {
+			//     duration: 3000
+			//   });
+			// }, error => {
+			//   this.spinnerButtonOptions.active = false;
+			//   this.spinnerButtonOptions.text = 'Login';
+			//   this.snackBar.open('El usuario y/o contraseña son incorrectas', 'Reintentar', {
+			//     duration: 3000
+			//   });
+			// }, () => {
+			//   this.route.navigate(['/home']);
+			// });
+			}
 	}
 
 	public logoutUser(): void {

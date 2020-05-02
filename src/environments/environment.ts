@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // apiUrl: 'http://localhost:4000',
-  apiUrl: 'https://app-mms-nodejs.herokuapp.com',
+  apiUrl: 'http://localhost:4000',
+  // apiUrl: 'https://app-mms-nodejs.herokuapp.com',
   firebase: {
     apiKey: 'AIzaSyCG8GR8Vha8cIoCjefVzAR-YuflwXytJVw',
     authDomain: 'app-mms-mobile.firebaseapp.com',

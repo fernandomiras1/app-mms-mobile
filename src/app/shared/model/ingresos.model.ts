@@ -18,6 +18,19 @@ export class SubCategoria {
     ) { }
 }
 
+export class CreateIngreso {
+    constructor(
+        public Id_Entidad: number,
+        public Id_Tipo: number,
+        public Id_Categoria: number,
+        public Id_SubCategoria: number,
+        public Id_Forma_Pago: number,
+        public Fecha: Date,
+        public Observación: string,
+        public Precio: number
+    ) { }
+}
+
 export const ingresosType = {
     CATE: 'CATE',
     SUB_CATE:'SUB_CATE'
