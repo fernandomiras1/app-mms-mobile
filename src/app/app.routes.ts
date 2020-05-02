@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
 import { PagesComponent } from './pages/pages.component';
+import { PagesResolverService } from './pages/pages-resolver.service';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
     path: '',
     canActivate: [AuthGuard],
     component: PagesComponent,
+    resolve: {idEntidad: PagesResolverService},
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
   }
 ];

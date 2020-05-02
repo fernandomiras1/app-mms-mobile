@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Categoria, SubCategoria, CreateIngreso } from '../model/ingresos.model';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -11,20 +12,26 @@ export class MmsService {
   
   private resourceUrl = environment.apiUrl;
 
-  constructor(private http:HttpClient) { }
+  public idEntidad: number;     
+  constructor(private http:HttpClient) {
+    this.idEntidad =  Number(localStorage.getItem('id'));
+  }
 
   getCategorias(idTipo: number) {
-    const idEntidad = 1;
-    return this.http.get<Categoria[]>(`${this.resourceUrl}/config/cate/${idEntidad}/${idTipo}`);
+    return this.http.get<Categoria[]>(`${this.resourceUrl}/config/cate/${this.idEntidad}/${idTipo}`);
   }
 
   get_Sub_categorias(idCate: number) {
-    const idEntidad = 1;
-    return this.http.get<SubCategoria[]>(`${this.resourceUrl}/config/sub/${idEntidad}/${idCate}`);
+    return this.http.get<SubCategoria[]>(`${this.resourceUrl}/config/sub/${this.idEntidad}/${idCate}`);
+  }
+
+  getEntidadByEmail(email: string) {
+    return this.http.get<any[]>(`${this.resourceUrl}/config/${email}`).pipe(
+      map((resu: any) => resu.result.id)
+    );
   }
   
   createIngreso(newIngreso: CreateIngreso) {
-    console.log(newIngreso);
     return this.http.post<CreateIngreso[]>(`${this.resourceUrl}/ingreso`, newIngreso);
   }
 

@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
               public snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    const email = localStorage.getItem('email');
+    const email = localStorage.getItem('rememberEmail');
     this.form = this.fb.group({
       email: [email ? email : '', Validators.compose([
         Validators.required,
@@ -89,9 +89,9 @@ export class LoginComponent implements OnInit {
 
   rememberEmail() {
     if (this.form.get('rememberEmail').value) {
-      localStorage.setItem('email', this.form.get('email').value);
+      localStorage.setItem('rememberEmail', this.form.get('email').value);
     } else {
-      localStorage.removeItem('email');
+      localStorage.removeItem('rememberEmail');
     }
   }
 
@@ -128,8 +128,9 @@ export class LoginComponent implements OnInit {
         this.rememberEmail();
         this.showSpinner = true;
         this.authService.loginEmailUser(this.form.get('email').value, passwordNumber)
-        .then((res) => {
-          console.log('resu login', res);
+        .then((resu: any) => {
+          const { email } = resu.user;
+          localStorage.setItem('user-email', email);
           this.onLoginRedirect('');
         }).catch(err => {
           console.log('err', err.message);

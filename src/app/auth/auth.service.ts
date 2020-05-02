@@ -5,7 +5,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 
 import { map } from 'rxjs/operators';
-import { User } from './user.model';
 
 // No hace falta declararlo en mi app.moduletsts porque esta injectado de esta forma
 @Injectable({
@@ -35,6 +34,7 @@ export class AuthService {
   // cerrar session
   logoutUser() {
     this.afAuth.signOut();
+    localStorage.removeItem('user-email');
   }
 
   // Verficamos si esta logeado
