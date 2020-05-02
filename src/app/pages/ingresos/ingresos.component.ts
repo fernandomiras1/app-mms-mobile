@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
 import { MmsService } from 'src/app/shared/services/mms-api.service';
@@ -52,8 +52,7 @@ export class IngresosComponent implements OnInit {
 
 		this.form = this.fb.group({
 			toggleTipo: [String(tipoEnum.EGRESO)],
-			userName: [''],
-			price: [0],
+			price: [null, Validators.required],
 			detail: ['']
 		});
 		
@@ -67,6 +66,7 @@ export class IngresosComponent implements OnInit {
 		this.mmsService.getCategorias(Number(event.value)).subscribe((resu: any) => {
 			if (resu.ok) {
 				this.selectedCate = null;
+				this.selectedSubCate = null;
 				this.listCategorias = resu.result;
 			}
 		});
@@ -96,13 +96,27 @@ export class IngresosComponent implements OnInit {
 				this.selectedSubCate = result.selectedItem;
 				this.showSpinner = false;
 			}
+		  } else {
+			this.showSpinner = false;
 		  }
 		});
 	}
 
+	public numberOnly(event: KeyboardEvent): boolean {
+		const charCode = (event.which) ? event.which : event.keyCode;
+		if (charCode > 31 && (charCode < 48 || charCode > 57) && event.key !== '.') {
+			return false;
+		}
+		return true;
+	}
+
+	get isFormValid(): boolean {
+		return !this.selectedCate || !this.selectedSubCate || !this.form.valid ? true : false;
+	}
 
 	onSubmit() {
-	if (this.form.valid) {
+	if (this.isFormValid) {
+		console.log('es valido');
 		// this.spinnerButtonOptions.active = true;
 		// this.spinnerButtonOptions.text = 'Cargando datos...';
 		// this.authService.login(this.form.value).subscribe(data => {
@@ -120,10 +134,6 @@ export class IngresosComponent implements OnInit {
 		// });
 		}
 	}
-
-	// displayComboCate(item): string {
-	// return item ? item.Nombre : item;
-	// }
 
 	public logoutUser(): void {
 		this.authService.logoutUser();

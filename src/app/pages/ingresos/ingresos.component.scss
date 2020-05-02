@@ -2,6 +2,18 @@
     line-height: 17px;
 }
 
+.title-ingreso {
+    font-weight: bold;
+    color: lightsteelblue;
+}
+
+.center {
+    display: block;
+    max-width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 .container-all {
     margin-top: 20px;
     overscroll-behavior: none;
@@ -37,7 +49,7 @@
 }
 
 .button-toggle {
-    margin-bottom: 20px;
+    margin: 20px 0 20px 0;
 }
 
 .example-container .mat-form-field + .mat-form-field {
