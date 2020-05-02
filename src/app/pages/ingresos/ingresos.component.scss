@@ -65,6 +65,23 @@ input.example-right-align::-webkit-inner-spin-button {
     display: none;
 }
 
+.input-date {
+    // font-size: 20px;
+    // line-height: 30px;
+    // font-weight: bold;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 500;
+}
+
+::ng-deep .input-date  .mat-form-field-infix {
+    width: 151px;
+}
+
+::ng-deep .input-date .mat-form-field-underline {
+    display: none;
+}
+
 input.example-right-align {
     -moz-appearance: textfield;
 }

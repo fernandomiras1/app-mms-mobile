@@ -53,6 +53,18 @@
           <span class="empty-space"></span>
           <span class="title" style="margin-right: 20px">$ {{formValue('price').value | number}}</span>
         </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <span class="title">Fecha</span>
+          <span class="empty-space"></span>
+          <mat-form-field class="input-date">
+            <input matInput type="date" formControlName="date">
+            <mat-error *ngIf="(formValue('date').hasError('required'))">
+              El campo es requerido
+            </mat-error>
+          </mat-form-field>
+        </mat-list-item>
+        <mat-divider></mat-divider>
       </mat-list>
 
       <mat-form-field class="mat-input">

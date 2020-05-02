@@ -53,6 +53,7 @@ export class IngresosComponent implements OnInit {
 		this.form = this.fb.group({
 			toggleTipo: [String(tipoEnum.EGRESO)],
 			price: [null, Validators.required],
+			date: [null, Validators.required],
 			detail: ['']
 		});
 		
