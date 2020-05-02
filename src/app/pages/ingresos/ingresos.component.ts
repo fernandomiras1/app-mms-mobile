@@ -8,6 +8,7 @@ import { tipoEnum } from 'src/app/shared/Enums';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { MatDialog } from '@angular/material/dialog';
 import { ListSelectComponent } from 'src/app/components/list-select/list-select.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface DialogData {
 	options: any[];
@@ -39,6 +40,7 @@ export class IngresosComponent implements OnInit {
 	constructor(private fb: FormBuilder,
 		private mmsService: MmsService,
 		private authService: AuthService,
+		public snackBar: MatSnackBar,
 		public dialog: MatDialog,
 		private router: Router) { }
 
@@ -120,6 +122,12 @@ export class IngresosComponent implements OnInit {
 		return !this.selectedCate || !this.selectedSubCate || !this.form.valid ? true : false;
 	}
 
+	openSnackBar(message: string, action: string) {
+		this.snackBar.open(message, action, {
+		  duration: 3000
+		});
+	}
+
 	onSubmit() {
 		if (!this.isFormValid) {
 			console.log('es valido');
@@ -135,10 +143,15 @@ export class IngresosComponent implements OnInit {
 				Precio: this.formValue('price').value
 
 			}
-			console.log(newIngreso);
-			this.mmsService.createIngreso(newIngreso).subscribe(resu => {
+			this.mmsService.createIngreso(newIngreso).subscribe((resu: any) => {
 				console.log(resu);
+				if (resu.ok) {
+					this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
+				} else {
+					this.openSnackBar('Error en guardar el dato', 'Aceptar');
+				}
 			});
+			
 			
 			// this.spinnerButtonOptions.active = true;
 			// this.spinnerButtonOptions.text = 'Cargando datos...';
@@ -149,9 +162,6 @@ export class IngresosComponent implements OnInit {
 			// }, error => {
 			//   this.spinnerButtonOptions.active = false;
 			//   this.spinnerButtonOptions.text = 'Login';
-			//   this.snackBar.open('El usuario y/o contraseña son incorrectas', 'Reintentar', {
-			//     duration: 3000
-			//   });
 			// }, () => {
 			//   this.route.navigate(['/home']);
 			// });

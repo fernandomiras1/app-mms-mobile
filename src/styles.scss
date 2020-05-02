@@ -25,6 +25,13 @@ body {
     -webkit-touch-callout: none;
 }
 
+
+.container-all {
+    margin-top: 20px;
+    overscroll-behavior: none;
+    overscroll-behavior-y: contain;
+}
+
 .title {
     font-weight: bold;
 

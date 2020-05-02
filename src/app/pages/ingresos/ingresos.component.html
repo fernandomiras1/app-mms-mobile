@@ -1,4 +1,4 @@
-<div class="container-all" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+<div class="container-all">
   <div fxFlex="100%">
     <!-- <h1 class="title-ingreso">MMS - Nuevo</h1> -->
     <img src="../assets/logo/logo-mms-64.png" alt="Paris" class="center">
@@ -54,17 +54,6 @@
           <span class="title" style="margin-right: 20px">$ {{formValue('price').value | number}}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
-        <!-- <mat-list-item>
-          <span class="title">Fecha</span>
-          <span class="empty-space"></span>
-          <mat-form-field class="input-date">
-            <input matInput type="date" formControlName="date">
-            <mat-error *ngIf="(formValue('date').hasError('required'))">
-              El campo es requerido
-            </mat-error>
-          </mat-form-field>
-        </mat-list-item>
-        <mat-divider></mat-divider> -->
       </mat-list>
 
       <mat-form-field style="margin-top: 13px;" class="mat-input-date">
