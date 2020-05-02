@@ -33,9 +33,6 @@
     cursor: pointer;
     height: 64px;
     width: 100%;
-    // position: absolute;
-    // bottom: 0;
-    // left: 0;
 }
 
 .button-egreso {
@@ -50,6 +47,8 @@
 
 .button-toggle {
     margin: 20px 0 20px 0;
+    display: grid;
+    max-width: 100%;
 }
 
 .example-container .mat-form-field + .mat-form-field {
@@ -65,27 +64,16 @@ input.example-right-align::-webkit-inner-spin-button {
     display: none;
 }
 
-.input-date {
-    // font-size: 20px;
-    // line-height: 30px;
-    // font-weight: bold;
-    font-size: 16px;
-    line-height: 25px;
-    font-weight: 500;
-}
-
-::ng-deep .input-date  .mat-form-field-infix {
-    width: 151px;
-}
-
-::ng-deep .input-date .mat-form-field-underline {
-    display: none;
+.mat-input-date {
+    width: 100%;
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: bold;
 }
 
 input.example-right-align {
     -moz-appearance: textfield;
 }
-  
 
 ::ng-deep.mat-list-item-content {
     padding: 0 4px !important;
