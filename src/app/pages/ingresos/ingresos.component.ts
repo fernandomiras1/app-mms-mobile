@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MmsService } from 'src/app/shared/services/mms-api.service';
-import { Categoria, SubCategoria, ingresosType, CreateIngreso } from 'src/app/shared/model/ingresos.model';
+import { Categoria, SubCategoria, ingresosType, CreateIngreso, CreateIngreso_Firebase } from 'src/app/shared/model/ingresos.model';
 import { tipoEnum } from 'src/app/shared/Enums';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { MatDialog } from '@angular/material/dialog';
@@ -136,6 +136,10 @@ export class IngresosComponent implements OnInit {
 		});
 	}
 
+	getTipo(value: number) {
+		return value === tipoEnum.INRESO ? 'INGRESO' : 'EGRESO';
+	}
+
 	onSubmit() {
 		if (!this.isFormValid) {
 			console.log('es valido');
@@ -151,6 +155,19 @@ export class IngresosComponent implements OnInit {
 				Precio: this.formValue('price').value
 
 			}
+			let newIngresoFirebase: CreateIngreso_Firebase = {
+				Id_Entidad: 1,
+				Tipo: this.getTipo(Number(this.formValue('toggleTipo').value)),
+				Id_Tipo: Number(this.formValue('toggleTipo').value),
+				Categoria: this.selectedCate.Nombre,
+				Id_Categoria: this.selectedCate.id,
+				SubCategoria: this.selectedSubCate.Nombre,
+				Id_SubCategoria: this.selectedSubCate.id,
+				Id_Forma_Pago: 1,
+				Fecha: this.formValue('date').value,
+				Observacion: this.formValue('detail').value,
+				Precio: this.formValue('price').value
+			}
 			// this.mmsService.createIngreso(newIngreso).subscribe((resu: any) => {
 			// 	console.log(resu);
 			// 	if (resu.ok) {
@@ -159,9 +176,11 @@ export class IngresosComponent implements OnInit {
 			// 		this.openSnackBar('Error en guardar el dato', 'Aceptar');
 			// 	}
 			// });
-			this.firebaseService.addIngreso(newIngreso).then(resu => {
-				console.log('dato guardado', resu);
-			})
+			this.firebaseService.addIngreso(newIngresoFirebase).then(resu => {
+				if(resu) {
+					this.router.navigate(['/home']);
+				}
+			});
 			
 			// this.spinnerButtonOptions.active = true;
 			// this.spinnerButtonOptions.text = 'Cargando datos...';

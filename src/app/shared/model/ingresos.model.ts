@@ -30,6 +30,21 @@ export class CreateIngreso {
         public Precio: number
     ) { }
 }
+export class CreateIngreso_Firebase {
+    constructor(
+        public Id_Entidad: number,
+        public Tipo: string,
+        public Id_Tipo: number,
+        public Categoria: string,
+        public Id_Categoria: number,
+        public SubCategoria: string,
+        public Id_SubCategoria: number,
+        public Id_Forma_Pago: number,
+        public Fecha: string,
+        public Observacion: string,
+        public Precio: number
+    ) { }
+}
 
 export const ingresosType = {
     CATE: 'CATE',

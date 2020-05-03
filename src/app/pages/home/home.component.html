@@ -1,14 +1,14 @@
 <div class="container-all">
-  <mat-icon>thumb_up_alt</mat-icon><p class="title">Sin Internet en MMS</p>
+  <p style="font-weight: bold;"><mat-icon style="color: red;">power_off</mat-icon> Firebase</p>
   <hr>
-  <mat-card class="example-card mat-elevation-z5">
-    <mat-card-title>HOME</mat-card-title>
-    <mat-card-subtitle>mms</mat-card-subtitle>
-    <mat-card-content>
-      <p>Hola Mundo</p>
-    </mat-card-content>
-    <mat-card-actions class="action-buttons">
-      <button mat-button color="primary"><mat-icon>thumb_up_alt</mat-icon> Guardar</button>
-    </mat-card-actions>
-  </mat-card>
+  <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="left">
+    <mat-card gdAlignColumns="start stretch" class="card mat-elevation-z5" *ngFor="let item of ingresos | async">
+      <div class="card-container-left">
+        <mat-card-title>{{item.SubCategoria}}  <mat-icon class="card-mat-list-icon">cloud_done</mat-icon></mat-card-title>
+        <span class="card-container-flex">{{item.Observacion}}</span>
+        <span [style.color]="item.Tipo === 'EGRESO' ? 'red': 'green'">{{item.Precio | currency}} ({{item.Tipo}})</span>
+        <span class="card-container-flex" style="color: #3f51b5">{{ item.Fecha | date: 'dd/MM/yyyy'}}</span>
+      </div>
+    </mat-card>
+  </div>
 </div>
