@@ -10,6 +10,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ListSelectComponent } from 'src/app/components/list-select/list-select.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FirebaseApiService } from 'src/app/shared/services/firebase-api.service';
+import { map, catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 export interface DialogData {
 	options: any[];
@@ -24,6 +26,7 @@ export interface DialogData {
 export class IngresosComponent implements OnInit {
 
 	showSpinner = false;
+	showSpinnerModal = false;
 	mode = 'indeterminate';
 	value = 20;
 
@@ -145,7 +148,7 @@ export class IngresosComponent implements OnInit {
 
 	onSubmit() {
 		if (!this.isFormValid) {
-
+			this.showSpinnerModal = true;
 			let newIngreso: CreateIngreso = {
 				Id_Entidad: 1,
 				Id_Tipo: Number(this.formValue('toggleTipo').value),
@@ -156,15 +159,19 @@ export class IngresosComponent implements OnInit {
 				Observación: String(this.formValue('detail').value).toUpperCase(),
 				Precio: this.formValue('price').value
 			}
-			this.mmsService.createIngreso(newIngreso).subscribe((resu: any) => {
+			this.mmsService.createIngreso(newIngreso).pipe(
+				catchError(error => {
+					this.showSpinnerModal = false;
+					this.saveDataFirebase();
+					return throwError(new Error(error));
+				})).subscribe((resu: any) => {
+					this.showSpinnerModal = false;
 				if (resu.ok) {
 					this.form.reset();
 					this.selectedCate = null;
 					this.selectedSubCate = null;
 					this.formValue('date').setValue(this.currentDate);
 					this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
-				} else {
-					this.saveDataFirebase();
 				}
 			});
 		}
