@@ -85,6 +85,7 @@ workbox.routing.registerRoute(
 //     workbox.strategies.networkFirst()
 // )
 
+// https://app-mms-nodejs.herokuapp.com
 workbox.routing.registerRoute(
     new RegExp('^https:\/\/app-mms-nodejs\.herokuapp\.com'),
     workbox.strategies.cacheFirst({
@@ -99,7 +100,7 @@ workbox.routing.registerRoute(
 
 // https://www.googleapis.com/identitytoolkit/v3/relyingparty
 workbox.routing.registerRoute(
-    new RegExp('^https:\/\/googleapis\.com\identitytoolkit\v3'),
+    new RegExp('^https:\/\/www.\googleapis\.com\identitytoolkit\v3'),
     workbox.strategies.cacheFirst({
       cacheName: `auth-firebase-app`,
       plugins: [

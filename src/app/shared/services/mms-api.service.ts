@@ -12,7 +12,7 @@ export class MmsService {
   
   private resourceUrl = environment.apiUrl;
 
-  public idEntidad = Number(localStorage.getItem('id'));     
+  public idEntidad: number;    
   constructor(private http:HttpClient) {}
 
   getCategorias(idTipo: number) {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MmsService } from 'src/app/shared/services/mms-api.service';
 import { Categoria, SubCategoria, ingresosType, CreateIngreso } from 'src/app/shared/model/ingresos.model';
 import { tipoEnum } from 'src/app/shared/Enums';
@@ -44,14 +44,19 @@ export class IngresosComponent implements OnInit {
 		private authService: AuthService,
 		public snackBar: MatSnackBar,
 		public dialog: MatDialog,
+		public activatedRoute:ActivatedRoute,
 		private router: Router) { }
 
 	ngOnInit() {
-		this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
-			if (resu.ok) {
-				console.log(resu);
-				this.listCategorias = resu.result;
-			}
+		this.activatedRoute.data.subscribe(data => {
+			const { idEntidad } = data;
+			this.mmsService.idEntidad = idEntidad;
+			this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
+				if (resu.ok) {
+					console.log(resu);
+					this.listCategorias = resu.result;
+				}
+			});
 		});
 
 		this.form = this.fb.group({
