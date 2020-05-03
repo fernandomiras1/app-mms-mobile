@@ -9,6 +9,7 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { MatDialog } from '@angular/material/dialog';
 import { ListSelectComponent } from 'src/app/components/list-select/list-select.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FirebaseApiService } from 'src/app/shared/services/firebase-api.service';
 
 export interface DialogData {
 	options: any[];
@@ -39,6 +40,7 @@ export class IngresosComponent implements OnInit {
 	tokenUser: string;
 	constructor(private fb: FormBuilder,
 		private mmsService: MmsService,
+		private firebaseService: FirebaseApiService,
 		private authService: AuthService,
 		public snackBar: MatSnackBar,
 		public dialog: MatDialog,
@@ -144,15 +146,17 @@ export class IngresosComponent implements OnInit {
 				Precio: this.formValue('price').value
 
 			}
-			this.mmsService.createIngreso(newIngreso).subscribe((resu: any) => {
-				console.log(resu);
-				if (resu.ok) {
-					this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
-				} else {
-					this.openSnackBar('Error en guardar el dato', 'Aceptar');
-				}
-			});
-			
+			// this.mmsService.createIngreso(newIngreso).subscribe((resu: any) => {
+			// 	console.log(resu);
+			// 	if (resu.ok) {
+			// 		this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
+			// 	} else {
+			// 		this.openSnackBar('Error en guardar el dato', 'Aceptar');
+			// 	}
+			// });
+			this.firebaseService.addIngreso(newIngreso).then(resu => {
+				console.log('dato guardado', resu);
+			})
 			
 			// this.spinnerButtonOptions.active = true;
 			// this.spinnerButtonOptions.text = 'Cargando datos...';

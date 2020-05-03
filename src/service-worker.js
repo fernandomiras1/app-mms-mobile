@@ -97,6 +97,19 @@ workbox.routing.registerRoute(
     })
 );
 
+// https://www.googleapis.com/identitytoolkit/v3/relyingparty
+workbox.routing.registerRoute(
+    new RegExp('^https:\/\/googleapis\.com\identitytoolkit\v3'),
+    workbox.strategies.cacheFirst({
+      cacheName: `auth-firebase-app`,
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxAgeSeconds: WEEK * 2
+        }),
+      ]
+    })
+);
+
 
 // BACKGROUND SYNC
 workbox.routing.registerRoute(
