@@ -144,6 +144,12 @@ export class IngresosComponent implements OnInit {
 		if (!this.isFormValid) {
 			console.log('es valido');
 
+			// if ( navigator.onLine) {
+			// 	console.log('online');
+			// } else {
+			// 	console.log('ofline');
+			// }
+
 			let newIngreso: CreateIngreso = {
 				Id_Entidad: 1,
 				Id_Tipo: Number(this.formValue('toggleTipo').value),

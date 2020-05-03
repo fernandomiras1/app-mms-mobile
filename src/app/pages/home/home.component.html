@@ -1,14 +1,43 @@
-<div class="container-all">
+<!-- <div class="container-all">
   <p style="font-weight: bold;"><mat-icon style="color: red;">power_off</mat-icon> Firebase</p>
   <hr>
   <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="left">
-    <mat-card gdAlignColumns="start stretch" class="card mat-elevation-z5" *ngFor="let item of ingresos | async">
-      <div class="card-container-left">
-        <mat-card-title>{{item.SubCategoria}}  <mat-icon class="card-mat-list-icon">cloud_done</mat-icon></mat-card-title>
-        <span class="card-container-flex">{{item.Observacion}}</span>
-        <span [style.color]="item.Tipo === 'EGRESO' ? 'red': 'green'">{{item.Precio | currency}} ({{item.Tipo}})</span>
-        <span class="card-container-flex" style="color: #3f51b5">{{ item.Fecha | date: 'dd/MM/yyyy'}}</span>
-      </div>
-    </mat-card>
+    <cdk-virtual-scroll-viewport itemSize="100" fxLayout="row wrap" fxLayoutAlign="start center" class="plServiceItemsList-listContainer">
+      <mat-card gdAlignColumns="start stretch" class="card mat-elevation-z5" *cdkVirtualFor="let item of ingresos | async">
+        <div class="card-container-left">
+          <mat-card-title>{{item.SubCategoria}}  <mat-icon class="card-mat-list-icon">cloud_done</mat-icon></mat-card-title>
+          <span class="card-container-flex">{{item.Observacion}}</span>
+          <span [style.color]="item.Tipo === 'EGRESO' ? 'red': 'green'">{{item.Precio | currency}} ({{item.Tipo}})</span>
+          <span class="card-container-flex" style="color: #3f51b5">{{ item.Fecha | date: 'dd/MM/yyyy'}}</span>
+        </div>
+      </mat-card>
+    </cdk-virtual-scroll-viewport>
   </div>
+</div> -->
+
+<div fxLayout="column" fxFill>
+	<div class="app-header" fxFlex="0 0 auto">
+    <p style="font-weight: bold;"><mat-icon style="color: red;">power_off</mat-icon> Firebase</p>
+    <hr>
+	</div>
+
+	<div fxFlex fxLayout="column">
+		<cdk-virtual-scroll-viewport [itemSize]="50" fxFlex>
+			<mat-card  class="card mat-elevation-z4" *cdkVirtualFor="let item of ingresos | async; let i = index; let even = even" [class.even-item]="even" [style.height.px]="item">
+			  <div class="card-container-left">
+          <mat-card-title>{{item.SubCategoria}}  <mat-icon class="card-mat-list-icon">cloud_done</mat-icon></mat-card-title>
+          <span class="card-container-flex">{{item.Observacion}}</span>
+          <span [style.color]="item.Tipo === 'EGRESO' ? 'red': 'green'">{{item.Precio | currency}} ({{item.Tipo}})</span>
+          <span class="card-container-flex" style="color: #3f51b5">{{ item.Fecha | date: 'dd/MM/yyyy'}}</span>
+        </div>
+			</mat-card>
+		</cdk-virtual-scroll-viewport>
+
+		<!-- <div class="list-footer" fxFlex="0 0 auto">
+      List SubFooter
+    </div>  -->
+	</div>
+
+	<div class="app-footer" fxFlex="0 0 auto"></div>
+
 </div>

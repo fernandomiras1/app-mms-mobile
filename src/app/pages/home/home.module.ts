@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeRoutingModule } from './home.routing';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 // componentes
 import { HomeComponent } from './home.component';
@@ -21,6 +22,7 @@ import { ComponentsModule } from 'src/app/components/components.module';
         HomeRoutingModule,
         HttpClientModule,
         MaterialModule,
+        ScrollingModule,
         PagesModule
     ],
     declarations: [HomeComponent]
