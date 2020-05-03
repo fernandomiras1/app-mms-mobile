@@ -149,12 +149,6 @@ export class IngresosComponent implements OnInit {
 		if (!this.isFormValid) {
 			console.log('es valido');
 
-			// if ( navigator.onLine) {
-			// 	console.log('online');
-			// } else {
-			// 	console.log('ofline');
-			// }
-
 			let newIngreso: CreateIngreso = {
 				Id_Entidad: 1,
 				Id_Tipo: Number(this.formValue('toggleTipo').value),
@@ -166,46 +160,43 @@ export class IngresosComponent implements OnInit {
 				Precio: this.formValue('price').value
 
 			}
-			let newIngresoFirebase: CreateIngreso_Firebase = {
-				Id_Entidad: 1,
-				Tipo: this.getTipo(Number(this.formValue('toggleTipo').value)),
-				Id_Tipo: Number(this.formValue('toggleTipo').value),
-				Categoria: this.selectedCate.Nombre,
-				Id_Categoria: this.selectedCate.id,
-				SubCategoria: this.selectedSubCate.Nombre,
-				Id_SubCategoria: this.selectedSubCate.id,
-				Id_Forma_Pago: 1,
-				Fecha: this.formValue('date').value,
-				Observacion: this.formValue('detail').value,
-				Precio: this.formValue('price').value
-			}
-			// this.mmsService.createIngreso(newIngreso).subscribe((resu: any) => {
-			// 	console.log(resu);
-			// 	if (resu.ok) {
-			// 		this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
-			// 	} else {
-			// 		this.openSnackBar('Error en guardar el dato', 'Aceptar');
-			// 	}
-			// });
-			this.firebaseService.addIngreso(newIngresoFirebase).then(resu => {
-				if(resu) {
-					this.router.navigate(['/home']);
+
+			this.mmsService.createIngreso(newIngreso).subscribe((resu: any) => {
+				console.log(resu);
+				if (resu.ok) {
+					this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
+				} else {
+					if (navigator.onLine) {
+						this.saveDataFirebase();
+					} else {
+						this.openSnackBar('El dipositivo no tiene internet, cuando se restablesca la concezion los datos se guardaran', 'Aceptar');
+					}
 				}
 			});
-			
-			// this.spinnerButtonOptions.active = true;
-			// this.spinnerButtonOptions.text = 'Cargando datos...';
-			// this.authService.login(this.form.value).subscribe(data => {
-			//   this.snackBar.open('Logeado Correctamente', 'Aceptar', {
-			//     duration: 3000
-			//   });
-			// }, error => {
-			//   this.spinnerButtonOptions.active = false;
-			//   this.spinnerButtonOptions.text = 'Login';
-			// }, () => {
-			//   this.route.navigate(['/home']);
-			// });
+		}
+	}
+
+	saveDataFirebase() {
+
+		let newIngresoFirebase: CreateIngreso_Firebase = {
+			Id_Entidad: 1,
+			Tipo: this.getTipo(Number(this.formValue('toggleTipo').value)),
+			Id_Tipo: Number(this.formValue('toggleTipo').value),
+			Categoria: this.selectedCate.Nombre,
+			Id_Categoria: this.selectedCate.id,
+			SubCategoria: this.selectedSubCate.Nombre,
+			Id_SubCategoria: this.selectedSubCate.id,
+			Id_Forma_Pago: 1,
+			Fecha: this.formValue('date').value,
+			Observacion: this.formValue('detail').value,
+			Precio: this.formValue('price').value
+		}
+
+		this.firebaseService.addIngreso(newIngresoFirebase).then(resu => {
+			if(resu) {
+				this.router.navigate(['/home']);
 			}
+		});
 	}
 
 	public logoutUser(): void {
