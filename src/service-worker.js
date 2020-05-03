@@ -39,6 +39,7 @@ new workbox.strategies.CacheFirst({
 );
 
 // Cache the underlying font files with a cache-first strategy for 1 year.
+// https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic
 workbox.routing.registerRoute(
     /^https:\/\/fonts\.(?:googleapis|gstatic).com\/(.*)/,
     new workbox.strategies.CacheFirst({
@@ -100,7 +101,7 @@ workbox.routing.registerRoute(
 
 // https://www.googleapis.com/identitytoolkit/v3/relyingparty
 workbox.routing.registerRoute(
-    new RegExp('^https:\/\/www.\googleapis\.com\identitytoolkit\v3'),
+    new RegExp('^https:\/\/www\.googleapis\.com.*'),
     workbox.strategies.cacheFirst({
       cacheName: `auth-firebase-app`,
       plugins: [
