@@ -153,7 +153,7 @@ export class IngresosComponent implements OnInit {
 				Id_SubCategoria: this.selectedSubCate.id,
 				Id_Forma_Pago: 1,
 				Fecha: new Date(this.formValue('date').value),
-				Observación: this.formValue('detail').value,
+				Observación: String(this.formValue('detail').value).toUpperCase(),
 				Precio: this.formValue('price').value
 			}
 			this.mmsService.createIngreso(newIngreso).subscribe((resu: any) => {
@@ -182,7 +182,7 @@ export class IngresosComponent implements OnInit {
 			Id_SubCategoria: this.selectedSubCate.id,
 			Id_Forma_Pago: 1,
 			Fecha: this.formValue('date').value,
-			Observacion: this.formValue('detail').value,
+			Observacion: String(this.formValue('detail').value).toUpperCase(),
 			Precio: this.formValue('price').value
 		}
 
