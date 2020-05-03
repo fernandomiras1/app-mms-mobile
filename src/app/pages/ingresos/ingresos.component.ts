@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { MmsService } from 'src/app/shared/services/mms-api.service';
 import { Categoria, SubCategoria, ingresosType, CreateIngreso, CreateIngreso_Firebase } from 'src/app/shared/model/ingresos.model';
 import { tipoEnum } from 'src/app/shared/Enums';
@@ -72,7 +72,6 @@ export class IngresosComponent implements OnInit {
 	}
 
 
-
 	get currentDate() {
 		const currentDate = new Date();
 		return currentDate.toISOString().substring(0,10);
@@ -91,7 +90,6 @@ export class IngresosComponent implements OnInit {
 			}
 		});
 	}
-
 
 	getAllSub_categoria(idCate) {
 		this.mmsService.get_Sub_categorias(idCate).subscribe((resu: any) => {
@@ -147,7 +145,6 @@ export class IngresosComponent implements OnInit {
 
 	onSubmit() {
 		if (!this.isFormValid) {
-			console.log('es valido');
 
 			let newIngreso: CreateIngreso = {
 				Id_Entidad: 1,
@@ -158,19 +155,16 @@ export class IngresosComponent implements OnInit {
 				Fecha: new Date(this.formValue('date').value),
 				Observación: this.formValue('detail').value,
 				Precio: this.formValue('price').value
-
 			}
-
 			this.mmsService.createIngreso(newIngreso).subscribe((resu: any) => {
-				console.log(resu);
 				if (resu.ok) {
+					this.form.reset();
+					this.selectedCate = null;
+					this.selectedSubCate = null;
+					this.formValue('date').setValue(this.currentDate);
 					this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
 				} else {
-					if (navigator.onLine) {
-						this.saveDataFirebase();
-					} else {
-						this.openSnackBar('El dipositivo no tiene internet, cuando se restablesca la concezion los datos se guardaran', 'Aceptar');
-					}
+					this.saveDataFirebase();
 				}
 			});
 		}
