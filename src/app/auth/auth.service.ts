@@ -34,7 +34,7 @@ export class AuthService {
   // cerrar session
   logoutUser() {
     this.afAuth.signOut();
-    localStorage.removeItem('user-email');
+    localStorage.removeItem('uid');
   }
 
   // Verficamos si esta logeado

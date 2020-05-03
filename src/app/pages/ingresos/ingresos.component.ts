@@ -44,20 +44,23 @@ export class IngresosComponent implements OnInit {
 		private authService: AuthService,
 		public snackBar: MatSnackBar,
 		public dialog: MatDialog,
-		public activatedRoute:ActivatedRoute,
 		private router: Router) { }
 
 	ngOnInit() {
-		this.activatedRoute.data.subscribe(data => {
-			const { idEntidad } = data;
-			this.mmsService.idEntidad = idEntidad;
-			this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
-				if (resu.ok) {
-					console.log(resu);
-					this.listCategorias = resu.result;
-				}
-			});
-		});
+
+		const uid = localStorage.getItem('uid');
+		if (uid) {
+			this.firebaseService.getEntidadById(uid).subscribe((id: number) => {
+				this.mmsService.idEntidad = id;
+				console.log('entro');
+				this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
+					if (resu.ok) {
+						console.log(resu);
+						this.listCategorias = resu.result;
+					}
+				});
+			})
+		}
 
 		this.form = this.fb.group({
 			toggleTipo: [String(tipoEnum.EGRESO)],
@@ -67,6 +70,8 @@ export class IngresosComponent implements OnInit {
 		});
 		
 	}
+
+
 
 	get currentDate() {
 		const currentDate = new Date();

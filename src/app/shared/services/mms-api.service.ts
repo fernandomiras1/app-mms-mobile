@@ -22,12 +22,6 @@ export class MmsService {
   get_Sub_categorias(idCate: number) {
     return this.http.get<SubCategoria[]>(`${this.resourceUrl}/config/sub/${this.idEntidad}/${idCate}`);
   }
-
-  getEntidadByEmail(email: string) {
-    return this.http.get<any[]>(`${this.resourceUrl}/config/${email}`).pipe(
-      map((resu: any) => resu.result.id)
-    );
-  }
   
   createIngreso(newIngreso: CreateIngreso) {
     return this.http.post<CreateIngreso[]>(`${this.resourceUrl}/ingreso`, newIngreso);

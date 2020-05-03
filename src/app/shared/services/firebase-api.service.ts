@@ -1,20 +1,33 @@
 import { Injectable } from '@angular/core';
 // import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { CreateIngreso_Firebase } from '../model/ingresos.model';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
+export interface EntidadI {
+  idEntidad: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class FirebaseApiService {
 
   constructor(private afs: AngularFirestore) { }
   private ingresosCollection: AngularFirestoreCollection<CreateIngreso_Firebase>;
-  
+  private entidadDoc: AngularFirestoreDocument<EntidadI>;
   getAllIngresos(): Observable<CreateIngreso_Firebase[]> {
     this.ingresosCollection = this.afs.collection<CreateIngreso_Firebase>('ingresos');
     return this.ingresosCollection.valueChanges();
+  }
+
+
+  getEntidadById(uid : string) {
+    this.entidadDoc =  this.afs.doc<EntidadI>(`/entidades/${uid}`);
+    return this.entidadDoc.valueChanges().pipe(
+      map((resu: EntidadI) => resu.idEntidad)
+    );
   }
 
 

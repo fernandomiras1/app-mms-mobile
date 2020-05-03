@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth/auth.guard';
-import { PagesResolverService } from './pages-resolver.service';
 
 const pagesRoutes: Routes = [
     {
@@ -14,7 +13,6 @@ const pagesRoutes: Routes = [
       path: 'ingresos',
       data: {title: 'Nuevo Ingresos'},
       canActivate: [AuthGuard],
-      resolve: {idEntidad: PagesResolverService},
       loadChildren: () => import('./ingresos/ingresos.module').then(m => m.IngresosModule)
     },
     {

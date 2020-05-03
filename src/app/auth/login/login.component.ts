@@ -37,19 +37,6 @@ export class LoginComponent implements OnInit {
     if (this.form.valid) {
       this.showPass = true;
     }
-
-    // this.authService.authFirebase().subscribe((isAuth: boolean) => {
-    //   if (isAuth) {
-    //     this.onLoginRedirect('');
-    //   }
-    // });
-
-    // this.form.get('password').valueChanges.pipe(debounceTime(800))
-    // .subscribe(data => {
-    //   if (data.length >= 6) {
-    //     this.onSubmit();
-    //   }
-    // });
   }
   
   isFieldInvalid(field: string) {
@@ -129,8 +116,9 @@ export class LoginComponent implements OnInit {
         this.showSpinner = true;
         this.authService.loginEmailUser(this.form.get('email').value, passwordNumber)
         .then((resu: any) => {
-          const { email } = resu.user;
-          localStorage.setItem('user-email', email);
+          const { uid } = resu.user;
+          localStorage.removeItem('uid');
+          localStorage.setItem('uid', uid);
           this.onLoginRedirect('');
         }).catch(err => {
           console.log('err', err.message);
