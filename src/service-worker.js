@@ -109,7 +109,8 @@ workbox.routing.registerRoute(
           maxAgeSeconds: WEEK * 2
         }),
       ]
-    })
+    }),
+    'POST'
 );
 
 
