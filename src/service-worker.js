@@ -102,7 +102,7 @@ workbox.routing.registerRoute(
 // https://www.googleapis.com/identitytoolkit/v3/relyingparty
 workbox.routing.registerRoute(
     new RegExp('^https:\/\/www\.googleapis\.com.*'),
-    workbox.strategies.cacheFirst({
+    workbox.strategies.NetworkFirst({
       cacheName: `auth-firebase-app`,
       plugins: [
         new workbox.expiration.Plugin({
