@@ -36,7 +36,6 @@ export class IngresosComponent implements OnInit {
 	listSubcate: SubCategoria[] = [];
 	selectedCate: Categoria;
 	selectedSubCate: SubCategoria;
-
 	mArticles:Array<any>;
 	mSources:Array<any>;
 	form: FormGroup;
@@ -167,20 +166,22 @@ export class IngresosComponent implements OnInit {
 				})).subscribe((resu: any) => {
 					this.showSpinnerModal = false;
 				if (resu.ok) {
-					this.form.reset();
-					this.selectedCate = null;
-					this.selectedSubCate = null;
-					this.formValue('date').setValue(this.currentDate);
+					this.clearForm();
 					this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
 				}
 			});
-		}
+
+			if (!navigator.onLine) {
+				this.clearForm();
+				this.openSnackBar('Los datos se guardaron en Modo Offline', 'Aceptar');
+			}
+ 		}
 	}
 
 	saveDataFirebase() {
 
 		let newIngresoFirebase: CreateIngreso_Firebase = {
-			Id_Entidad: 1,
+			Id_Entidad: this.mmsService.idEntidad,
 			Tipo: this.getTipo(Number(this.formValue('toggleTipo').value)),
 			Id_Tipo: Number(this.formValue('toggleTipo').value),
 			Categoria: this.selectedCate.Nombre,
@@ -198,6 +199,13 @@ export class IngresosComponent implements OnInit {
 				this.router.navigate(['/home']);
 			}
 		});
+	}
+
+	clearForm() {
+		this.form.reset();
+		this.selectedCate = null;
+		this.selectedSubCate = null;
+		this.formValue('date').setValue(this.currentDate);
 	}
 
 	public logoutUser(): void {
