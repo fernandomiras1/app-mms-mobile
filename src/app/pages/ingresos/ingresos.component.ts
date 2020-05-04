@@ -158,24 +158,32 @@ export class IngresosComponent implements OnInit {
 				Observación: String(this.formValue('detail').value).toUpperCase(),
 				Precio: this.formValue('price').value
 			}
-			this.mmsService.createIngreso(newIngreso).subscribe((resu: any) => {
-					this.showSpinnerModal = false;
-				if (resu.ok) {
-					this.clearForm();
-					this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
-				}
-			},
-			error => {
-				console.log('hay un error');
-				this.showSpinnerModal = false;
-				this.saveDataFirebase();
-			});
 
 			if (!navigator.onLine) {
-				this.clearForm();
-				this.openSnackBar('Los datos se guardaron en Modo Offline', 'Aceptar');
+				this.saveOffline(newIngreso);
+				this.showSpinnerModal = false;
+			} else {
+				this.mmsService.createIngreso(newIngreso).pipe(
+					catchError(error => {
+						this.showSpinnerModal = false;
+						this.saveDataFirebase();
+						return throwError(new Error(error));
+					})).subscribe((resu: any) => {
+						this.showSpinnerModal = false;
+					if (resu.ok) {
+						this.clearForm();
+						this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
+					}
+				});
 			}
+
  		}
+	}
+
+	saveOffline(newIngreso: CreateIngreso) {
+		this.mmsService.createIngreso(newIngreso).subscribe();
+		this.clearForm();
+		this.openSnackBar('Los datos se guardaron en Modo Offline', 'Aceptar');
 	}
 
 	saveDataFirebase() {
