@@ -18,7 +18,7 @@ export class FirebaseApiService {
   private ingresosCollection: AngularFirestoreCollection<CreateIngreso_Firebase>;
   private entidadDoc: AngularFirestoreDocument<EntidadI>;
   getAllIngresos(): Observable<CreateIngreso_Firebase[]> {
-    this.ingresosCollection = this.afs.collection<CreateIngreso_Firebase>('ingresos');
+    this.ingresosCollection = this.afs.collection<CreateIngreso_Firebase>('ingresos', ref => ref.orderBy('Fecha', 'desc'));
     return this.ingresosCollection.valueChanges();
   }
 
