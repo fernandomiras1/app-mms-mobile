@@ -158,17 +158,17 @@ export class IngresosComponent implements OnInit {
 				Observación: String(this.formValue('detail').value).toUpperCase(),
 				Precio: this.formValue('price').value
 			}
-			this.mmsService.createIngreso(newIngreso).pipe(
-				catchError(error => {
-					this.showSpinnerModal = false;
-					this.saveDataFirebase();
-					return throwError(new Error(error));
-				})).subscribe((resu: any) => {
+			this.mmsService.createIngreso(newIngreso).subscribe((resu: any) => {
 					this.showSpinnerModal = false;
 				if (resu.ok) {
 					this.clearForm();
 					this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
 				}
+			},
+			error => {
+				console.log('hay un error');
+				this.showSpinnerModal = false;
+				this.saveDataFirebase();
 			});
 
 			if (!navigator.onLine) {
