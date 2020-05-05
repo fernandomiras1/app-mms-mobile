@@ -10,7 +10,7 @@ export class MmsService {
   
   private resourceUrl = environment.apiUrl;
 
-  public idEntidad: number = 1;
+  public idEntidad: number;    
   constructor(private http:HttpClient) {}
 
   getCategorias(idTipo: number) {
