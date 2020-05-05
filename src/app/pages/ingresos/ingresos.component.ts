@@ -49,18 +49,18 @@ export class IngresosComponent implements OnInit {
 		private router: Router) { }
 
 	ngOnInit() {
-
+		
+		this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
+			if (resu.ok) {
+				console.log(resu);
+				this.listCategorias = resu.result;
+			}
+		});
 		const uid = localStorage.getItem('uid');
 		if (uid) {
 			this.firebaseService.getEntidadById(uid).subscribe((id: number) => {
 				this.mmsService.idEntidad = id;
 				console.log('entro');
-				this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
-					if (resu.ok) {
-						console.log(resu);
-						this.listCategorias = resu.result;
-					}
-				});
 			})
 		}
 
@@ -159,23 +159,24 @@ export class IngresosComponent implements OnInit {
 				Precio: this.formValue('price').value
 			}
 
+			this.mmsService.createIngreso(newIngreso).pipe(
+				catchError(error => {
+					this.showSpinnerModal = false;
+					this.saveDataFirebase();
+					return throwError(new Error(error));
+				})).subscribe((resu: any) => {
+					this.showSpinnerModal = false;
+				if (resu.ok) {
+					this.clearForm();
+					this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
+				}
+			});
+
 			if (!navigator.onLine) {
-				this.saveOffline(newIngreso);
-				this.showSpinnerModal = false;
-			} else {
-				this.mmsService.createIngreso(newIngreso).pipe(
-					catchError(error => {
-						this.showSpinnerModal = false;
-						this.saveDataFirebase();
-						return throwError(new Error(error));
-					})).subscribe((resu: any) => {
-						this.showSpinnerModal = false;
-					if (resu.ok) {
-						this.clearForm();
-						this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
-					}
-				});
+				this.clearForm();
+				this.openSnackBar('Los datos se guardaron en Modo Offline', 'Aceptar');
 			}
+		
 
  		}
 	}
