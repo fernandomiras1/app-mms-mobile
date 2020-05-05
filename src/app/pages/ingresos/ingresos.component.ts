@@ -163,18 +163,19 @@ export class IngresosComponent implements OnInit {
 				this.saveOffline(newIngreso);
 				this.showSpinnerModal = false;
 			} else {
-				this.mmsService.createIngreso(newIngreso).pipe(
-					catchError(error => {
-						this.showSpinnerModal = false;
-						this.saveDataFirebase();
-						return throwError(new Error(error));
-					})).subscribe((resu: any) => {
-						this.showSpinnerModal = false;
-					if (resu.ok) {
-						this.clearForm();
-						this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
-					}
-				});
+				this.saveDataFirebase();
+				// this.mmsService.createIngreso(newIngreso).pipe(
+				// 	catchError(error => {
+				// 		this.showSpinnerModal = false;
+				// 		this.saveDataFirebase();
+				// 		return throwError(new Error(error));
+				// 	})).subscribe((resu: any) => {
+				// 		this.showSpinnerModal = false;
+				// 	if (resu.ok) {
+				// 		this.clearForm();
+				// 		this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
+				// 	}
+				// });
 			}
 
  		}
@@ -203,7 +204,7 @@ export class IngresosComponent implements OnInit {
 			Observacion: String(this.formValue('detail').value).toUpperCase(),
 			Precio: this.formValue('price').value
 		}
-
+		console.log('lo guardamos en firebase');
 		this.firebaseService.addIngreso(newIngresoFirebase).then(resu => {
 			if(resu) {
 				this.router.navigate(['/home']);

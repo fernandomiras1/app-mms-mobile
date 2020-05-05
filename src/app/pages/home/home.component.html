@@ -3,7 +3,7 @@
 	<div class="app-header" fxFlex="0 0 auto">
 		
 		<div style="display: flex;">
-			<h1 class="title">Firebase</h1>
+			<h1 class="title">Firebase {{ synCount }}</h1>
 			<span class="empty-space"></span>
 			<button *ngIf="mmsService.serverOnline" mat-button class="button-success" (click)="onSync()">
 				<mat-icon>sync_alt</mat-icon> SYNC MMS
@@ -17,7 +17,7 @@
 
 	<div fxFlex fxLayout="column">
 		<cdk-virtual-scroll-viewport [itemSize]="50" fxFlex>
-			<mat-card  class="card mat-elevation-z4" *cdkVirtualFor="let item of ingresos | async; let i = index; let even = even" [class.even-item]="even" [style.height.px]="item">
+			<mat-card  class="card mat-elevation-z4" *cdkVirtualFor="let item of ingresos; let i = index; let even = even" [class.even-item]="even" [style.height.px]="item">
 			<div class="card-container-left">
 		<mat-card-title>{{item.SubCategoria}}  <mat-icon class="card-mat-list-icon">cloud_done</mat-icon></mat-card-title>
 		<span class="card-container-flex">{{item.Observacion}}</span>

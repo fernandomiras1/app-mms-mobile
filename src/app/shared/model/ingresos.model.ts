@@ -42,7 +42,8 @@ export class CreateIngreso_Firebase {
         public Id_Forma_Pago: number,
         public Fecha: string,
         public Observacion: string,
-        public Precio: number
+        public Precio: number,
+        public id?: string,
     ) { }
 }
 
