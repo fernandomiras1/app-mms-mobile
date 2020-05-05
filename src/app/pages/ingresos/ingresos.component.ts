@@ -159,12 +159,7 @@ export class IngresosComponent implements OnInit {
 				Precio: this.formValue('price').value
 			}
 
-			this.mmsService.createIngreso(newIngreso).pipe(
-				catchError(error => {
-					this.showSpinnerModal = false;
-					this.saveDataFirebase();
-					return throwError(new Error(error));
-				})).subscribe((resu: any) => {
+			this.mmsService.createIngreso(newIngreso).subscribe((resu: any) => {
 					this.showSpinnerModal = false;
 				if (resu.ok) {
 					this.clearForm();
