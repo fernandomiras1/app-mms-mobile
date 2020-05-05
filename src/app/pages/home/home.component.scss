@@ -1,21 +1,33 @@
 .title {
     font-weight: bold;
+    margin-top: 5px;
+    margin: 0;
 }
 
 
+.button-error {
+    font-weight: bold;
+    color: red;
+}
+
+.button-success {
+    font-weight: bold;
+    color: green;
+}
 
 .app-header {
     margin-top: 20px;
     height: 50px;
-  }
+}
 
-  .app-footer {
+.app-footer {
     height: 52px;
  }
   
 .card {
     display: flex;
-    margin: 20px 0 20px;
+    padding: 6px;
+    margin: 20px 5px 20px;
     background: #f5f4f4;
 
     &-mat-list-icon {

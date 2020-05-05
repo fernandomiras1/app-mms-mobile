@@ -57,6 +57,7 @@ export class IngresosComponent implements OnInit {
 				this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
 					if (resu.ok) {
 						console.log(resu);
+						this.mmsService.serverOnline = true;
 						this.listCategorias = resu.result;
 					}
 				});
