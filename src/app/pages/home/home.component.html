@@ -3,9 +3,26 @@
 	<div class="app-header" fxFlex="0 0 auto">
 		
 		<div style="display: flex;">
-			<h1 class="title">Firebase {{ synCount }}</h1>
+			<span class="survey-progress">
+				<span class="survey-progress-bg">
+					<!-- style="width: 88%;" -->
+					<span class="survey-progress-fg"  [style.width.%]="synCount"></span>
+				</span>
+				
+				<span class="survey-progress-labels">
+				  <span class="survey-progress-label">
+					88%
+				  </span>
+		
+				  <span class="survey-completes">
+					{{synCount}} / {{ingresos.length}}
+				  </span>
+				</span>
+			</span>
+			<!-- <h1 class="title">Firebase {{ synCount }}</h1> -->
 			<span class="empty-space"></span>
-			<button *ngIf="mmsService.serverOnline" mat-button class="button-success" (click)="onSync()">
+			<!-- *ngIf="mmsService.serverOnline" -->
+			<button mat-button class="button-success" (click)="onSync()">
 				<mat-icon>sync_alt</mat-icon> SYNC MMS
 			</button>
 			<button *ngIf="!mmsService.serverOnline" disabled="true" mat-button class="button-error">
@@ -13,6 +30,7 @@
 			</button>
 		</div>
 		<hr>
+
 	</div>
 
 	<div fxFlex fxLayout="column">

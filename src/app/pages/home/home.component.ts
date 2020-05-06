@@ -4,6 +4,9 @@ import { Observable } from 'rxjs/internal/Observable';
 import { CreateIngreso_Firebase, CreateIngreso } from 'src/app/shared/model/ingresos.model';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { MmsService } from 'src/app/shared/services/mms-api.service';
+import { scan, withLatestFrom } from 'rxjs/operators';
+import { from } from 'rxjs';
+import { delay, concat, tap, switchMap, bufferCount } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +16,8 @@ import { MmsService } from 'src/app/shared/services/mms-api.service';
 export class HomeComponent implements OnInit {
   ingresos: CreateIngreso_Firebase[] = [];
   synCount = 0;
+  progress = 88;
+  items = [1,2,3,4,5,6,7,8,9,10];
   @ViewChild(CdkVirtualScrollViewport, { static: true }) viewPort: CdkVirtualScrollViewport;
   constructor(private firebaseService: FirebaseApiService,
               public mmsService: MmsService) {}
@@ -24,7 +29,9 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  
   onSync() {
+
     this.ingresos.forEach((item: CreateIngreso_Firebase, index) => {
       this.synCount = index ++;
       let newIngreso: CreateIngreso = {
@@ -39,7 +46,8 @@ export class HomeComponent implements OnInit {
       }
       this.mmsService.createIngreso(newIngreso).subscribe(resu => {
         if (resu) {
-          this.firebaseService.deleteBook(item.id);
+          // this.firebaseService.deleteBook(item.id);
+          this.firebaseService.updateBook(item);
         } else {
           return true;
         }
