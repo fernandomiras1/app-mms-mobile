@@ -5,17 +5,12 @@
 		<div style="display: flex;">
 			<span class="survey-progress">
 				<span class="survey-progress-bg">
-					<!-- style="width: 88%;" -->
-					<span class="survey-progress-fg"  [style.width.%]="synCount"></span>
+					<span class="survey-progress-fg" [ngClass]="{'finished': progress === 100 , 'in-progress': progress !== 100}"  [style.width.%]="progress"></span>
 				</span>
 				
 				<span class="survey-progress-labels">
 				  <span class="survey-progress-label">
-					88%
-				  </span>
-		
-				  <span class="survey-completes">
-					{{synCount}} / {{ingresos.length}}
+					{{progress}}%
 				  </span>
 				</span>
 			</span>
@@ -25,9 +20,9 @@
 			<button mat-button class="button-success" (click)="onSync()">
 				<mat-icon>sync_alt</mat-icon> SYNC MMS
 			</button>
-			<button *ngIf="!mmsService.serverOnline" disabled="true" mat-button class="button-error">
+			<!-- <button *ngIf="!mmsService.serverOnline" disabled="true" mat-button class="button-error">
 				<mat-icon>power_off</mat-icon> SYNC MMS
-			</button>
+			</button> -->
 		</div>
 		<hr>
 

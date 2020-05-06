@@ -21,8 +21,8 @@ export class FirebaseApiService {
   constructor(private afs: AngularFirestore) { }
 
   getAllIngresos(): Observable<CreateIngreso_Firebase[]> {
-    // this.ingresosCollection = this.afs.collection<CreateIngreso_Firebase>('ingresos', ref => ref.where('Id_Entidad', '==', 1).orderBy('Fecha', 'desc'));
-    this.ingresosCollection = this.afs.collection<CreateIngreso_Firebase>('ingresos', ref => ref.orderBy('Fecha', 'desc'));
+    this.ingresosCollection = this.afs.collection<CreateIngreso_Firebase>('ingresos', ref => ref.where('Id_Entidad', '==', 1).orderBy('Fecha', 'desc'));
+    // this.ingresosCollection = this.afs.collection<CreateIngreso_Firebase>('ingresos', ref => ref.orderBy('Fecha', 'desc'));
     return this.ingresos = this.ingresosCollection.snapshotChanges()
     .pipe(map(changes => {
       return changes.map(action => {
@@ -47,12 +47,13 @@ export class FirebaseApiService {
 
   updateBook(book: CreateIngreso_Firebase): void {
     let idBook = book.id;
-    book.Id_Entidad = 2;
+    book.Id_Entidad = 1;
     this.ingresodDoc = this.afs.doc<CreateIngreso_Firebase>(`ingresos/${idBook}`);
     this.ingresodDoc.update(book);
   }
 
   deleteBook(id: string): void {
+    console.log(id);
     this.ingresodDoc = this.afs.doc<CreateIngreso_Firebase>(`ingresos/${id}`);
     this.ingresodDoc.delete();
   }
