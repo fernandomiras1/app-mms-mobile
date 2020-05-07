@@ -6,6 +6,7 @@ const buildSW = () => {
     globDirectory: "dist/app-mms-mobile/browser",
     globPatterns: [
       '**\/*.{js,css,html}',
+      "favicon.ico",
       "assets/**/*.{css,html,js,json,png,svg,woff,woff2}"
     ],
     swSrc: "src/service-worker.js",
