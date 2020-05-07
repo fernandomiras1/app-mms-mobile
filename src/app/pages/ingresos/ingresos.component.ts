@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
-import { MmsService } from 'src/app/shared/services/mms-api.service';
-import { Categoria, SubCategoria, ingresosType, CreateIngreso, CreateIngreso_Firebase } from 'src/app/shared/model/ingresos.model';
-import { tipoEnum } from 'src/app/shared/Enums';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { MatDialog } from '@angular/material/dialog';
-import { ListSelectComponent } from 'src/app/components/list-select/list-select.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FirebaseApiService } from 'src/app/shared/services/firebase-api.service';
 import { map, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { tipoEnum } from '../../shared/Enums';
+import { ingresosType, Categoria, SubCategoria, CreateIngreso, CreateIngreso_Firebase } from '../../shared/model/ingresos.model';
+import { MmsService } from '../../shared/services/mms-api.service';
+import { FirebaseApiService } from '../../shared/services/firebase-api.service';
+import { AuthService } from '../../auth/auth.service';
+import { ListSelectComponent } from '../../components/list-select/list-select.component';
 
 export interface DialogData {
 	options: any[];

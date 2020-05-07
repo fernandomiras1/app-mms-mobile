@@ -8,11 +8,11 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { HomeComponent } from './home.component';
 
 //  material
-import { MaterialModule } from 'src/app/shared/material.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { PagesModule } from '../pages.module';
-import { ComponentsModule } from 'src/app/components/components.module';
+import { ComponentsModule } from '../../components/components.module';
+import { MaterialModule } from '../../shared/material.module';
 
 @NgModule({
     imports: [

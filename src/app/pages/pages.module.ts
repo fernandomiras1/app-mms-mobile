@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // material
-import {MaterialModule} from 'src/app/shared/material.module';
+import { MaterialModule } from '../shared/material.module';
 // formulario
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 

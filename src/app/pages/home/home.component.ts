@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FirebaseApiService } from 'src/app/shared/services/firebase-api.service';
 import { Observable } from 'rxjs/internal/Observable';
-import { CreateIngreso_Firebase, CreateIngreso } from 'src/app/shared/model/ingresos.model';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
-import { MmsService } from 'src/app/shared/services/mms-api.service';
 import { tap } from 'rxjs/operators';
+import { CreateIngreso_Firebase, CreateIngreso } from '../../shared/model/ingresos.model';
+import { FirebaseApiService } from '../../shared/services/firebase-api.service';
+import { MmsService } from '../../shared/services/mms-api.service';
 
 @Component({
   selector: 'app-home',

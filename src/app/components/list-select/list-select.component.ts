@@ -3,8 +3,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import {Observable} from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogData } from 'src/app/pages/ingresos/ingresos.component';
-import { ingresosType } from 'src/app/shared/model/ingresos.model';
+import { ingresosType } from '../../shared/model/ingresos.model';
+import { DialogData } from '../../pages/ingresos/ingresos.component';
+
 
 @Component({
   selector: 'app-list-select',

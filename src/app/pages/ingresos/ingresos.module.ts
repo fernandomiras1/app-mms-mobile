@@ -7,7 +7,7 @@ import { IngresosRoutingModule } from './ingresos.routing';
 import { IngresosComponent } from './ingresos.component';
 
 //  material
-import { MaterialModule } from 'src/app/shared/material.module';
+import { MaterialModule } from '../../shared/material.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { PagesModule } from '../pages.module';
