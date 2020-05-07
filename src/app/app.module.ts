@@ -21,7 +21,7 @@ import { PagesModule } from './pages/pages.module';
     PagesComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
