@@ -5,6 +5,7 @@ import { CreateIngreso_Firebase, CreateIngreso } from 'src/app/shared/model/ingr
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { MmsService } from 'src/app/shared/services/mms-api.service';
 import { tap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,13 +19,19 @@ export class HomeComponent implements OnInit {
  observablesIngresos: Array<Observable<any>>;
   @ViewChild(CdkVirtualScrollViewport, { static: true }) viewPort: CdkVirtualScrollViewport;
   constructor(private firebaseService: FirebaseApiService,
+              private routeActivate: ActivatedRoute,
               public mmsService: MmsService) {}
 
   ngOnInit() {
-    this.firebaseService.getAllIngresos().subscribe(ingreso => {
-      this.ingresos = ingreso;
-      this.synCount = this.ingresos.length;
-    });
+    const data: Observable<any> = this.routeActivate.snapshot.data.idEntidad;
+		data.subscribe((id: number) => {
+      this.mmsService.idEntidad = id;
+      this.firebaseService.getAllIngresos().subscribe(ingreso => {
+        this.ingresos = ingreso;
+        this.synCount = this.ingresos.length;
+      });
+		});
+
   }
 
   onSync() {

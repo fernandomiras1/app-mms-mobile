@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MmsService } from 'src/app/shared/services/mms-api.service';
 import { Categoria, SubCategoria, ingresosType, CreateIngreso, CreateIngreso_Firebase } from 'src/app/shared/model/ingresos.model';
 import { tipoEnum } from 'src/app/shared/Enums';
@@ -11,7 +11,7 @@ import { ListSelectComponent } from 'src/app/components/list-select/list-select.
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FirebaseApiService } from 'src/app/shared/services/firebase-api.service';
 import { map, catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 
 export interface DialogData {
 	options: any[];
@@ -46,24 +46,22 @@ export class IngresosComponent implements OnInit {
 		private authService: AuthService,
 		public snackBar: MatSnackBar,
 		public dialog: MatDialog,
+		private routeActivate: ActivatedRoute,
 		private router: Router) { }
 
 	ngOnInit() {
-
-		const uid = localStorage.getItem('uid');
-		if (uid) {
-			this.firebaseService.getEntidadById(uid).subscribe((id: number) => {
-				this.mmsService.idEntidad = id;
-				this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
-					if (resu.ok) {
-						console.log(resu);
-						this.mmsService.serverOnline = true;
-						this.listCategorias = resu.result;
-					}
-				});
-			})
-		}
-
+		const data: Observable<any> = this.routeActivate.snapshot.data.idEntidad;
+		data.subscribe((id: number) => {
+			this.mmsService.idEntidad = id;
+			this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
+				if (resu.ok) {
+					console.log(resu);
+					this.mmsService.serverOnline = true;
+					this.listCategorias = resu.result;
+				}
+			});
+		});
+		
 		this.form = this.fb.group({
 			toggleTipo: [String(tipoEnum.EGRESO)],
 			price: [null, Validators.required],
