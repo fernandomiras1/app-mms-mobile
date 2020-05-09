@@ -1,4 +1,6 @@
+declare var require: any;
 export const environment = {
+  VERSION: require('../../package.json').version,
   production: true,
   apiUrl: 'https://app-mms-nodejs.herokuapp.com',
   firebase: {

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { AuthService } from '../auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   tokenUser: string;
   showSpinner = false;
   showPass = false;
+  public version: string = environment.VERSION;
   public password: number[] = [];
 
   // Validators.pattern(this.regexEmail)
