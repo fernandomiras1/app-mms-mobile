@@ -6,6 +6,7 @@ import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { MmsService } from 'src/app/shared/services/mms-api.service';
 import { tap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
+import { tipoEnum } from 'src/app/shared/Enums';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ export class HomeComponent implements OnInit {
   ingresos: CreateIngreso_Firebase[] = [];
   progress = 100;
   synCount = 0;
- observablesIngresos: Array<Observable<any>>;
+  public isOnline = false; 
+  observablesIngresos: Array<Observable<any>>;
   @ViewChild(CdkVirtualScrollViewport, { static: true }) viewPort: CdkVirtualScrollViewport;
   constructor(private firebaseService: FirebaseApiService,
               private routeActivate: ActivatedRoute,
@@ -33,7 +35,14 @@ export class HomeComponent implements OnInit {
         }
       });
 		});
+    
+    this.serverOnline();
+  }
 
+  serverOnline(): void {
+    this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
+			this.isOnline = resu ? true : false;
+    })
   }
 
   onSync() {
