@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { MmsService } from 'src/app/shared/services/mms-api.service';
 import { Categoria, SubCategoria, ingresosType, CreateIngreso, CreateIngreso_Firebase } from 'src/app/shared/model/ingresos.model';
 import { tipoEnum } from 'src/app/shared/Enums';
@@ -11,7 +11,7 @@ import { ListSelectComponent } from 'src/app/components/list-select/list-select.
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FirebaseApiService } from 'src/app/shared/services/firebase-api.service';
 import { map, catchError } from 'rxjs/operators';
-import { throwError, Observable } from 'rxjs';
+import { throwError } from 'rxjs';
 
 export interface DialogData {
 	options: any[];
@@ -29,7 +29,7 @@ export class IngresosComponent implements OnInit {
 	showSpinnerModal = false;
 	mode = 'indeterminate';
 	value = 20;
-
+	idEntidad: number;
 	statusType: typeof tipoEnum = tipoEnum;
 	type = ingresosType;
 	listCategorias: Categoria[] = [];
@@ -46,22 +46,25 @@ export class IngresosComponent implements OnInit {
 		private authService: AuthService,
 		public snackBar: MatSnackBar,
 		public dialog: MatDialog,
-		private routeActivate: ActivatedRoute,
 		private router: Router) { }
 
 	ngOnInit() {
-		const data: Observable<any> = this.routeActivate.snapshot.data.idEntidad;
-		data.subscribe((id: number) => {
-			this.mmsService.idEntidad = id;
-			this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
-				if (resu.ok) {
-					console.log(resu);
-					this.mmsService.serverOnline = true;
-					this.listCategorias = resu.result;
-				}
-			});
-		});
-		
+
+		const uid = localStorage.getItem('uid');
+		if (uid) {
+			this.firebaseService.getEntidadById(uid).subscribe((id: number) => {
+				this.mmsService.idEntidad = id;
+				this.idEntidad = id;
+				this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
+					if (resu.ok) {
+						console.log(resu);
+						this.mmsService.serverOnline = true;
+						this.listCategorias = resu.result;
+					}
+				});
+			})
+		}
+
 		this.form = this.fb.group({
 			toggleTipo: [String(tipoEnum.EGRESO)],
 			price: [null, Validators.required],
@@ -147,7 +150,7 @@ export class IngresosComponent implements OnInit {
 		if (!this.isFormValid) {
 			this.showSpinnerModal = true;
 			let newIngreso: CreateIngreso = {
-				Id_Entidad: 1,
+				Id_Entidad: this.idEntidad,
 				Id_Tipo: Number(this.formValue('toggleTipo').value),
 				Id_Categoria: this.selectedCate.id,
 				Id_SubCategoria: this.selectedSubCate.id,
@@ -156,7 +159,6 @@ export class IngresosComponent implements OnInit {
 				Observación: String(this.formValue('detail').value).toUpperCase(),
 				Precio: this.formValue('price').value
 			}
-			console.log(newIngreso);
 			if (!navigator.onLine) {
 				this.saveOffline(newIngreso);
 				this.showSpinnerModal = false;
@@ -189,7 +191,7 @@ export class IngresosComponent implements OnInit {
 	saveDataFirebase() {
 
 		let newIngresoFirebase: CreateIngreso_Firebase = {
-			Id_Entidad: this.mmsService.idEntidad,
+			Id_Entidad: this.idEntidad,
 			Tipo: this.getTipo(Number(this.formValue('toggleTipo').value)),
 			Id_Tipo: Number(this.formValue('toggleTipo').value),
 			Categoria: this.selectedCate.Nombre,
@@ -201,12 +203,9 @@ export class IngresosComponent implements OnInit {
 			Observacion: String(this.formValue('detail').value).toUpperCase(),
 			Precio: this.formValue('price').value
 		}
-		console.log('lo guardamos en firebase');
-		this.firebaseService.addIngreso(newIngresoFirebase).then(resu => {
-			if(resu) {
-				this.router.navigate(['/home']);
-			}
-		});
+		console.log('firebase', newIngresoFirebase);
+		this.firebaseService.addIngreso(newIngresoFirebase);
+		this.router.navigate(['/home']);
 	}
 
 	clearForm() {

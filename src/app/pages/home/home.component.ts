@@ -26,9 +26,11 @@ export class HomeComponent implements OnInit {
     const data: Observable<any> = this.routeActivate.snapshot.data.idEntidad;
 		data.subscribe((id: number) => {
       this.mmsService.idEntidad = id;
-      this.firebaseService.getAllIngresos().subscribe(ingreso => {
+      this.firebaseService.getAllIngresos(id).subscribe(ingreso => {
         this.ingresos = ingreso;
-        this.synCount = this.ingresos.length;
+        if (this.synCount === 0) {
+          this.synCount = this.ingresos.length;
+        }
       });
 		});
 
@@ -36,7 +38,7 @@ export class HomeComponent implements OnInit {
 
   onSync() {
     let count: number = 0;
-    this.ingresos.forEach((ingreso: CreateIngreso_Firebase) => {
+    this.ingresos.map((ingreso: CreateIngreso_Firebase) => {
       let newIngreso: CreateIngreso = {
         Id_Entidad: this.mmsService.idEntidad,
         Id_Tipo: ingreso.Id_Tipo,

@@ -18,12 +18,15 @@ export class FirebaseApiService {
   private ingresos: Observable<CreateIngreso_Firebase[]>;
   private entidadDoc: AngularFirestoreDocument<EntidadI>;
   private ingresodDoc: AngularFirestoreDocument<CreateIngreso_Firebase>;
-  constructor(private afs: AngularFirestore, 
-              private mmsService: MmsService) { }
+  constructor(private afs: AngularFirestore) { 
+              const uid = localStorage.getItem('uid');
+              this.getEntidadById(uid).subscribe((id: number) => {
+                this.getAllIngresos(id);
+              });
+            }
 
-  getAllIngresos(): Observable<CreateIngreso_Firebase[]> {
-    console.log(this.mmsService.idEntidad);
-    this.ingresosCollection = this.afs.collection<CreateIngreso_Firebase>('ingresos', ref => ref.where('Id_Entidad', '==', this.mmsService.idEntidad).orderBy('Fecha', 'desc'));
+  getAllIngresos(idEntidad: number): Observable<CreateIngreso_Firebase[]> {
+    this.ingresosCollection = this.afs.collection<CreateIngreso_Firebase>('ingresos', ref => ref.where('Id_Entidad', '==', idEntidad).orderBy('Fecha', 'desc'));
     // this.ingresosCollection = this.afs.collection<CreateIngreso_Firebase>('ingresos', ref => ref.orderBy('Fecha', 'desc'));
     return this.ingresos = this.ingresosCollection.snapshotChanges()
     .pipe(map(changes => {
