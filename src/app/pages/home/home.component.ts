@@ -5,6 +5,8 @@ import { tap } from 'rxjs/operators';
 import { CreateIngreso_Firebase, CreateIngreso } from '../../shared/model/ingresos.model';
 import { FirebaseApiService } from '../../shared/services/firebase-api.service';
 import { MmsService } from '../../shared/services/mms-api.service';
+import { ActivatedRoute } from '@angular/router';
+import { tipoEnum } from 'src/app/shared/Enums';
 
 @Component({
   selector: 'app-home',
@@ -15,21 +17,37 @@ export class HomeComponent implements OnInit {
   ingresos: CreateIngreso_Firebase[] = [];
   progress = 100;
   synCount = 0;
- observablesIngresos: Array<Observable<any>>;
+  public isOnline = false; 
+  observablesIngresos: Array<Observable<any>>;
   @ViewChild(CdkVirtualScrollViewport, { static: true }) viewPort: CdkVirtualScrollViewport;
   constructor(private firebaseService: FirebaseApiService,
+              private routeActivate: ActivatedRoute,
               public mmsService: MmsService) {}
 
   ngOnInit() {
-    this.firebaseService.getAllIngresos().subscribe(ingreso => {
-      this.ingresos = ingreso;
-      this.synCount = this.ingresos.length;
-    });
+    const data: Observable<any> = this.routeActivate.snapshot.data.idEntidad;
+		data.subscribe((id: number) => {
+      this.mmsService.idEntidad = id;
+      this.firebaseService.getAllIngresos(id).subscribe(ingreso => {
+        this.ingresos = ingreso;
+        if (this.synCount === 0) {
+          this.synCount = this.ingresos.length;
+        }
+      });
+		});
+    
+    this.serverOnline();
+  }
+
+  serverOnline(): void {
+    this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
+			this.isOnline = resu ? true : false;
+    })
   }
 
   onSync() {
     let count: number = 0;
-    this.ingresos.forEach((ingreso: CreateIngreso_Firebase) => {
+    this.ingresos.map((ingreso: CreateIngreso_Firebase) => {
       let newIngreso: CreateIngreso = {
         Id_Entidad: this.mmsService.idEntidad,
         Id_Tipo: ingreso.Id_Tipo,

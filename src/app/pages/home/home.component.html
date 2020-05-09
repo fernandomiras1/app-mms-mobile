@@ -16,13 +16,12 @@
 			</span>
 			<!-- <h1 class="title">Firebase {{ synCount }}</h1> -->
 			<span class="empty-space"></span>
-			<!-- *ngIf="mmsService.serverOnline" -->
-			<button mat-button class="button-success" (click)="onSync()">
+			<button mat-button *ngIf="isOnline" class="button-success" (click)="onSync()">
 				<mat-icon>sync_alt</mat-icon> SYNC MMS
 			</button>
-			<!-- <button *ngIf="!mmsService.serverOnline" disabled="true" mat-button class="button-error">
+			<button *ngIf="!isOnline" disabled="true" mat-button class="button-error">
 				<mat-icon>power_off</mat-icon> SYNC MMS
-			</button> -->
+			</button>
 		</div>
 		<hr>
 

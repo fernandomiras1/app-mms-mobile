@@ -29,7 +29,7 @@ export class IngresosComponent implements OnInit {
 	showSpinnerModal = false;
 	mode = 'indeterminate';
 	value = 20;
-
+	idEntidad: number;
 	statusType: typeof tipoEnum = tipoEnum;
 	type = ingresosType;
 	listCategorias: Categoria[] = [];
@@ -54,10 +54,10 @@ export class IngresosComponent implements OnInit {
 		if (uid) {
 			this.firebaseService.getEntidadById(uid).subscribe((id: number) => {
 				this.mmsService.idEntidad = id;
+				this.idEntidad = id;
 				this.mmsService.getCategorias(tipoEnum.EGRESO).subscribe((resu: any) => {
 					if (resu.ok) {
 						console.log(resu);
-						this.mmsService.serverOnline = true;
 						this.listCategorias = resu.result;
 					}
 				});
@@ -149,7 +149,7 @@ export class IngresosComponent implements OnInit {
 		if (!this.isFormValid) {
 			this.showSpinnerModal = true;
 			let newIngreso: CreateIngreso = {
-				Id_Entidad: 1,
+				Id_Entidad: this.idEntidad,
 				Id_Tipo: Number(this.formValue('toggleTipo').value),
 				Id_Categoria: this.selectedCate.id,
 				Id_SubCategoria: this.selectedSubCate.id,
@@ -158,24 +158,22 @@ export class IngresosComponent implements OnInit {
 				Observación: String(this.formValue('detail').value).toUpperCase(),
 				Precio: this.formValue('price').value
 			}
-
 			if (!navigator.onLine) {
 				this.saveOffline(newIngreso);
 				this.showSpinnerModal = false;
 			} else {
-				this.saveDataFirebase();
-				// this.mmsService.createIngreso(newIngreso).pipe(
-				// 	catchError(error => {
-				// 		this.showSpinnerModal = false;
-				// 		this.saveDataFirebase();
-				// 		return throwError(new Error(error));
-				// 	})).subscribe((resu: any) => {
-				// 		this.showSpinnerModal = false;
-				// 	if (resu.ok) {
-				// 		this.clearForm();
-				// 		this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
-				// 	}
-				// });
+				this.mmsService.createIngreso(newIngreso).pipe(
+					catchError(error => {
+						this.showSpinnerModal = false;
+						this.saveDataFirebase();
+						return throwError(new Error(error));
+					})).subscribe((resu: any) => {
+						this.showSpinnerModal = false;
+					if (resu.ok) {
+						this.clearForm();
+						this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
+					}
+				});
 			}
 
  		}
@@ -185,14 +183,14 @@ export class IngresosComponent implements OnInit {
 		this.mmsService.createIngreso(newIngreso).subscribe(res => {
 			console.log('res: Offile', res);
 		});
-		// this.clearForm();
-		// this.openSnackBar('Los datos se guardaron en Modo Offline', 'Aceptar');
+		this.clearForm();
+		this.openSnackBar('Los datos se guardaron en Modo Offline', 'Aceptar');
 	}
 
 	saveDataFirebase() {
 
 		let newIngresoFirebase: CreateIngreso_Firebase = {
-			Id_Entidad: this.mmsService.idEntidad,
+			Id_Entidad: this.idEntidad,
 			Tipo: this.getTipo(Number(this.formValue('toggleTipo').value)),
 			Id_Tipo: Number(this.formValue('toggleTipo').value),
 			Categoria: this.selectedCate.Nombre,
@@ -204,12 +202,9 @@ export class IngresosComponent implements OnInit {
 			Observacion: String(this.formValue('detail').value).toUpperCase(),
 			Precio: this.formValue('price').value
 		}
-		console.log('lo guardamos en firebase');
-		this.firebaseService.addIngreso(newIngresoFirebase).then(resu => {
-			if(resu) {
-				this.router.navigate(['/home']);
-			}
-		});
+		console.log('firebase', newIngresoFirebase);
+		this.firebaseService.addIngreso(newIngresoFirebase);
+		this.router.navigate(['/home']);
 	}
 
 	clearForm() {
@@ -217,6 +212,7 @@ export class IngresosComponent implements OnInit {
 		this.selectedCate = null;
 		this.selectedSubCate = null;
 		this.formValue('date').setValue(this.currentDate);
+		this.formValue('toggleTipo').setValue(String(tipoEnum.EGRESO));
 	}
 
 	public logoutUser(): void {
