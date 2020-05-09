@@ -158,24 +158,23 @@ export class IngresosComponent implements OnInit {
 				Observación: String(this.formValue('detail').value).toUpperCase(),
 				Precio: this.formValue('price').value
 			}
-
+			console.log(newIngreso);
 			if (!navigator.onLine) {
 				this.saveOffline(newIngreso);
 				this.showSpinnerModal = false;
 			} else {
-				this.saveDataFirebase();
-				// this.mmsService.createIngreso(newIngreso).pipe(
-				// 	catchError(error => {
-				// 		this.showSpinnerModal = false;
-				// 		this.saveDataFirebase();
-				// 		return throwError(new Error(error));
-				// 	})).subscribe((resu: any) => {
-				// 		this.showSpinnerModal = false;
-				// 	if (resu.ok) {
-				// 		this.clearForm();
-				// 		this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
-				// 	}
-				// });
+				this.mmsService.createIngreso(newIngreso).pipe(
+					catchError(error => {
+						this.showSpinnerModal = false;
+						this.saveDataFirebase();
+						return throwError(new Error(error));
+					})).subscribe((resu: any) => {
+						this.showSpinnerModal = false;
+					if (resu.ok) {
+						this.clearForm();
+						this.openSnackBar('El dato se guardo correctamente', 'Aceptar');
+					}
+				});
 			}
 
  		}
@@ -185,8 +184,8 @@ export class IngresosComponent implements OnInit {
 		this.mmsService.createIngreso(newIngreso).subscribe(res => {
 			console.log('res: Offile', res);
 		});
-		// this.clearForm();
-		// this.openSnackBar('Los datos se guardaron en Modo Offline', 'Aceptar');
+		this.clearForm();
+		this.openSnackBar('Los datos se guardaron en Modo Offline', 'Aceptar');
 	}
 
 	saveDataFirebase() {
@@ -217,6 +216,7 @@ export class IngresosComponent implements OnInit {
 		this.selectedCate = null;
 		this.selectedSubCate = null;
 		this.formValue('date').setValue(this.currentDate);
+		this.formValue('toggleTipo').setValue(String(tipoEnum.EGRESO));
 	}
 
 	public logoutUser(): void {
