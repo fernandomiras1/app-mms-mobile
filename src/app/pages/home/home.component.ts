@@ -6,7 +6,7 @@ import { CreateIngreso_Firebase, CreateIngreso } from '../../shared/model/ingres
 import { FirebaseApiService } from '../../shared/services/firebase-api.service';
 import { MmsService } from '../../shared/services/mms-api.service';
 import { ActivatedRoute } from '@angular/router';
-import { tipoEnum } from 'src/app/shared/Enums';
+import { tipoEnum } from '../../../app/shared/Enums';
 
 @Component({
   selector: 'app-home',
