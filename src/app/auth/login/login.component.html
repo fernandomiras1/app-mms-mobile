@@ -17,6 +17,7 @@
       <div [style.margin-top.px]="!showPass ? 20 : 10">
         <mat-checkbox color="primary" [ngClass]="{'mat-input-login': !showPass, 'mat-input': showPass}" formControlName="rememberEmail">Recuérdame</mat-checkbox>
       </div>
+      <a href="https://seguros.naranja.com/hogar/bienvenida">Cotizá sin compromiso</a>
     </form>
 </div>
 
@@ -26,7 +27,6 @@
 </app-numeric-keypad>
 
 <app-alert-view *ngIf="showSpinner"></app-alert-view>
-
 <button class="btn-footer" mat-raised-button color="primary" (click)="onSubmit()">
   <mat-icon>lock</mat-icon> Login
 </button>

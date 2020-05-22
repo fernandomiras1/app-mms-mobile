@@ -1,10 +1,11 @@
 {
-  "name": "MMS Mobile",
-  "short_name": "MMS",
+  "name": "MMS Mobile - pwa-subdomains",
+  "short_name": "pwa-subdomains",
   "theme_color": "#1976d2",
   "background_color": "#1976d2",
   "display": "standalone",
   "start_url": "index.html",
+  "scope": [ "https://seguros.naranja.com/hogar/bienvenida", "https://seguros.naranja.com/"],
   "orientation": "portrait",
   "icons": [
     {
