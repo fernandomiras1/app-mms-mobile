@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
               public snackBar: MatSnackBar) { }
 
   ngOnInit() {
+    document.domain = "naranja.com";
     const email = localStorage.getItem('rememberEmail');
     this.form = this.fb.group({
       email: [email ? email : '', Validators.compose([
