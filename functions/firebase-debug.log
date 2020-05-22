@@ -1,0 +1,1009 @@
+[debug] [2020-05-10T17:15:58.571Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:15:58.574Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-05-10T17:15:58.574Z] CLI Version:   8.2.0
+[debug] [2020-05-10T17:15:58.574Z] Platform:      win32
+[debug] [2020-05-10T17:15:58.574Z] Node Version:  v10.19.0
+[debug] [2020-05-10T17:15:58.575Z] Time:          Sun May 10 2020 14:15:58 GMT-0300 (GMT-03:00)
+[debug] [2020-05-10T17:15:58.575Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:15:58.575Z] 
+[debug] [2020-05-10T17:15:58.586Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-10T17:15:58.586Z] > authorizing via signed-in user
+[debug] [2020-05-10T17:15:58.587Z] [iam] checking project app-mms-mobile for permissions ["firebase.projects.get"]
+[debug] [2020-05-10T17:15:58.590Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/app-mms-mobile:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-05-10T17:15:59.826Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:16:00 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1065","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T17:15:59.827Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile  
+ 
+[debug] [2020-05-10T17:16:01.084Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:16:01 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from 'A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile'...
+[info] 
+[debug] [2020-05-10T17:16:01.089Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile/webApps/-/config  
+ 
+[debug] [2020-05-10T17:16:02.415Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:16:03 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+[info] +  functions: Using node@10 from host.
+[info] +  functions: functions emulator started at http://localhost:5001
+[info] i  functions: Watching "A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions" for Cloud Functions...
+[debug] [2020-05-10T17:16:03.176Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:16:03.177Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:16:03.177Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:16:03.178Z] [worker-~diagnostic~-ea4b693f-defd-4f6f-ab33-de2824afb6e0]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\1592 
+[debug] [2020-05-10T17:16:03.179Z] [worker-~diagnostic~-ea4b693f-defd-4f6f-ab33-de2824afb6e0]: BUSY 
+[debug] [2020-05-10T17:16:03.694Z] [runtime-status] [1592] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:16:03.696Z] [runtime-status] [1592] Disabled runtime features: undefined 
+[warn] !  The Cloud Functions emulator requires the module "firebase-admin" to be installed. This package is in your package.json, but it's not available. You probably need to run "npm install" in your functions directory.
+[info] i  functions: Your functions could not be parsed due to an issue with your node_modules (see above)
+[debug] [2020-05-10T17:16:03.720Z] [worker-~diagnostic~-ea4b693f-defd-4f6f-ab33-de2824afb6e0]: exited 
+[debug] [2020-05-10T17:16:03.720Z] [worker-~diagnostic~-ea4b693f-defd-4f6f-ab33-de2824afb6e0]: FINISHED 
+[debug] [2020-05-10T17:18:16.419Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:18:16.421Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-05-10T17:18:16.421Z] CLI Version:   8.2.0
+[debug] [2020-05-10T17:18:16.421Z] Platform:      win32
+[debug] [2020-05-10T17:18:16.422Z] Node Version:  v10.19.0
+[debug] [2020-05-10T17:18:16.423Z] Time:          Sun May 10 2020 14:18:16 GMT-0300 (GMT-03:00)
+[debug] [2020-05-10T17:18:16.423Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:18:16.423Z] 
+[debug] [2020-05-10T17:18:16.439Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-10T17:18:16.440Z] > authorizing via signed-in user
+[debug] [2020-05-10T17:18:16.440Z] [iam] checking project app-mms-mobile for permissions ["firebase.projects.get"]
+[debug] [2020-05-10T17:18:16.445Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/app-mms-mobile:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-05-10T17:18:17.635Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:18:18 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1065","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T17:18:17.637Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile  
+ 
+[debug] [2020-05-10T17:18:18.811Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:18:19 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from 'A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile'...
+[info] 
+[debug] [2020-05-10T17:18:18.818Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile/webApps/-/config  
+ 
+[debug] [2020-05-10T17:18:19.318Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:18:19 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+[info] +  functions: Using node@10 from host.
+[info] +  functions: functions emulator started at http://localhost:5001
+[info] i  functions: Watching "A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions" for Cloud Functions...
+[debug] [2020-05-10T17:18:20.862Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:18:20.862Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:18:20.863Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:18:20.863Z] [worker-~diagnostic~-ebe19443-2fa2-40a9-a464-d52300c47e92]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\10820 
+[debug] [2020-05-10T17:18:20.864Z] [worker-~diagnostic~-ebe19443-2fa2-40a9-a464-d52300c47e92]: BUSY 
+[debug] [2020-05-10T17:18:21.458Z] [runtime-status] [10820] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:18:21.459Z] [runtime-status] [10820] Disabled runtime features: undefined 
+[warn] !  The Cloud Functions emulator requires the module "firebase-admin" to be installed. This package is in your package.json, but it's not available. You probably need to run "npm install" in your functions directory.
+[info] i  functions: Your functions could not be parsed due to an issue with your node_modules (see above)
+[debug] [2020-05-10T17:18:21.484Z] [worker-~diagnostic~-ebe19443-2fa2-40a9-a464-d52300c47e92]: exited 
+[debug] [2020-05-10T17:18:21.484Z] [worker-~diagnostic~-ebe19443-2fa2-40a9-a464-d52300c47e92]: FINISHED 
+[debug] [2020-05-10T17:18:46.081Z] File A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js changed, reloading triggers 
+[debug] [2020-05-10T17:18:47.083Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-05-10T17:18:47.092Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:18:47.093Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:18:47.093Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:18:47.093Z] [worker-~diagnostic~-2396349d-b85e-45d0-8929-e3a8101ac98c]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\11260 
+[debug] [2020-05-10T17:18:47.093Z] [worker-~diagnostic~-2396349d-b85e-45d0-8929-e3a8101ac98c]: BUSY 
+[debug] [2020-05-10T17:18:50.578Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:18:50.581Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-05-10T17:18:50.581Z] CLI Version:   8.2.0
+[debug] [2020-05-10T17:18:50.581Z] Platform:      win32
+[debug] [2020-05-10T17:18:50.581Z] Node Version:  v10.19.0
+[debug] [2020-05-10T17:18:50.582Z] Time:          Sun May 10 2020 14:18:50 GMT-0300 (GMT-03:00)
+[debug] [2020-05-10T17:18:50.582Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:18:50.582Z] 
+[debug] [2020-05-10T17:18:50.592Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-10T17:18:50.593Z] > authorizing via signed-in user
+[debug] [2020-05-10T17:18:50.593Z] [iam] checking project app-mms-mobile for permissions ["firebase.projects.get"]
+[debug] [2020-05-10T17:18:50.596Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/app-mms-mobile:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-05-10T17:18:51.812Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:18:52 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1075","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T17:18:51.817Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile  
+ 
+[debug] [2020-05-10T17:18:53.022Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:18:53 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from 'A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile'...
+[info] 
+[debug] [2020-05-10T17:18:53.052Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile/webApps/-/config  
+ 
+[debug] [2020-05-10T17:18:54.294Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:18:54 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+[info] +  functions: Using node@10 from host.
+[info] +  functions: functions emulator started at http://localhost:5001
+[info] i  functions: Watching "A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions" for Cloud Functions...
+[debug] [2020-05-10T17:18:55.130Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:18:55.130Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:18:55.131Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:18:55.131Z] [worker-~diagnostic~-ced9cb2e-5de3-4ef4-ad34-806805f8d569]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\13948 
+[debug] [2020-05-10T17:18:55.132Z] [worker-~diagnostic~-ced9cb2e-5de3-4ef4-ad34-806805f8d569]: BUSY 
+[debug] [2020-05-10T17:18:55.612Z] [runtime-status] [13948] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:18:55.613Z] [runtime-status] [13948] Disabled runtime features: undefined 
+[warn] !  The Cloud Functions emulator requires the module "firebase-admin" to be installed. This package is in your package.json, but it's not available. You probably need to run "npm install" in your functions directory.
+[info] i  functions: Your functions could not be parsed due to an issue with your node_modules (see above)
+[debug] [2020-05-10T17:18:55.636Z] [worker-~diagnostic~-ced9cb2e-5de3-4ef4-ad34-806805f8d569]: exited 
+[debug] [2020-05-10T17:18:55.637Z] [worker-~diagnostic~-ced9cb2e-5de3-4ef4-ad34-806805f8d569]: FINISHED 
+[debug] [2020-05-10T17:19:03.266Z] File A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js changed, reloading triggers 
+[debug] [2020-05-10T17:19:04.269Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-05-10T17:19:04.285Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:19:04.285Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:19:04.285Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:19:04.286Z] [worker-~diagnostic~-7ce2eb68-20cd-4846-ab20-4b89b0dce2c3]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\10480 
+[debug] [2020-05-10T17:19:04.286Z] [worker-~diagnostic~-7ce2eb68-20cd-4846-ab20-4b89b0dce2c3]: BUSY 
+[debug] [2020-05-10T17:19:04.836Z] [runtime-status] [10480] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:19:04.838Z] [runtime-status] [10480] Disabled runtime features: undefined 
+[warn] !  The Cloud Functions emulator requires the module "firebase-admin" to be installed. This package is in your package.json, but it's not available. You probably need to run "npm install" in your functions directory.
+[info] i  functions: Your functions could not be parsed due to an issue with your node_modules (see above)
+[debug] [2020-05-10T17:19:04.860Z] [worker-~diagnostic~-7ce2eb68-20cd-4846-ab20-4b89b0dce2c3]: exited 
+[debug] [2020-05-10T17:19:04.860Z] [worker-~diagnostic~-7ce2eb68-20cd-4846-ab20-4b89b0dce2c3]: FINISHED 
+[debug] [2020-05-10T17:19:35.598Z] File A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\package.json changed, reloading triggers 
+[debug] [2020-05-10T17:19:35.719Z] File A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\package.json changed, reloading triggers 
+[debug] [2020-05-10T17:19:36.720Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-05-10T17:19:36.726Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:19:36.727Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:19:36.727Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:19:36.727Z] [worker-~diagnostic~-94c8f145-9335-4feb-b597-1ec7c28da02c]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\8240 
+[debug] [2020-05-10T17:19:36.727Z] [worker-~diagnostic~-94c8f145-9335-4feb-b597-1ec7c28da02c]: BUSY 
+[debug] [2020-05-10T17:19:37.281Z] [runtime-status] [8240] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:19:37.283Z] [runtime-status] [8240] Disabled runtime features: undefined 
+[warn] !  The Cloud Functions emulator requires the module "firebase-admin" to be installed. This package is in your package.json, but it's not available. You probably need to run "npm install" in your functions directory.
+[info] i  functions: Your functions could not be parsed due to an issue with your node_modules (see above)
+[debug] [2020-05-10T17:19:37.307Z] [worker-~diagnostic~-94c8f145-9335-4feb-b597-1ec7c28da02c]: exited 
+[debug] [2020-05-10T17:19:37.308Z] [worker-~diagnostic~-94c8f145-9335-4feb-b597-1ec7c28da02c]: FINISHED 
+[debug] [2020-05-10T17:19:42.742Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:19:42.744Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-05-10T17:19:42.745Z] CLI Version:   8.2.0
+[debug] [2020-05-10T17:19:42.745Z] Platform:      win32
+[debug] [2020-05-10T17:19:42.745Z] Node Version:  v10.19.0
+[debug] [2020-05-10T17:19:42.746Z] Time:          Sun May 10 2020 14:19:42 GMT-0300 (GMT-03:00)
+[debug] [2020-05-10T17:19:42.746Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:19:42.746Z] 
+[debug] [2020-05-10T17:19:42.760Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-10T17:19:42.760Z] > authorizing via signed-in user
+[debug] [2020-05-10T17:19:42.761Z] [iam] checking project app-mms-mobile for permissions ["firebase.projects.get"]
+[debug] [2020-05-10T17:19:42.764Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/app-mms-mobile:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-05-10T17:19:43.980Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:19:44 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1076","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T17:19:43.985Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile  
+ 
+[debug] [2020-05-10T17:19:45.186Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:19:45 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from 'A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile'...
+[info] 
+[debug] [2020-05-10T17:19:45.195Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile/webApps/-/config  
+ 
+[debug] [2020-05-10T17:19:46.497Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:19:47 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+[info] +  functions: Using node@10 from host.
+[info] +  functions: functions emulator started at http://localhost:5001
+[info] i  functions: Watching "A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions" for Cloud Functions...
+[debug] [2020-05-10T17:19:47.267Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:19:47.267Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:19:47.267Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:19:47.268Z] [worker-~diagnostic~-431cda1f-384c-4334-a65e-09463bef5551]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\7300 
+[debug] [2020-05-10T17:19:47.268Z] [worker-~diagnostic~-431cda1f-384c-4334-a65e-09463bef5551]: BUSY 
+[debug] [2020-05-10T17:19:47.746Z] [runtime-status] [7300] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:19:47.748Z] [runtime-status] [7300] Disabled runtime features: undefined 
+[warn] !  The Cloud Functions emulator requires the module "firebase-admin" to be installed. This package is in your package.json, but it's not available. You probably need to run "npm install" in your functions directory.
+[info] i  functions: Your functions could not be parsed due to an issue with your node_modules (see above)
+[debug] [2020-05-10T17:19:47.773Z] [worker-~diagnostic~-431cda1f-384c-4334-a65e-09463bef5551]: exited 
+[debug] [2020-05-10T17:19:47.773Z] [worker-~diagnostic~-431cda1f-384c-4334-a65e-09463bef5551]: FINISHED 
+[debug] [2020-05-10T17:24:47.067Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:24:47.070Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-05-10T17:24:47.070Z] CLI Version:   8.2.0
+[debug] [2020-05-10T17:24:47.070Z] Platform:      win32
+[debug] [2020-05-10T17:24:47.070Z] Node Version:  v10.19.0
+[debug] [2020-05-10T17:24:47.071Z] Time:          Sun May 10 2020 14:24:47 GMT-0300 (GMT-03:00)
+[debug] [2020-05-10T17:24:47.071Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:24:47.071Z] 
+[debug] [2020-05-10T17:24:47.086Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-10T17:24:47.086Z] > authorizing via signed-in user
+[debug] [2020-05-10T17:24:47.087Z] [iam] checking project app-mms-mobile for permissions ["firebase.projects.get"]
+[debug] [2020-05-10T17:24:47.090Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/app-mms-mobile:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-05-10T17:24:48.320Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:24:48 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1047","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T17:24:48.325Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile  
+ 
+[debug] [2020-05-10T17:24:49.542Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:24:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from 'A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile'...
+[info] 
+[debug] [2020-05-10T17:24:49.587Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile/webApps/-/config  
+ 
+[debug] [2020-05-10T17:24:50.894Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:24:51 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: dist/app-mms-mobile/browser
+[info] +  hosting: Local server: http://localhost:5000
+[info] +  functions: Using node@10 from host.
+[info] +  functions: functions emulator started at http://localhost:5001
+[info] i  functions: Watching "A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions" for Cloud Functions...
+[debug] [2020-05-10T17:24:51.657Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:24:51.658Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:24:51.658Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:24:51.658Z] [worker-~diagnostic~-3963c776-7cf1-41ba-9e69-1ae730a123e5]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\5260 
+[debug] [2020-05-10T17:24:51.659Z] [worker-~diagnostic~-3963c776-7cf1-41ba-9e69-1ae730a123e5]: BUSY 
+[debug] [2020-05-10T17:24:52.159Z] [runtime-status] [5260] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:24:52.160Z] [runtime-status] [5260] Disabled runtime features: undefined 
+[debug] [2020-05-10T17:24:52.164Z] [runtime-status] [5260] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:24:52.166Z] [runtime-status] [5260] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:24:52.171Z] [runtime-status] [5260] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T17:24:52.223Z] [runtime-status] [5260] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T17:24:52.224Z] [runtime-status] [5260] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:24:52.225Z] [runtime-status] [5260] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:24:52.225Z] [runtime-status] [5260] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:24:52.226Z] [runtime-status] [5260] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:1
+import * as functions from 'firebase-functions';
+       ^
+
+SyntaxError: Unexpected token *
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:661:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:5:58)
+[warn] !  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T17:24:52.258Z] [worker-~diagnostic~-3963c776-7cf1-41ba-9e69-1ae730a123e5]: exited 
+[debug] [2020-05-10T17:24:52.258Z] [worker-~diagnostic~-3963c776-7cf1-41ba-9e69-1ae730a123e5]: FINISHED 
+[debug] [2020-05-10T17:25:28.688Z] File A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js changed, reloading triggers 
+[debug] [2020-05-10T17:25:29.690Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-05-10T17:25:29.725Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:25:29.725Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:25:29.726Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:25:29.726Z] [worker-~diagnostic~-6ff944c8-cf2c-465a-b030-b6f571874eed]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\2668 
+[debug] [2020-05-10T17:25:29.726Z] [worker-~diagnostic~-6ff944c8-cf2c-465a-b030-b6f571874eed]: BUSY 
+[debug] [2020-05-10T17:25:30.303Z] [runtime-status] [2668] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:25:30.305Z] [runtime-status] [2668] Disabled runtime features: undefined 
+[debug] [2020-05-10T17:25:30.308Z] [runtime-status] [2668] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:25:30.310Z] [runtime-status] [2668] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:25:30.315Z] [runtime-status] [2668] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T17:25:30.365Z] [runtime-status] [2668] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T17:25:30.366Z] [runtime-status] [2668] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:25:30.367Z] [runtime-status] [2668] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:25:30.367Z] [runtime-status] [2668] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:25:30.367Z] [runtime-status] [2668] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:1
+import functions from 'firebase-functions';
+       ^^^^^^^^^
+
+SyntaxError: Unexpected identifier
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:661:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:5:58)
+[warn] !  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T17:25:30.396Z] [worker-~diagnostic~-6ff944c8-cf2c-465a-b030-b6f571874eed]: exited 
+[debug] [2020-05-10T17:25:30.396Z] [worker-~diagnostic~-6ff944c8-cf2c-465a-b030-b6f571874eed]: FINISHED 
+[debug] [2020-05-10T17:25:30.797Z] File A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js changed, reloading triggers 
+[debug] [2020-05-10T17:25:31.798Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-05-10T17:25:31.821Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:25:31.821Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:25:31.821Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:25:31.821Z] [worker-~diagnostic~-9ec5bcb5-b7a8-4fdd-93b8-ab0e946f3592]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\9224 
+[debug] [2020-05-10T17:25:31.822Z] [worker-~diagnostic~-9ec5bcb5-b7a8-4fdd-93b8-ab0e946f3592]: BUSY 
+[debug] [2020-05-10T17:25:37.225Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:25:37.227Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-05-10T17:25:37.228Z] CLI Version:   8.2.0
+[debug] [2020-05-10T17:25:37.228Z] Platform:      win32
+[debug] [2020-05-10T17:25:37.228Z] Node Version:  v10.19.0
+[debug] [2020-05-10T17:25:37.229Z] Time:          Sun May 10 2020 14:25:37 GMT-0300 (GMT-03:00)
+[debug] [2020-05-10T17:25:37.229Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:25:37.229Z] 
+[debug] [2020-05-10T17:25:37.239Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-10T17:25:37.239Z] > authorizing via signed-in user
+[debug] [2020-05-10T17:25:37.239Z] [iam] checking project app-mms-mobile for permissions ["firebase.projects.get"]
+[debug] [2020-05-10T17:25:37.243Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/app-mms-mobile:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-05-10T17:25:38.427Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:25:39 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1050","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T17:25:38.432Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile  
+ 
+[debug] [2020-05-10T17:25:39.607Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:25:40 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from 'A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile'...
+[info] 
+[debug] [2020-05-10T17:25:39.653Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile/webApps/-/config  
+ 
+[debug] [2020-05-10T17:25:40.929Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:25:41 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: dist/app-mms-mobile/browser
+[info] +  hosting: Local server: http://localhost:5000
+[info] +  functions: Using node@10 from host.
+[info] +  functions: functions emulator started at http://localhost:5001
+[info] i  functions: Watching "A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions" for Cloud Functions...
+[debug] [2020-05-10T17:25:41.728Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:25:41.728Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:25:41.728Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:25:41.729Z] [worker-~diagnostic~-9d779d2b-82ff-4478-be68-4f847d3a693e]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\12528 
+[debug] [2020-05-10T17:25:41.729Z] [worker-~diagnostic~-9d779d2b-82ff-4478-be68-4f847d3a693e]: BUSY 
+[debug] [2020-05-10T17:25:42.223Z] [runtime-status] [12528] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:25:42.224Z] [runtime-status] [12528] Disabled runtime features: undefined 
+[debug] [2020-05-10T17:25:42.228Z] [runtime-status] [12528] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:25:42.230Z] [runtime-status] [12528] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:25:42.234Z] [runtime-status] [12528] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T17:25:42.283Z] [runtime-status] [12528] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T17:25:42.284Z] [runtime-status] [12528] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:25:42.285Z] [runtime-status] [12528] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:25:42.285Z] [runtime-status] [12528] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:25:42.285Z] [runtime-status] [12528] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:1
+import functions from 'firebase-functions';
+       ^^^^^^^^^
+
+SyntaxError: Unexpected identifier
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:661:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:5:58)
+[warn] !  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T17:25:42.310Z] [worker-~diagnostic~-9d779d2b-82ff-4478-be68-4f847d3a693e]: exited 
+[debug] [2020-05-10T17:25:42.310Z] [worker-~diagnostic~-9d779d2b-82ff-4478-be68-4f847d3a693e]: FINISHED 
+[debug] [2020-05-10T17:26:02.103Z] File A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js changed, reloading triggers 
+[debug] [2020-05-10T17:26:03.105Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-05-10T17:26:03.115Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:26:03.116Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:26:03.116Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:26:03.116Z] [worker-~diagnostic~-b51e6eb7-6f86-4040-b8af-1a424140bb69]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\13248 
+[debug] [2020-05-10T17:26:03.116Z] [worker-~diagnostic~-b51e6eb7-6f86-4040-b8af-1a424140bb69]: BUSY 
+[debug] [2020-05-10T17:26:03.712Z] [runtime-status] [13248] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:26:03.715Z] [runtime-status] [13248] Disabled runtime features: undefined 
+[debug] [2020-05-10T17:26:03.719Z] [runtime-status] [13248] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:26:03.720Z] [runtime-status] [13248] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:26:03.725Z] [runtime-status] [13248] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T17:26:03.779Z] [runtime-status] [13248] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T17:26:03.779Z] [runtime-status] [13248] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:26:03.780Z] [runtime-status] [13248] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:26:03.781Z] [runtime-status] [13248] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:26:03.781Z] [runtime-status] [13248] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:1
+import * as functions from 'firebase-functions';
+       ^
+
+SyntaxError: Unexpected token *
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:661:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:5:58)
+[warn] !  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T17:26:03.809Z] [worker-~diagnostic~-b51e6eb7-6f86-4040-b8af-1a424140bb69]: exited 
+[debug] [2020-05-10T17:26:03.809Z] [worker-~diagnostic~-b51e6eb7-6f86-4040-b8af-1a424140bb69]: FINISHED 
+[debug] [2020-05-10T17:26:10.404Z] File A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js changed, reloading triggers 
+[debug] [2020-05-10T17:26:11.405Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-05-10T17:26:11.430Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:26:11.430Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:26:11.431Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:26:11.431Z] [worker-~diagnostic~-5e17ba53-ff05-4e1f-a58a-42dc3083dbc1]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\7588 
+[debug] [2020-05-10T17:26:11.431Z] [worker-~diagnostic~-5e17ba53-ff05-4e1f-a58a-42dc3083dbc1]: BUSY 
+[debug] [2020-05-10T17:27:31.739Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:27:31.741Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-05-10T17:27:31.742Z] CLI Version:   8.2.0
+[debug] [2020-05-10T17:27:31.742Z] Platform:      win32
+[debug] [2020-05-10T17:27:31.742Z] Node Version:  v10.19.0
+[debug] [2020-05-10T17:27:31.743Z] Time:          Sun May 10 2020 14:27:31 GMT-0300 (GMT-03:00)
+[debug] [2020-05-10T17:27:31.743Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:27:31.743Z] 
+[debug] [2020-05-10T17:27:31.753Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-10T17:27:31.754Z] > authorizing via signed-in user
+[debug] [2020-05-10T17:27:31.754Z] [iam] checking project app-mms-mobile for permissions ["firebase.projects.get"]
+[debug] [2020-05-10T17:27:31.758Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/app-mms-mobile:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-05-10T17:27:32.967Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:27:33 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1075","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T17:27:32.972Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile  
+ 
+[debug] [2020-05-10T17:27:33.352Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:27:33 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from 'A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile'...
+[info] 
+[debug] [2020-05-10T17:27:33.370Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile/webApps/-/config  
+ 
+[debug] [2020-05-10T17:27:34.741Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:27:35 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: dist/app-mms-mobile/browser
+[info] +  hosting: Local server: http://localhost:5000
+[info] +  functions: Using node@10 from host.
+[info] +  functions: functions emulator started at http://localhost:5001
+[info] i  functions: Watching "A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions" for Cloud Functions...
+[debug] [2020-05-10T17:27:35.457Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:27:35.458Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:27:35.458Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:27:35.458Z] [worker-~diagnostic~-404a2d84-2ff3-4848-81cd-6d5f4a430160]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\5476 
+[debug] [2020-05-10T17:27:35.458Z] [worker-~diagnostic~-404a2d84-2ff3-4848-81cd-6d5f4a430160]: BUSY 
+[debug] [2020-05-10T17:27:35.958Z] [runtime-status] [5476] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:27:35.959Z] [runtime-status] [5476] Disabled runtime features: undefined 
+[debug] [2020-05-10T17:27:35.963Z] [runtime-status] [5476] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:27:35.965Z] [runtime-status] [5476] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:27:35.969Z] [runtime-status] [5476] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T17:27:36.020Z] [runtime-status] [5476] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T17:27:36.021Z] [runtime-status] [5476] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:27:36.022Z] [runtime-status] [5476] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:27:36.022Z] [runtime-status] [5476] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:27:36.022Z] [runtime-status] [5476] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:1
+import * as functions from 'firebase-functions';
+       ^
+
+SyntaxError: Unexpected token *
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:661:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:5:58)
+[warn] !  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T17:27:36.052Z] [worker-~diagnostic~-404a2d84-2ff3-4848-81cd-6d5f4a430160]: exited 
+[debug] [2020-05-10T17:27:36.052Z] [worker-~diagnostic~-404a2d84-2ff3-4848-81cd-6d5f4a430160]: FINISHED 
+[debug] [2020-05-10T17:27:46.563Z] File A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js changed, reloading triggers 
+[debug] [2020-05-10T17:27:47.567Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-05-10T17:27:47.598Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:27:47.599Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:27:47.599Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:27:47.599Z] [worker-~diagnostic~-7cd476fe-4e4a-448a-93b0-6eaba742da3c]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\8212 
+[debug] [2020-05-10T17:27:47.599Z] [worker-~diagnostic~-7cd476fe-4e4a-448a-93b0-6eaba742da3c]: BUSY 
+[debug] [2020-05-10T17:27:48.208Z] [runtime-status] [8212] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:27:48.210Z] [runtime-status] [8212] Disabled runtime features: undefined 
+[debug] [2020-05-10T17:27:48.213Z] [runtime-status] [8212] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:27:48.215Z] [runtime-status] [8212] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:27:48.219Z] [runtime-status] [8212] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T17:27:48.268Z] [runtime-status] [8212] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T17:27:48.268Z] [runtime-status] [8212] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:27:48.269Z] [runtime-status] [8212] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:27:48.270Z] [runtime-status] [8212] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:27:48.270Z] [runtime-status] [8212] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:1
+import * as functions from 'firebase-functions';
+       ^
+
+SyntaxError: Unexpected token *
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:661:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:5:58)
+[warn] !  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T17:27:48.302Z] [worker-~diagnostic~-7cd476fe-4e4a-448a-93b0-6eaba742da3c]: exited 
+[debug] [2020-05-10T17:27:48.302Z] [worker-~diagnostic~-7cd476fe-4e4a-448a-93b0-6eaba742da3c]: FINISHED 
+[debug] [2020-05-10T17:27:49.468Z] File A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js changed, reloading triggers 
+[debug] [2020-05-10T17:27:50.469Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-05-10T17:27:50.503Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:27:50.503Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:27:50.504Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:27:50.504Z] [worker-~diagnostic~-f8afda48-4282-4d1d-a0ee-da56658e7491]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\3028 
+[debug] [2020-05-10T17:27:50.504Z] [worker-~diagnostic~-f8afda48-4282-4d1d-a0ee-da56658e7491]: BUSY 
+[debug] [2020-05-10T17:27:50.510Z] File A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js changed, reloading triggers 
+[debug] [2020-05-10T17:27:51.070Z] [runtime-status] [3028] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:27:51.073Z] [runtime-status] [3028] Disabled runtime features: undefined 
+[debug] [2020-05-10T17:27:51.080Z] [runtime-status] [3028] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:27:51.082Z] [runtime-status] [3028] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:27:51.088Z] [runtime-status] [3028] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T17:27:51.141Z] [runtime-status] [3028] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T17:27:51.141Z] [runtime-status] [3028] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:27:51.142Z] [runtime-status] [3028] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:27:51.143Z] [runtime-status] [3028] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:27:51.143Z] [runtime-status] [3028] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:1
+import * as functions from 'firebase-functions';
+       ^
+
+SyntaxError: Unexpected token *
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:661:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:5:58)
+[warn] !  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T17:27:51.170Z] [worker-~diagnostic~-f8afda48-4282-4d1d-a0ee-da56658e7491]: exited 
+[debug] [2020-05-10T17:27:51.170Z] [worker-~diagnostic~-f8afda48-4282-4d1d-a0ee-da56658e7491]: FINISHED 
+[debug] [2020-05-10T17:27:51.512Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-05-10T17:27:51.530Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:27:51.530Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:27:51.531Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:27:51.531Z] [worker-~diagnostic~-2677bf59-5061-4a9d-a419-9c5f698319cc]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\9576 
+[debug] [2020-05-10T17:27:51.531Z] [worker-~diagnostic~-2677bf59-5061-4a9d-a419-9c5f698319cc]: BUSY 
+[debug] [2020-05-10T17:27:55.835Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:27:55.837Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-05-10T17:27:55.837Z] CLI Version:   8.2.0
+[debug] [2020-05-10T17:27:55.837Z] Platform:      win32
+[debug] [2020-05-10T17:27:55.837Z] Node Version:  v10.19.0
+[debug] [2020-05-10T17:27:55.838Z] Time:          Sun May 10 2020 14:27:55 GMT-0300 (GMT-03:00)
+[debug] [2020-05-10T17:27:55.839Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:27:55.839Z] 
+[debug] [2020-05-10T17:27:55.849Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-10T17:27:55.849Z] > authorizing via signed-in user
+[debug] [2020-05-10T17:27:55.850Z] [iam] checking project app-mms-mobile for permissions ["firebase.projects.get"]
+[debug] [2020-05-10T17:27:55.853Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/app-mms-mobile:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-05-10T17:27:57.029Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:27:57 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1045","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T17:27:57.035Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile  
+ 
+[debug] [2020-05-10T17:27:58.219Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:27:58 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from 'A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile'...
+[info] 
+[debug] [2020-05-10T17:27:58.257Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile/webApps/-/config  
+ 
+[debug] [2020-05-10T17:27:58.719Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:27:59 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: dist/app-mms-mobile/browser
+[info] +  hosting: Local server: http://localhost:5000
+[info] +  functions: Using node@10 from host.
+[info] +  functions: functions emulator started at http://localhost:5001
+[info] i  functions: Watching "A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions" for Cloud Functions...
+[debug] [2020-05-10T17:28:00.317Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:28:00.317Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:28:00.318Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:28:00.318Z] [worker-~diagnostic~-6d95ffb2-a7a7-4ad1-8ef7-ca33e79fea10]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\5088 
+[debug] [2020-05-10T17:28:00.318Z] [worker-~diagnostic~-6d95ffb2-a7a7-4ad1-8ef7-ca33e79fea10]: BUSY 
+[debug] [2020-05-10T17:28:00.815Z] [runtime-status] [5088] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:28:00.817Z] [runtime-status] [5088] Disabled runtime features: undefined 
+[debug] [2020-05-10T17:28:00.820Z] [runtime-status] [5088] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:28:00.822Z] [runtime-status] [5088] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:28:00.826Z] [runtime-status] [5088] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T17:28:00.879Z] [runtime-status] [5088] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T17:28:00.880Z] [runtime-status] [5088] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:28:00.881Z] [runtime-status] [5088] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:28:00.881Z] [runtime-status] [5088] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:28:00.881Z] [runtime-status] [5088] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:1
+import * as functions from 'firebase-functions';
+       ^
+
+SyntaxError: Unexpected token *
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:661:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:5:58)
+[warn] !  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T17:28:00.904Z] [worker-~diagnostic~-6d95ffb2-a7a7-4ad1-8ef7-ca33e79fea10]: exited 
+[debug] [2020-05-10T17:28:00.904Z] [worker-~diagnostic~-6d95ffb2-a7a7-4ad1-8ef7-ca33e79fea10]: FINISHED 
+[debug] [2020-05-10T17:28:39.379Z] File A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js changed, reloading triggers 
+[debug] [2020-05-10T17:28:40.382Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-05-10T17:28:40.415Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:28:40.416Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:28:40.416Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:28:40.417Z] [worker-~diagnostic~-ab32d941-1d5f-4e5d-b37b-90151b3c9ad5]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\7588 
+[debug] [2020-05-10T17:28:40.417Z] [worker-~diagnostic~-ab32d941-1d5f-4e5d-b37b-90151b3c9ad5]: BUSY 
+[debug] [2020-05-10T17:28:40.969Z] [runtime-status] [7588] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:28:40.971Z] [runtime-status] [7588] Disabled runtime features: undefined 
+[debug] [2020-05-10T17:28:40.974Z] [runtime-status] [7588] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:28:40.976Z] [runtime-status] [7588] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:28:40.980Z] [runtime-status] [7588] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T17:28:41.029Z] [runtime-status] [7588] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T17:28:41.030Z] [runtime-status] [7588] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:28:41.031Z] [runtime-status] [7588] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:28:41.031Z] [runtime-status] [7588] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:28:41.031Z] [runtime-status] [7588] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:1
+import * as functions from 'firebase-functions';
+       ^
+
+SyntaxError: Unexpected token *
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:661:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:5:58)
+[warn] !  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T17:28:41.058Z] [worker-~diagnostic~-ab32d941-1d5f-4e5d-b37b-90151b3c9ad5]: exited 
+[debug] [2020-05-10T17:28:41.058Z] [worker-~diagnostic~-ab32d941-1d5f-4e5d-b37b-90151b3c9ad5]: FINISHED 
+[debug] [2020-05-10T17:28:47.895Z] File A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js changed, reloading triggers 
+[debug] [2020-05-10T17:28:48.896Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-05-10T17:28:48.905Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:28:48.905Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:28:48.906Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:28:48.906Z] [worker-~diagnostic~-ab8133f5-3b1e-4b7c-bf65-e71fdd6fa6d8]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\10316 
+[debug] [2020-05-10T17:28:48.907Z] [worker-~diagnostic~-ab8133f5-3b1e-4b7c-bf65-e71fdd6fa6d8]: BUSY 
+[debug] [2020-05-10T17:28:49.464Z] [runtime-status] [10316] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:28:49.466Z] [runtime-status] [10316] Disabled runtime features: undefined 
+[debug] [2020-05-10T17:28:49.470Z] [runtime-status] [10316] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:28:49.471Z] [runtime-status] [10316] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:28:49.476Z] [runtime-status] [10316] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T17:28:49.525Z] [runtime-status] [10316] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T17:28:49.526Z] [runtime-status] [10316] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:28:49.527Z] [runtime-status] [10316] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:28:49.527Z] [runtime-status] [10316] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:28:49.527Z] [runtime-status] [10316] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:1
+import * as functions from 'firebase-functions';
+       ^
+
+SyntaxError: Unexpected token *
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:661:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:5:58)
+[warn] !  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T17:28:49.556Z] [worker-~diagnostic~-ab8133f5-3b1e-4b7c-bf65-e71fdd6fa6d8]: exited 
+[debug] [2020-05-10T17:28:49.557Z] [worker-~diagnostic~-ab8133f5-3b1e-4b7c-bf65-e71fdd6fa6d8]: FINISHED 
+[debug] [2020-05-10T17:28:56.513Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:28:56.515Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-05-10T17:28:56.516Z] CLI Version:   8.2.0
+[debug] [2020-05-10T17:28:56.516Z] Platform:      win32
+[debug] [2020-05-10T17:28:56.516Z] Node Version:  v10.19.0
+[debug] [2020-05-10T17:28:56.517Z] Time:          Sun May 10 2020 14:28:56 GMT-0300 (GMT-03:00)
+[debug] [2020-05-10T17:28:56.517Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T17:28:56.517Z] 
+[debug] [2020-05-10T17:28:56.527Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-10T17:28:56.527Z] > authorizing via signed-in user
+[debug] [2020-05-10T17:28:56.528Z] [iam] checking project app-mms-mobile for permissions ["firebase.projects.get"]
+[debug] [2020-05-10T17:28:56.531Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/app-mms-mobile:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-05-10T17:28:58.066Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:28:58 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1056","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T17:28:58.069Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile  
+ 
+[debug] [2020-05-10T17:28:59.558Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:29:00 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from 'A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile'...
+[info] 
+[debug] [2020-05-10T17:28:59.596Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile/webApps/-/config  
+ 
+[debug] [2020-05-10T17:29:00.084Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 17:29:00 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: dist/app-mms-mobile/browser
+[info] +  hosting: Local server: http://localhost:5000
+[info] +  functions: Using node@10 from host.
+[info] +  functions: functions emulator started at http://localhost:5001
+[info] i  functions: Watching "A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions" for Cloud Functions...
+[debug] [2020-05-10T17:29:01.677Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T17:29:01.677Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T17:29:01.677Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T17:29:01.677Z] [worker-~diagnostic~-979573f2-c13b-4c21-be7d-f02ac2df5be8]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\5088 
+[debug] [2020-05-10T17:29:01.678Z] [worker-~diagnostic~-979573f2-c13b-4c21-be7d-f02ac2df5be8]: BUSY 
+[debug] [2020-05-10T17:29:02.172Z] [runtime-status] [5088] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T17:29:02.173Z] [runtime-status] [5088] Disabled runtime features: undefined 
+[debug] [2020-05-10T17:29:02.178Z] [runtime-status] [5088] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:29:02.180Z] [runtime-status] [5088] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:29:02.185Z] [runtime-status] [5088] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T17:29:02.236Z] [runtime-status] [5088] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T17:29:02.236Z] [runtime-status] [5088] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:29:02.237Z] [runtime-status] [5088] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T17:29:02.238Z] [runtime-status] [5088] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T17:29:02.238Z] [runtime-status] [5088] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:1
+import * as functions from 'firebase-functions';
+       ^
+
+SyntaxError: Unexpected token *
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:661:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:5:58)
+[warn] !  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T17:29:02.264Z] [worker-~diagnostic~-979573f2-c13b-4c21-be7d-f02ac2df5be8]: exited 
+[debug] [2020-05-10T17:29:02.265Z] [worker-~diagnostic~-979573f2-c13b-4c21-be7d-f02ac2df5be8]: FINISHED 
+[debug] [2020-05-10T18:11:05.953Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T18:11:05.955Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-05-10T18:11:05.955Z] CLI Version:   8.2.0
+[debug] [2020-05-10T18:11:05.955Z] Platform:      win32
+[debug] [2020-05-10T18:11:05.955Z] Node Version:  v10.19.0
+[debug] [2020-05-10T18:11:05.956Z] Time:          Sun May 10 2020 15:11:05 GMT-0300 (GMT-03:00)
+[debug] [2020-05-10T18:11:05.956Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T18:11:05.957Z] 
+[debug] [2020-05-10T18:11:05.966Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-10T18:11:05.967Z] > authorizing via signed-in user
+[debug] [2020-05-10T18:11:05.967Z] [iam] checking project app-mms-mobile for permissions ["firebase.projects.get"]
+[debug] [2020-05-10T18:11:05.970Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-05-10T18:11:05.970Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-05-10T18:11:06.200Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 18:11:06 GMT","server":"scaffolding on HTTPServer2","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T18:11:06.220Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/app-mms-mobile:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-05-10T18:11:07.422Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 18:11:08 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1061","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T18:11:07.423Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile  
+ 
+[debug] [2020-05-10T18:11:07.845Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 18:11:08 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from 'A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile'...
+[info] 
+[debug] [2020-05-10T18:11:07.849Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile/webApps/-/config  
+ 
+[debug] [2020-05-10T18:11:09.197Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 18:11:09 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: dist/app-mms-mobile/browser
+[info] +  hosting: Local server: http://localhost:5000
+[info] +  functions: Using node@10 from host.
+[info] +  functions: functions emulator started at http://localhost:5001
+[info] i  functions: Watching "A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions" for Cloud Functions...
+[debug] [2020-05-10T18:11:09.896Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T18:11:09.896Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T18:11:09.896Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T18:11:09.897Z] [worker-~diagnostic~-28ed770e-7543-40fc-808d-9a8d41d797dd]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\11872 
+[debug] [2020-05-10T18:11:09.897Z] [worker-~diagnostic~-28ed770e-7543-40fc-808d-9a8d41d797dd]: BUSY 
+[debug] [2020-05-10T18:11:10.399Z] [runtime-status] [11872] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T18:11:10.401Z] [runtime-status] [11872] Disabled runtime features: undefined 
+[debug] [2020-05-10T18:11:10.404Z] [runtime-status] [11872] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T18:11:10.406Z] [runtime-status] [11872] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T18:11:10.410Z] [runtime-status] [11872] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T18:11:10.459Z] [runtime-status] [11872] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T18:11:10.460Z] [runtime-status] [11872] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T18:11:10.461Z] [runtime-status] [11872] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T18:11:10.461Z] [runtime-status] [11872] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T18:11:10.462Z] [runtime-status] [11872] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:4
+export const ssr = functions.https.onRequest(universal);
+^^^^^^
+
+SyntaxError: Unexpected token export
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:661:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:5:58)
+[warn] !  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T18:11:10.493Z] [worker-~diagnostic~-28ed770e-7543-40fc-808d-9a8d41d797dd]: exited 
+[debug] [2020-05-10T18:11:10.493Z] [worker-~diagnostic~-28ed770e-7543-40fc-808d-9a8d41d797dd]: FINISHED 
+[debug] [2020-05-10T18:11:52.642Z] File A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js changed, reloading triggers 
+[debug] [2020-05-10T18:11:53.644Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-05-10T18:11:53.669Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T18:11:53.669Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T18:11:53.670Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T18:11:53.670Z] [worker-~diagnostic~-41883856-c8d5-4752-9801-f265e205cd7d]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\13100 
+[debug] [2020-05-10T18:11:53.670Z] [worker-~diagnostic~-41883856-c8d5-4752-9801-f265e205cd7d]: BUSY 
+[debug] [2020-05-10T18:11:54.240Z] [runtime-status] [13100] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T18:11:54.242Z] [runtime-status] [13100] Disabled runtime features: undefined 
+[debug] [2020-05-10T18:11:54.246Z] [runtime-status] [13100] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T18:11:54.247Z] [runtime-status] [13100] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T18:11:54.252Z] [runtime-status] [13100] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T18:11:54.302Z] [runtime-status] [13100] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T18:11:54.303Z] [runtime-status] [13100] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T18:11:54.304Z] [runtime-status] [13100] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T18:11:54.305Z] [runtime-status] [13100] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T18:11:54.305Z] [runtime-status] [13100] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:4
+export const ssr = functions.https.onRequest(universal);
+^^^^^^
+
+SyntaxError: Unexpected token export
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:661:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:5:58)
+[warn] !  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T18:11:54.330Z] [worker-~diagnostic~-41883856-c8d5-4752-9801-f265e205cd7d]: exited 
+[debug] [2020-05-10T18:11:54.331Z] [worker-~diagnostic~-41883856-c8d5-4752-9801-f265e205cd7d]: FINISHED 
+[debug] [2020-05-10T20:48:08.413Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T20:48:08.415Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-05-10T20:48:08.415Z] CLI Version:   8.2.0
+[debug] [2020-05-10T20:48:08.415Z] Platform:      win32
+[debug] [2020-05-10T20:48:08.415Z] Node Version:  v10.19.0
+[debug] [2020-05-10T20:48:08.416Z] Time:          Sun May 10 2020 17:48:08 GMT-0300 (GMT-03:00)
+[debug] [2020-05-10T20:48:08.417Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T20:48:08.417Z] 
+[debug] [2020-05-10T20:48:08.464Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-10T20:48:08.466Z] > authorizing via signed-in user
+[debug] [2020-05-10T20:48:08.466Z] [iam] checking project app-mms-mobile for permissions ["firebase.projects.get"]
+[debug] [2020-05-10T20:48:08.472Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-05-10T20:48:08.472Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-05-10T20:48:08.692Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 20:48:09 GMT","server":"scaffolding on HTTPServer2","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T20:48:08.712Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/app-mms-mobile:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-05-10T20:48:09.955Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 20:48:10 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1089","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T20:48:09.957Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile  
+ 
+[debug] [2020-05-10T20:48:10.366Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 20:48:11 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from 'A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile'...
+[info] 
+[debug] [2020-05-10T20:48:10.394Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile/webApps/-/config  
+ 
+[debug] [2020-05-10T20:48:11.718Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 20:48:12 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: dist/app-mms-mobile/browser
+[info] +  hosting: Local server: http://localhost:5000
+[info] +  functions: Using node@10 from host.
+[info] +  functions: functions emulator started at http://localhost:5001
+[info] i  functions: Watching "A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions" for Cloud Functions...
+[debug] [2020-05-10T20:48:12.492Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T20:48:12.492Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T20:48:12.492Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T20:48:12.492Z] [worker-~diagnostic~-a9e83eda-dbf0-4684-84fb-ba7332301e3e]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\11920 
+[debug] [2020-05-10T20:48:12.493Z] [worker-~diagnostic~-a9e83eda-dbf0-4684-84fb-ba7332301e3e]: BUSY 
+[debug] [2020-05-10T20:48:13.036Z] [runtime-status] [11920] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T20:48:13.037Z] [runtime-status] [11920] Disabled runtime features: undefined 
+[debug] [2020-05-10T20:48:13.041Z] [runtime-status] [11920] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T20:48:13.042Z] [runtime-status] [11920] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T20:48:13.047Z] [runtime-status] [11920] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T20:48:14.077Z] [runtime-status] [11920] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T20:48:14.078Z] [runtime-status] [11920] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T20:48:14.079Z] [runtime-status] [11920] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T20:48:14.080Z] [runtime-status] [11920] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T20:48:14.080Z] [runtime-status] [11920] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:4
+export const ssr = functions.https.onRequest(universal);
+^^^^^^
+
+SyntaxError: Unexpected token export
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:661:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\fer_b\AppData\Roaming\nvm\v10.19.0\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:5:58)
+[warn] !  We were unable to load your functions code. (see above)
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T20:48:14.115Z] [worker-~diagnostic~-a9e83eda-dbf0-4684-84fb-ba7332301e3e]: exited 
+[debug] [2020-05-10T20:48:14.115Z] [worker-~diagnostic~-a9e83eda-dbf0-4684-84fb-ba7332301e3e]: FINISHED 
+[debug] [2020-05-10T20:51:30.579Z] File A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js changed, reloading triggers 
+[debug] [2020-05-10T20:51:31.581Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-05-10T20:51:31.586Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T20:51:31.586Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T20:51:31.586Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T20:51:31.587Z] [worker-~diagnostic~-850dbc48-c8ed-45df-8e8d-19dbee5a6825]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\14636 
+[debug] [2020-05-10T20:51:31.587Z] [worker-~diagnostic~-850dbc48-c8ed-45df-8e8d-19dbee5a6825]: BUSY 
+[debug] [2020-05-10T20:51:32.243Z] [runtime-status] [14636] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T20:51:32.245Z] [runtime-status] [14636] Disabled runtime features: undefined 
+[debug] [2020-05-10T20:51:32.249Z] [runtime-status] [14636] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T20:51:32.250Z] [runtime-status] [14636] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T20:51:32.255Z] [runtime-status] [14636] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T20:51:32.309Z] [runtime-status] [14636] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T20:51:32.309Z] [runtime-status] [14636] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T20:51:32.310Z] [runtime-status] [14636] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T20:51:32.311Z] [runtime-status] [14636] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T20:51:32.311Z] [runtime-status] [14636] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  Error: Cannot find module './dist/server/main'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at Object.<anonymous> (A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:9:38)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+[warn] !  We were unable to load your functions code. (see above)
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T20:51:38.466Z] [worker-~diagnostic~-850dbc48-c8ed-45df-8e8d-19dbee5a6825]: exited 
+[debug] [2020-05-10T20:51:38.466Z] [worker-~diagnostic~-850dbc48-c8ed-45df-8e8d-19dbee5a6825]: FINISHED 
+[debug] [2020-05-10T20:55:02.749Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T20:55:02.751Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-05-10T20:55:02.752Z] CLI Version:   8.2.0
+[debug] [2020-05-10T20:55:02.752Z] Platform:      win32
+[debug] [2020-05-10T20:55:02.752Z] Node Version:  v10.19.0
+[debug] [2020-05-10T20:55:02.753Z] Time:          Sun May 10 2020 17:55:02 GMT-0300 (GMT-03:00)
+[debug] [2020-05-10T20:55:02.753Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T20:55:02.753Z] 
+[debug] [2020-05-10T20:55:02.768Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-10T20:55:02.768Z] > authorizing via signed-in user
+[debug] [2020-05-10T20:55:02.769Z] [iam] checking project app-mms-mobile for permissions ["firebase.projects.get"]
+[debug] [2020-05-10T20:55:02.772Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/app-mms-mobile:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-05-10T20:55:04.031Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 20:55:04 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1074","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T20:55:04.036Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile  
+ 
+[debug] [2020-05-10T20:55:05.301Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 20:55:06 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from 'A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile'...
+[info] 
+[debug] [2020-05-10T20:55:05.358Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/app-mms-mobile/webApps/-/config  
+ 
+[debug] [2020-05-10T20:55:06.703Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 20:55:07 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+[warn] !  Your functions directory does not specify a Node version.
+   - Learn more at https://firebase.google.com/docs/functions/manage-functions#set_runtime_options
+[info] +  functions: functions emulator started at http://localhost:5001
+[info] i  functions: Watching "A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions" for Cloud Functions...
+[debug] [2020-05-10T20:55:07.438Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-05-10T20:55:07.438Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-05-10T20:55:07.438Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-05-10T20:55:07.439Z] [worker-~diagnostic~-a2012787-b0c5-4b24-ac94-e348d16f727e]: Assigning socketPath: \\?\pipe\A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\11464 
+[debug] [2020-05-10T20:55:07.440Z] [worker-~diagnostic~-a2012787-b0c5-4b24-ac94-e348d16f727e]: BUSY 
+[debug] [2020-05-10T20:55:07.947Z] [runtime-status] [11464] Functions runtime initialized. {"cwd":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions","node_version":"10.19.0"} 
+[debug] [2020-05-10T20:55:07.949Z] [runtime-status] [11464] Disabled runtime features: undefined 
+[debug] [2020-05-10T20:55:07.952Z] [runtime-status] [11464] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T20:55:07.954Z] [runtime-status] [11464] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T20:55:07.958Z] [runtime-status] [11464] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-05-10T20:55:08.008Z] [runtime-status] [11464] Checked functions.config() {"config":{}} 
+[debug] [2020-05-10T20:55:08.009Z] [runtime-status] [11464] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T20:55:08.010Z] [runtime-status] [11464] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-05-10T20:55:08.010Z] [runtime-status] [11464] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-05-10T20:55:08.011Z] [runtime-status] [11464] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"A:\\Desarrollos\\REPOSITORIOS\\my-gitHub\\app-mms-mobile\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} 
+[warn] !  Error: Cannot find module './dist/app-mms-mobile/server/main'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at Object.<anonymous> (A:\Desarrollos\REPOSITORIOS\my-gitHub\app-mms-mobile\functions\index.js:9:38)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+[warn] !  We were unable to load your functions code. (see above)
+   - You may be able to run "npm run build" in your functions directory to resolve this.
+[debug] [2020-05-10T20:55:08.514Z] [worker-~diagnostic~-a2012787-b0c5-4b24-ac94-e348d16f727e]: exited 
+[debug] [2020-05-10T20:55:08.514Z] [worker-~diagnostic~-a2012787-b0c5-4b24-ac94-e348d16f727e]: FINISHED 

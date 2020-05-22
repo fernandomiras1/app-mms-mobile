@@ -18,3 +18,5 @@ major: Incompatible API changes were introduced
 minor: Functionality was added in a backwards-compatible manner
 patch: Backwards-compatible bug fixes were applied
 
+ firebase serve --only funcfunctions,hosting
+
